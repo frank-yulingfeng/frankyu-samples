@@ -11,12 +11,16 @@ namespace Frankyu.Crypto
     public class Rijndael
     {
         /*AES和Rijndael加密法并不完全一样（虽然在实际应用中二者可以互换），
-       因为Rijndael加密法可以支持更大范围的区块和密钥长度：AES的区块长度固定为128 比特，密钥长度则可以是128，192或256比特；
-       而Rijndael使用的密钥和区块长度可以是32位的整数倍，以128位为下限，256比特为上限。
-       加密过程中使用的密钥是由Rijndael密钥生成方案产生。*/
+           因为Rijndael加密法可以支持更大范围的区块和密钥长度：AES的区块长度固定为128 比特，密钥长度则可以是128，192或256比特；
+           而Rijndael使用的密钥和区块长度可以是32位的整数倍，以128位为下限，256比特为上限。
+           加密过程中使用的密钥是由Rijndael密钥生成方案产生。*/
+        /*Key默认是256位，IV默认是128位，如果要改变位数需要修改属性*/
 
-        const string KEY = "ab9fd5db1710mic2073b93ba0bang040";//长度是 32的倍数
-        const string IV = "ed9fj5db2310dca2";//长度是 16的倍数
+        /*一个字符 8比特，32个字符就是256比特*/
+        const string KEY = "ab9fd5db1710mic2073b93ba0bang040";//
+
+        /*一个字符 8比特，16个字符就是128比特*/
+        const string IV = "ed9fj5db2310dca2ed9fj5db2310dca2";//
 
         /// <summary>
         /// AES加密数据
@@ -32,7 +36,8 @@ namespace Frankyu.Crypto
 
             MemoryStream stream = new MemoryStream();
             RijndaelManaged rijndael = new RijndaelManaged();
-
+            
+            rijndael.BlockSize = 256;
             rijndael.Key = Encoding.UTF8.GetBytes(KEY);
             rijndael.IV = Encoding.UTF8.GetBytes(IV);
 
@@ -53,6 +58,7 @@ namespace Frankyu.Crypto
             byte[] buffer = Encoding.UTF8.GetBytes(clearText);
 
             RijndaelManaged rijndael = new RijndaelManaged();
+            rijndael.BlockSize = 256;
             rijndael.Key = Encoding.UTF8.GetBytes(KEY);
             rijndael.IV = Encoding.UTF8.GetBytes(IV);
             var encryptor = rijndael.CreateEncryptor();
@@ -77,6 +83,7 @@ namespace Frankyu.Crypto
             MemoryStream stream = new MemoryStream();
             RijndaelManaged rijndael = new RijndaelManaged();
 
+            rijndael.BlockSize = 256;
             rijndael.Key = Encoding.UTF8.GetBytes(KEY);
             rijndael.IV = Encoding.UTF8.GetBytes(IV);
 
@@ -97,6 +104,7 @@ namespace Frankyu.Crypto
             byte[] buffer = Convert.FromBase64String(cipherText);
 
             RijndaelManaged rijndael = new RijndaelManaged();
+            rijndael.BlockSize = 256;
             rijndael.Key = Encoding.UTF8.GetBytes(KEY);
             rijndael.IV = Encoding.UTF8.GetBytes(IV);
             var decryptor = rijndael.CreateDecryptor();
