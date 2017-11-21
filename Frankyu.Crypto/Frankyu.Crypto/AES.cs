@@ -32,7 +32,7 @@ namespace Frankyu.Crypto
 
             MemoryStream stream = new MemoryStream();
             AesCryptoServiceProvider aesProvider = new AesCryptoServiceProvider();
-                     
+
             aesProvider.Key = Encoding.UTF8.GetBytes(KEY);
             aesProvider.IV = Encoding.UTF8.GetBytes(IV);
 
