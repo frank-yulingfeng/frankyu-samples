@@ -17,6 +17,8 @@ namespace Frankyu.Crypto
             TestRijndael();
             Console.WriteLine("------------------------------");
             TestHash();
+            Console.WriteLine("------------------------------");
+            TestPasswordHash();
 
             Console.Read();
         }
@@ -99,5 +101,12 @@ namespace Frankyu.Crypto
             Console.WriteLine("Sha256 text: " + sha256Str);
         }
 
+        public static void TestPasswordHash()
+        {
+            string password="ThisIsaPassword";
+            var passwordHash = PasswordHash.CreateHash(password);
+
+            Console.WriteLine("passwordHash: " + passwordHash);
+        }
     }
 }

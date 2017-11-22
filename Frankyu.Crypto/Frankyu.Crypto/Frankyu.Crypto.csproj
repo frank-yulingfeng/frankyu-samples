@@ -45,6 +45,7 @@
     <Compile Include="AES.cs" />
     <Compile Include="DES.cs" />
     <Compile Include="Hash.cs" />
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rijndael.cs" />
