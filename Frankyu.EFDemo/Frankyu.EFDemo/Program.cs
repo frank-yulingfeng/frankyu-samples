@@ -36,7 +36,11 @@ namespace Frankyu.EFDemo
                 foreach (var admin in allAdmin)
                 {
                     Console.WriteLine(admin.AdminName + " is " + admin.Type.ToString() +" administrator");
+
+                    admin.Password = "fuckpassword";
                 }
+
+                unitOfWork.Complete();
 
             }    
             Console.Read();
