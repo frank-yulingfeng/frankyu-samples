@@ -13,6 +13,21 @@ namespace Frankyu.EFDemo.DataAccess
     {
         public DbSet<Admin> Admins { get; set; }
 
-        public DbSet<User> Users { get; set; }       
+        public DbSet<User> Users { get; set; }
+
+        public DemoDbContext()
+            : base()
+        {
+        }
+
+        public DemoDbContext(string nameOrConnectionString)
+            : base(nameOrConnectionString)
+        {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

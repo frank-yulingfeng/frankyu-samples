@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Frankyu.EFDemo.DataAccess;
 using Frankyu.EFDemo.Core.Model;
+using System.Data.Entity;
+using Frankyu.EFDemo.DataAccess.Initializer;
 
 namespace Frankyu.EFDemo
 {
@@ -12,9 +14,10 @@ namespace Frankyu.EFDemo
     {
         static void Main(string[] args)
         {
+            //Database.SetInitializer<DemoDbContext>(new CreateDbIfNotExists());
             using (UnitOfWork unitOfWork = new UnitOfWork(new DemoDbContext()))
             {
-                /*unitOfWork.Admins.Add(new Admin
+                unitOfWork.Admins.Add(new Admin
                 {
                     AdminName = "mark",
                     Password = "markisapig",
@@ -27,22 +30,25 @@ namespace Frankyu.EFDemo
                     Password = "what",
                     UserName = "balbdfs",
                     Age = 29,
+                    Gender = Gender.Female
                 });
-
-                unitOfWork.Complete();*/
-
-                var allAdmin = unitOfWork.Admins.GetAll();
-
-                foreach (var admin in allAdmin)
-                {
-                    Console.WriteLine(admin.AdminName + " is " + admin.Type.ToString() +" administrator");
-
-                    admin.Password = "fuckpassword";
-                }
 
                 unitOfWork.Complete();
 
-            }    
+                var allAdmin = unitOfWork.Admins.GetAll();
+
+                //foreach (var admin in allAdmin)
+                //{
+                //    Console.WriteLine(admin.AdminName + " is " + admin.Type.ToString() +" administrator");
+
+                //    admin.Password = "fuckpassword";
+                //}
+
+                //unitOfWork.Complete();
+            
+            }
+
+            Console.WriteLine("Completed");
             Console.Read();
         }
     }

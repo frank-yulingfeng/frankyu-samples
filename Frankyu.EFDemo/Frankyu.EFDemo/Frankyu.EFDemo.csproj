@@ -58,6 +58,9 @@
     <Compile Include="Core\Model\Admin.cs" />
     <Compile Include="Core\Model\BaseModel.cs" />
     <Compile Include="Core\Model\User.cs" />
+    <Compile Include="DataAccess\Initializer\CreateDbIfNotExists.cs" />
+    <Compile Include="DataAccess\Initializer\DropCreateDbAlways.cs" />
+    <Compile Include="DataAccess\Initializer\DropCreateDbIfModelChanges.cs" />
     <Compile Include="DataAccess\Repositories\AdminRepository.cs" />
     <Compile Include="DataAccess\Repositories\Repository.cs" />
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
