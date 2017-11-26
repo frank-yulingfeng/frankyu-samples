@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Model\UserInfo.cs" />
     <Compile Include="Core\Repositories\IAdminRepository.cs" />
+    <Compile Include="Core\Repositories\IUserInfoRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
     <Compile Include="DataAccess\DemoDbContext.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="DataAccess\Initializer\DropCreateDbIfModelChanges.cs" />
     <Compile Include="DataAccess\Repositories\AdminRepository.cs" />
     <Compile Include="DataAccess\Repositories\Repository.cs" />
+    <Compile Include="DataAccess\Repositories\UserInfoRepository.cs" />
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="Program.cs" />

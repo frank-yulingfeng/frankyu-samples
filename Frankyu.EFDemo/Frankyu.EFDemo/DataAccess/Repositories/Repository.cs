@@ -24,7 +24,7 @@ namespace Frankyu.EFDemo.DataAccess.Repositories
 
         public T Get(int id)
         {
-            return _dbContext.Set<T>().Find();
+            return _dbContext.Set<T>().Find(id);
         }
 
         public IEnumerable<T> GetAll()

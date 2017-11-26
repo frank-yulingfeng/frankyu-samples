@@ -15,6 +15,7 @@ namespace Frankyu.EFDemo.DataAccess
 
         private IAdminRepository _admins;
         private IUserRepository _users;
+        private IUserInfoRepository _userInfos;
 
         public UnitOfWork(DemoDbContext dbContext)
         {
@@ -22,6 +23,7 @@ namespace Frankyu.EFDemo.DataAccess
 
             _admins = new AdminRepository(_context);
             _users = new UserRepository(_context);
+            _userInfos = new UserInfoRepository(_context);
         }
 
         public IAdminRepository Admins
@@ -32,6 +34,11 @@ namespace Frankyu.EFDemo.DataAccess
         public IUserRepository Users
         {
             get { return _users; }
+        }
+
+        public IUserInfoRepository UserInfos
+        {
+            get { return _userInfos; }
         }
 
         public int Complete()

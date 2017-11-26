@@ -15,6 +15,8 @@ namespace Frankyu.EFDemo.DataAccess
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<UserInfo> UserInfos { get; set; }
+
         public DemoDbContext()
             : base()
         {

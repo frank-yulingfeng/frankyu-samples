@@ -18,14 +18,6 @@ namespace Frankyu.EFDemo.Core.Model
         [Required]
         public string Password { get; set; }
 
-        public int Age { get; set; }
-
-        public Gender Gender { get; set; }
-    }
-
-    public enum Gender    
-    {
-        Male,
-        Female,
+        public virtual UserInfo UserInfo { get; set; }
     }
 }
