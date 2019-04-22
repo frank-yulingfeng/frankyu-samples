@@ -19,7 +19,8 @@ namespace Frankyu.Crypto
             TestHash();
             Console.WriteLine("------------------------------");
             TestPasswordHash();
-
+            Console.WriteLine("------------------------------");
+            TestRSA();
             Console.Read();
         }
 
@@ -86,19 +87,31 @@ namespace Frankyu.Crypto
 
         public static void TestHash()
         {
-
             var originText = "what is this, what is md5, i don't know";
+            Console.WriteLine("origin text: " + originText);
 
             Hash hash = new Hash();
-            var md5Str = hash.MD5Encrypt(originText);
 
-            var sha1Str = hash.Sha1Encrypt(originText);
-            var sha256Str = hash.Sha256Encrypt(originText);
+            var md5Str = hash.MD5ComputeHash(originText);
+            var md5Str1 = hash.MD5ComputeHash1(originText);
+            var md5Str2 = hash.MD5ComputeHash2(originText);
+            Console.WriteLine("MD5 text : " + md5Str);
+            Console.WriteLine("MD5 text1: " + md5Str1);
+            Console.WriteLine("MD5 text2: " + md5Str2);
 
-            Console.WriteLine("origin text: " + originText);
-            Console.WriteLine("MD5 text: " + md5Str);
-            Console.WriteLine("Sha1 text: " + sha1Str);
-            Console.WriteLine("Sha256 text: " + sha256Str);
+            var sha1Str = hash.Sha1ComputeHash(originText);
+            var sha1Str1 = hash.Sha1ComputeHash1(originText);
+            var sha1Str2 = hash.Sha1ComputeHash2(originText);
+            Console.WriteLine("sha1Str text : " + sha1Str);
+            Console.WriteLine("sha1Str text1: " + sha1Str1);
+            Console.WriteLine("sha1Str text2: " + sha1Str2);
+
+            var sha256Str = hash.Sha256ComputeHash(originText);
+            var sha256Str1 = hash.Sha256ComputeHash1(originText);
+            var sha256Str2 = hash.Sha256ComputeHash2(originText);
+            Console.WriteLine("sha256Str text : " + sha256Str);
+            Console.WriteLine("sha256Str text1: " + sha256Str1);
+            Console.WriteLine("sha256Str text2: " + sha256Str2);
         }
 
         public static void TestPasswordHash()
@@ -107,6 +120,20 @@ namespace Frankyu.Crypto
             var passwordHash = PasswordHash.CreateHash(password);
 
             Console.WriteLine("passwordHash: " + passwordHash);
+        }
+
+        public static void TestRSA()
+        {
+            RSA rsa = new RSA();
+            var key = rsa.GenerateRSAKey();
+            string originText = "This is a RSA test text. Frank";
+            Console.WriteLine("originText：" + originText);
+            var encryptedText = rsa.Encrypt(originText, key.PublicKey);
+            Console.WriteLine("encryptedText：" + encryptedText);
+
+            originText = rsa.Decrypt(encryptedText, key.PrivateKey);
+            Console.WriteLine("originText：" + originText);
+
         }
     }
 }
