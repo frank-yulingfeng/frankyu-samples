@@ -61,6 +61,12 @@
     <Compile Include="RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SplitLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SplitLine.designer.cs">
+      <DependentUpon>SplitLine.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="RoundButton.resx">
       <DependentUpon>RoundButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplitLine.resx">
+      <DependentUpon>SplitLine.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
