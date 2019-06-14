@@ -11,7 +11,7 @@ namespace WindowsFormsApplication1
 {
     public partial class SplitLine : UserControl
     {
-        public bool IsVertical { get; set; } = false;
+        public bool IsVertical { get; set; }
 
         private float _lineSize = 1;
 
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public Color LineColor { get; set; } = Color.LightGray;
+        public Color LineColor { get; set; }
 
         public SplitLine()
         {

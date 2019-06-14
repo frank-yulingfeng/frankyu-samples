@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1
 
         private Color _colorBorder;
 
-        public int BorderRadius { get; set; } = 0;
+        public int BorderRadius { get; set; }
 
         public string HintText
         {
@@ -46,7 +46,7 @@ namespace WindowsFormsApplication1
             }
         }       
 
-        public bool HightLight { get; set; } = false;
+        public bool HightLight { get; set; }
 
         private float _borderWidth = 0;
         public float BorderWidth
@@ -80,35 +80,30 @@ namespace WindowsFormsApplication1
                 _borderColor = value;
             }
         }
-
-        private int _fontSize = 12;
-        public int FontSize
-        {
-            get { return _fontSize; }
-            set
-            {
-                _fontSize = value;
-                RefreshFont(Font.Name, _fontSize);
-            }
-        }
+               
 
         public HintTextBox()
         {
             InitializeComponent();
             _colorBorder = Color_LostFocus;
-            this.txtbox.BackColor = BackColor;
+            this.txtbox.BackColor = BackColor;            
             this.lbHint.BackColor = Color.Transparent;
 
             this.Paint += CustomTextBox_Paint;
             this.txtbox.GotFocus += Txtbox_GotFocus;
             this.txtbox.LostFocus += Txtbox_LostFocus;
             this.txtbox.TextChanged += Txtbox_TextChanged;
-
-            //this.Font = new Font("Microsoft YaHei UI", 12, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.FontChanged += HintTextBox_FontChanged;
+            
             BorderWidth = 0.01f;
             BorderColors = Color.LightGray;
 
-            RefreshFont(Font.Name, 12);
+            RefreshFont();
+        }
+
+        void HintTextBox_FontChanged(object sender, EventArgs e)
+        {
+            RefreshFont();
         }       
 
         /// <summary>
@@ -218,22 +213,29 @@ namespace WindowsFormsApplication1
         /// 设置输入文字大小
         /// </summary>
         /// <param name="size"></param>
-        private void RefreshFont(string fontName, float size)
+        private void RefreshFont()
         {
-            if (size < 5)
-                size = 5;
-
-            txtbox.Font = new Font(fontName, size, FontStyle.Regular, GraphicsUnit.Pixel);
-            lbHint.Font = new Font(fontName, size, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox.Font = this.Font;//new Font(fontName, size, FontStyle.Regular, GraphicsUnit.Pixel);
+            lbHint.Font = this.Font;// new Font(fontName, size, FontStyle.Regular, GraphicsUnit.Pixel);
             lbHint.ForeColor = Color.DarkGray;
+            RefreshHeight(txtbox);
 
             var y = (Height - txtbox.Height) / 2;
-            txtbox.Location = new Point(9, y);
+            txtbox.Location = new Point(9, y + 1);
             txtbox.Width = Width - 18;
 
             y = (Height - lbHint.Height) / 2;
             lbHint.Location = new Point(10, y);
         }
+
+        private void RefreshHeight(TextBox textbox)
+        {
+            textbox.Multiline = true;
+            Size s = TextRenderer.MeasureText(textbox.Text, textbox.Font, Size.Empty,
+                TextFormatFlags.TextBoxControl);
+            textbox.MinimumSize = new Size(0, s.Height + 1);
+            textbox.Multiline = false;
+        }    
 
         private void lbHint_Click(object sender, EventArgs e)
         {

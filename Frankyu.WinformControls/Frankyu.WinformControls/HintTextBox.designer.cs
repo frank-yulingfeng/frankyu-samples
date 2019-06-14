@@ -36,10 +36,12 @@
             // 
             this.txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtbox.Location = new System.Drawing.Point(3, 23);
+            this.txtbox.Location = new System.Drawing.Point(17, 19);
+            this.txtbox.Multiline = true;
             this.txtbox.Name = "txtbox";
-            this.txtbox.Size = new System.Drawing.Size(280, 13);
+            this.txtbox.Size = new System.Drawing.Size(271, 14);
             this.txtbox.TabIndex = 0;
+            this.txtbox.WordWrap = false;
             // 
             // lbHint
             // 
@@ -48,22 +50,22 @@
             this.lbHint.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbHint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbHint.ForeColor = System.Drawing.Color.DimGray;
-            this.lbHint.Location = new System.Drawing.Point(19, 23);
+            this.lbHint.Location = new System.Drawing.Point(15, 21);
             this.lbHint.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lbHint.Name = "lbHint";
-            this.lbHint.Size = new System.Drawing.Size(24, 13);
+            this.lbHint.Size = new System.Drawing.Size(29, 12);
             this.lbHint.TabIndex = 1;
             this.lbHint.Text = "hint";
             this.lbHint.Click += new System.EventHandler(this.lbHint_Click);
             // 
             // HintTextBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbHint);
             this.Controls.Add(this.txtbox);
             this.Name = "HintTextBox";
-            this.Size = new System.Drawing.Size(300, 60);
+            this.Size = new System.Drawing.Size(300, 55);
             this.ResumeLayout(false);
             this.PerformLayout();
 
