@@ -153,8 +153,8 @@ namespace WindowsFormsApplication1
             if (BorderColors.IsEmpty)
                 return;
 
-            if (BorderWidth < 0)
-                BorderWidth = 0.01f;
+            if (BorderWidth <= 0)
+                return;
 
             Pen pen = new Pen(_colorBorder, BorderWidth);
             pen.StartCap = LineCap.Round;

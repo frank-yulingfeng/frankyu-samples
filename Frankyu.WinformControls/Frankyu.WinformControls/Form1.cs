@@ -14,6 +14,7 @@ namespace Frankyu.WinformControls
         public Form1()
         {
             InitializeComponent();
+            this.roundControl1.SetRound();
         }
 
         private void roundButton1_Click(object sender, EventArgs e)

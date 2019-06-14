@@ -42,8 +42,7 @@ namespace WindowsFormsApplication1
                 FlatAppearance.BorderSize = 0;
                 _radius = value;
 
-                IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, _radius, _radius);
-                this.Region = Region.FromHrgn(ptr);                
+                SetRound();               
             }
         }
 
@@ -87,7 +86,11 @@ namespace WindowsFormsApplication1
                 return;
 
             FlatAppearance.BorderSize = 0;
+            SetRound();           
+        }
 
+        private void SetRound()
+        {
             IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, _radius, _radius);
             Region = Region.FromHrgn(ptr);
         }
@@ -143,8 +146,8 @@ namespace WindowsFormsApplication1
             if (BorderColors.IsEmpty)
                 return;
 
-            if (BorderWidth < 0)
-                BorderWidth = 0.01f;
+            if (BorderWidth <= 0)
+                return;
 
             Pen pen = new Pen(BorderColors, BorderWidth);
             pen.StartCap = LineCap.Round;
