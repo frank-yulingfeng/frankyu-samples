@@ -15,11 +15,21 @@ namespace Frankyu.WinformControls
         {
             InitializeComponent();
             this.roundControl1.SetRound();
+            this.selectionLabel1.AutoSizeHeight();
         }
 
         private void roundButton1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(hintTextBox1.Text);
+        }
+
+        private void flatButton1_Click(object sender, EventArgs e)
+        {
+            var contextMenu = new ContextMenu();
+
+            contextMenu.MenuItems.Add(new MenuItem("COPY"));
+            contextMenu.MenuItems.Add(new MenuItem("CUT"));
+            contextMenu.Show(flatButton1, new Point(0, flatButton1.Height + 3));
         }
     }
 }

@@ -72,25 +72,17 @@ namespace WinformSample
             }
         }
 
-        public Color MouseOverBackColor
-        {
-            get;
-            set;
-        }
+        public Color MouseOverBackColor { get; set; }
 
-        public Color MouseDownBackColor
-        { 
-            get;
-            set;
-        }
+        public Color MouseDownBackColor { get; set; }
 
         private Color _backColor;
 
         protected override void OnMouseEnter(EventArgs e)
         {
             _backColor = BackColor;
-            base.OnMouseEnter(e);
 
+            base.OnMouseEnter(e);
             if (MouseOverBackColor.IsEmpty)
                 return;
 

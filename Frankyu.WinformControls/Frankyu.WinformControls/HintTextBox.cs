@@ -11,7 +11,6 @@ namespace WindowsFormsApplication1
     {
         private readonly Color Color_LostFocus = Color.LightGray;
         private readonly Color Color_GotFocus = Color.FromArgb(72, 142, 231);
-        private const string Font_Default = "微软雅黑";
 
         private Color _colorBorder;
 
