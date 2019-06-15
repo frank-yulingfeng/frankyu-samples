@@ -32,6 +32,9 @@ namespace WinformSample
             set
             {
                 _ctrl = value;
+                if (_ctrl == null)
+                    return;
+
                 _ctrl.SizeChanged += (s, e) =>
                 {
                     _ctrl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, _ctrl.Width, _ctrl.Height, _cornerRadius, _cornerRadius));

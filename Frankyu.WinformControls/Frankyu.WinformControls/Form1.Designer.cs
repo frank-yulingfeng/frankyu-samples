@@ -107,8 +107,9 @@
             // 
             // roundButton2
             // 
+            this.roundButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.roundButton2.BorderColors = System.Drawing.Color.LightGray;
-            this.roundButton2.BorderWidth = 1F;
+            this.roundButton2.BorderWidth = 0F;
             this.roundButton2.FlatAppearance.BorderSize = 0;
             this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton2.Location = new System.Drawing.Point(366, 166);
@@ -118,7 +119,7 @@
             this.roundButton2.TabIndex = 5;
             this.roundButton2.Text = "OK";
             this.roundButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.roundButton2.UseVisualStyleBackColor = true;
+            this.roundButton2.UseVisualStyleBackColor = false;
             // 
             // flatButton1
             // 
@@ -141,10 +142,9 @@
             // 
             // roundPictureBox1
             // 
-            this.roundPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("roundPictureBox1.Image")));
             this.roundPictureBox1.Location = new System.Drawing.Point(86, 227);
             this.roundPictureBox1.Name = "roundPictureBox1";
-            this.roundPictureBox1.Radius = 6;
+            this.roundPictureBox1.Radius = 4;
             this.roundPictureBox1.Size = new System.Drawing.Size(115, 107);
             this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundPictureBox1.TabIndex = 3;
@@ -152,11 +152,12 @@
             // 
             // hintTextBox2
             // 
+            this.hintTextBox2.BackColor = System.Drawing.Color.White;
             this.hintTextBox2.BorderColors = System.Drawing.Color.LightGray;
-            this.hintTextBox2.BorderRadius = 0;
+            this.hintTextBox2.BorderRadius = 3;
             this.hintTextBox2.BorderWidth = 0.01F;
             this.hintTextBox2.Font = new System.Drawing.Font("SimHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.hintTextBox2.HightLight = false;
+            this.hintTextBox2.HightLight = true;
             this.hintTextBox2.HintText = "hint";
             this.hintTextBox2.Location = new System.Drawing.Point(37, 154);
             this.hintTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -204,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 448);
+            this.ClientSize = new System.Drawing.Size(757, 448);
             this.Controls.Add(this.ellipticLabel1);
             this.Controls.Add(this.circlePictureBox1);
             this.Controls.Add(this.circleButton1);

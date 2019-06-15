@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.Runtime.InteropServices;
 
 namespace WindowsFormsApplication1
 {
@@ -14,7 +15,16 @@ namespace WindowsFormsApplication1
 
         private Color _colorBorder;
 
-        public int BorderRadius { get; set; }
+        private int _borderRadius = 0;
+        public int BorderRadius
+        {
+            get { return _borderRadius; }
+            set 
+            {
+                _borderRadius = value;
+                SetRound();
+            }
+        }
 
         public string HintText
         {
@@ -93,11 +103,17 @@ namespace WindowsFormsApplication1
             this.txtbox.LostFocus += Txtbox_LostFocus;
             this.txtbox.TextChanged += Txtbox_TextChanged;
             this.FontChanged += HintTextBox_FontChanged;
+            this.BackColorChanged += HintTextBox_BackColorChanged;
             
             BorderWidth = 0.01f;
             BorderColors = Color.LightGray;
 
             RefreshFont();
+        }
+
+        void HintTextBox_BackColorChanged(object sender, EventArgs e)
+        {
+            this.txtbox.BackColor = BackColor;
         }
 
         void HintTextBox_FontChanged(object sender, EventArgs e)
@@ -239,6 +255,23 @@ namespace WindowsFormsApplication1
         private void lbHint_Click(object sender, EventArgs e)
         {
             this.txtbox.Focus();
+        }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+            (
+                int nLeftRect,
+                int nTopRect,
+                int nRightRect,
+                int nBottomRect,
+                int nWidthEllipse,
+                int nHeightEllipse
+            );
+
+        private void SetRound()
+        {
+            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, BorderRadius, BorderRadius);
+            Region = Region.FromHrgn(ptr);
         }
     }
 }
