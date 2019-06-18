@@ -31,5 +31,12 @@ namespace Frankyu.WinformControls
             contextMenu.MenuItems.Add(new MenuItem("CUT"));
             contextMenu.Show(flatButton1, new Point(0, flatButton1.Height + 3));
         }
+
+        private void roundButton2_Click(object sender, EventArgs e)
+        {
+            WindowsFormsApplication1.MessageForm frm = new WindowsFormsApplication1.MessageForm("登录成功", "提示");
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
     }
 }

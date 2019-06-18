@@ -48,8 +48,8 @@
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(366, 33);
+            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Location = new System.Drawing.Point(366, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 8;
@@ -58,23 +58,23 @@
             // 
             this.ellipticLabel1.BackColor = System.Drawing.Color.Transparent;
             this.ellipticLabel1.EllipticColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ellipticLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ellipticLabel1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ellipticLabel1.ForeColor = System.Drawing.Color.White;
             this.ellipticLabel1.Image = ((System.Drawing.Image)(resources.GetObject("ellipticLabel1.Image")));
             this.ellipticLabel1.ImageOffset = new System.Drawing.Size(2, 0);
             this.ellipticLabel1.ImageSize = new System.Drawing.Size(50, 50);
-            this.ellipticLabel1.Location = new System.Drawing.Point(468, 320);
+            this.ellipticLabel1.Location = new System.Drawing.Point(468, 347);
             this.ellipticLabel1.Name = "ellipticLabel1";
-            this.ellipticLabel1.Size = new System.Drawing.Size(100, 99);
+            this.ellipticLabel1.Size = new System.Drawing.Size(100, 107);
             this.ellipticLabel1.TabIndex = 11;
             this.ellipticLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // circlePictureBox1
             // 
             this.circlePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("circlePictureBox1.Image")));
-            this.circlePictureBox1.Location = new System.Drawing.Point(290, 252);
+            this.circlePictureBox1.Location = new System.Drawing.Point(290, 273);
             this.circlePictureBox1.Name = "circlePictureBox1";
-            this.circlePictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.circlePictureBox1.Size = new System.Drawing.Size(100, 108);
             this.circlePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.circlePictureBox1.TabIndex = 10;
             this.circlePictureBox1.TabStop = false;
@@ -82,14 +82,14 @@
             // circleButton1
             // 
             this.circleButton1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.circleButton1.Font = new System.Drawing.Font("SimSun", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.circleButton1.Font = new System.Drawing.Font("宋体", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.circleButton1.Image = ((System.Drawing.Image)(resources.GetObject("circleButton1.Image")));
-            this.circleButton1.Location = new System.Drawing.Point(485, 240);
+            this.circleButton1.Location = new System.Drawing.Point(485, 260);
             this.circleButton1.MouseDownBackColor = System.Drawing.Color.Silver;
             this.circleButton1.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.circleButton1.Name = "circleButton1";
             this.circleButton1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.circleButton1.Size = new System.Drawing.Size(60, 60);
+            this.circleButton1.Size = new System.Drawing.Size(60, 65);
             this.circleButton1.TabIndex = 9;
             this.circleButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -97,7 +97,7 @@
             // 
             this.selectionLabel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.selectionLabel1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectionLabel1.Location = new System.Drawing.Point(487, 33);
+            this.selectionLabel1.Location = new System.Drawing.Point(487, 36);
             this.selectionLabel1.MinimumSize = new System.Drawing.Size(0, 25);
             this.selectionLabel1.Name = "selectionLabel1";
             this.selectionLabel1.ReadOnly = true;
@@ -111,14 +111,15 @@
             this.roundButton2.BorderWidth = 1F;
             this.roundButton2.FlatAppearance.BorderSize = 0;
             this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton2.Location = new System.Drawing.Point(366, 166);
+            this.roundButton2.Location = new System.Drawing.Point(366, 180);
             this.roundButton2.Name = "roundButton2";
             this.roundButton2.Radius = 3;
-            this.roundButton2.Size = new System.Drawing.Size(153, 51);
+            this.roundButton2.Size = new System.Drawing.Size(153, 55);
             this.roundButton2.TabIndex = 5;
             this.roundButton2.Text = "OK";
             this.roundButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.roundButton2.UseVisualStyleBackColor = true;
+            this.roundButton2.Click += new System.EventHandler(this.roundButton2_Click);
             // 
             // flatButton1
             // 
@@ -128,12 +129,12 @@
             this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.flatButton1.Location = new System.Drawing.Point(368, 92);
+            this.flatButton1.Location = new System.Drawing.Point(368, 100);
             this.flatButton1.MouseDownBackColor = System.Drawing.Color.Silver;
             this.flatButton1.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.flatButton1.Name = "flatButton1";
             this.flatButton1.Padding = new System.Windows.Forms.Padding(10, 0, 5, 0);
-            this.flatButton1.Size = new System.Drawing.Size(200, 38);
+            this.flatButton1.Size = new System.Drawing.Size(200, 41);
             this.flatButton1.TabIndex = 4;
             this.flatButton1.Text = "新建笔记";
             this.flatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,10 +143,10 @@
             // roundPictureBox1
             // 
             this.roundPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("roundPictureBox1.Image")));
-            this.roundPictureBox1.Location = new System.Drawing.Point(86, 227);
+            this.roundPictureBox1.Location = new System.Drawing.Point(86, 246);
             this.roundPictureBox1.Name = "roundPictureBox1";
             this.roundPictureBox1.Radius = 6;
-            this.roundPictureBox1.Size = new System.Drawing.Size(115, 107);
+            this.roundPictureBox1.Size = new System.Drawing.Size(115, 116);
             this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundPictureBox1.TabIndex = 3;
             this.roundPictureBox1.TabStop = false;
@@ -155,14 +156,14 @@
             this.hintTextBox2.BorderColors = System.Drawing.Color.LightGray;
             this.hintTextBox2.BorderRadius = 0;
             this.hintTextBox2.BorderWidth = 0.01F;
-            this.hintTextBox2.Font = new System.Drawing.Font("SimHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.hintTextBox2.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.hintTextBox2.HightLight = false;
             this.hintTextBox2.HintText = "hint";
-            this.hintTextBox2.Location = new System.Drawing.Point(37, 154);
-            this.hintTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hintTextBox2.Location = new System.Drawing.Point(37, 167);
+            this.hintTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.hintTextBox2.Name = "hintTextBox2";
             this.hintTextBox2.PasswordChar = '\0';
-            this.hintTextBox2.Size = new System.Drawing.Size(213, 37);
+            this.hintTextBox2.Size = new System.Drawing.Size(213, 40);
             this.hintTextBox2.TabIndex = 2;
             // 
             // roundButton1
@@ -171,10 +172,10 @@
             this.roundButton1.BorderWidth = 1F;
             this.roundButton1.FlatAppearance.BorderSize = 0;
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Location = new System.Drawing.Point(91, 92);
+            this.roundButton1.Location = new System.Drawing.Point(91, 100);
             this.roundButton1.Name = "roundButton1";
             this.roundButton1.Radius = 3;
-            this.roundButton1.Size = new System.Drawing.Size(159, 38);
+            this.roundButton1.Size = new System.Drawing.Size(159, 41);
             this.roundButton1.TabIndex = 1;
             this.roundButton1.Text = "OK";
             this.roundButton1.UseVisualStyleBackColor = true;
@@ -188,11 +189,11 @@
             this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hintTextBox1.HightLight = true;
             this.hintTextBox1.HintText = "Enter your name";
-            this.hintTextBox1.Location = new System.Drawing.Point(50, 28);
+            this.hintTextBox1.Location = new System.Drawing.Point(50, 30);
             this.hintTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.hintTextBox1.Name = "hintTextBox1";
             this.hintTextBox1.PasswordChar = '\0';
-            this.hintTextBox1.Size = new System.Drawing.Size(200, 28);
+            this.hintTextBox1.Size = new System.Drawing.Size(200, 30);
             this.hintTextBox1.TabIndex = 0;
             // 
             // roundControl1
@@ -202,9 +203,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 448);
+            this.ClientSize = new System.Drawing.Size(665, 485);
             this.Controls.Add(this.ellipticLabel1);
             this.Controls.Add(this.circlePictureBox1);
             this.Controls.Add(this.circleButton1);
