@@ -22,6 +22,17 @@ namespace Frankyu.WinformControls
         /// </summary>
         public Color SelectedForeColor { get; set; }
 
+        private SelectedLineLocation _lineLocation = SelectedLineLocation.Bottom;
+        public SelectedLineLocation LineLocation
+        {
+            get { return _lineLocation; }
+            set
+            {
+                _lineLocation = value;
+                Invalidate();
+            }
+        }
+
         private bool _isSelected = false;
 
         public bool IsSelected
@@ -63,6 +74,7 @@ namespace Frankyu.WinformControls
         }
 
         private float _lineWidth = 3f;
+
         public float LineWidth
         {
             get { return _lineWidth; }
@@ -72,6 +84,9 @@ namespace Frankyu.WinformControls
                 Invalidate();
             }
         }
+
+        
+        public StringAlignment TextAlignment { get; set; } = StringAlignment.Center;
 
         /// <summary>
         /// 页签按键
@@ -94,31 +109,46 @@ namespace Frankyu.WinformControls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);           
+            base.OnPaint(e);            
 
             //写文字
             var g = e.Graphics;
             var color = _isSelected ? SelectedForeColor : ForeColor;
             var stringFormat = new StringFormat
             {
-                Alignment = StringAlignment.Center,
+                Alignment = TextAlignment,
                 LineAlignment = StringAlignment.Center,
                 Trimming = StringTrimming.EllipsisCharacter
             };
+
+            var border = 10;
             var rect = new RectangleF
             {
-                X = 0,
-                Y = 0,
-                Width = this.Width,
-                Height = this.Height
+                X = border,
+                Y = border,
+                Width = this.Width - 2 * border,
+                Height = this.Height - 2 * border,
             };
             g.DrawString(TabText, Font, new SolidBrush(color), rect, stringFormat);
 
             if (_lineWidth <= 0)
                 return;
+
             Color penColor = IsSelected ? SelectedLineColor : UnselectedLineColor;
             var pen = new Pen(penColor, _lineWidth);
-            g.DrawLine(pen, new Point(0, Height), new Point(Width, Height));            
+
+            switch (LineLocation)
+            {
+                case SelectedLineLocation.Bottom:
+                    g.DrawLine(pen, new Point(0, Height), new Point(Width, Height));
+                    break;
+                case SelectedLineLocation.Left:
+                    g.DrawLine(pen, new Point(0, 0), new Point(0, Height));
+                    break;
+                case SelectedLineLocation.Right:
+                    g.DrawLine(pen, new Point(Width, 0), new Point(Width, Height));
+                    break;
+            }
         }
 
         /// <summary>
@@ -150,5 +180,12 @@ namespace Frankyu.WinformControls
                 return cp;
             }
         }
+    }
+
+    public enum SelectedLineLocation
+    {
+        Bottom,
+        Left,
+        Right
     }
 }

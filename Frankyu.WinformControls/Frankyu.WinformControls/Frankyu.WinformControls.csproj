@@ -106,7 +106,7 @@
     <Compile Include="TabButton.Designer.cs">
       <DependentUpon>TabButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="TabButtonManager.cs" />
+    <Compile Include="TabButtonCollection.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
