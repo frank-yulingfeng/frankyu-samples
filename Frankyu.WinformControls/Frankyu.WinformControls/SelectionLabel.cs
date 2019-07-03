@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -9,6 +6,17 @@ namespace Frankyu.WinformControls
 {
     public class SelectionLabel : TextBox
     {
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool LockWindowUpdate(IntPtr hWndLock);
+        public void Suspend(Control control)
+        {
+            LockWindowUpdate(control.Handle);
+        }
+        public void Resume(Control control)
+        {
+            LockWindowUpdate(IntPtr.Zero);
+        }       
+
         public SelectionLabel() :
             base()
         {
@@ -16,11 +24,25 @@ namespace Frankyu.WinformControls
             ReadOnly = true;
             SetCaret(this);
 
-            //this.MouseMove += new MouseEventHandler(MouseHideCaret);
+            this.DoubleBuffered = true;
+
+            this.MouseMove += new MouseEventHandler(MouseHideCaret);
             this.MouseUp += new MouseEventHandler(MouseHideCaret);
+            MouseUp += SelectionLabel_MouseUp;
             this.MouseDown += new MouseEventHandler(MouseHideCaret);
+            MouseDown += SelectionLabel_MouseDown;
             this.MouseClick += new MouseEventHandler(MouseHideCaret);
-            this.MouseDoubleClick += new MouseEventHandler(MouseHideCaret);            
+            this.MouseDoubleClick += new MouseEventHandler(MouseHideCaret);                        
+        }     
+
+        private void SelectionLabel_MouseDown(object sender, MouseEventArgs e)
+        {         
+            Suspend(this);
+        }
+
+        private void SelectionLabel_MouseUp(object sender, MouseEventArgs e)
+        {         
+            Resume(this);
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -65,7 +87,7 @@ namespace Frankyu.WinformControls
         }       
 
         void MouseHideCaret(object sender, MouseEventArgs e)
-        {
+        {          
             SetCaret(sender as TextBox);
         }
 

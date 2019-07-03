@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
 
@@ -24,9 +25,21 @@ namespace Frankyu.WinformControls
             SendMessage(control.Handle, 0x1501, 0, text);
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             this.roundControl1.SetRound();
 
             _tabManager = new TabButtonCollection(new List<TabButton>
