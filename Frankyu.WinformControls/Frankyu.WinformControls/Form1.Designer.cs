@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.sysHintTextBox1 = new Frankyu.WinformControls.SysHintTextBox();
+            this.ellipticLabel1 = new Frankyu.WinformControls.EllipticLabel();
             this.selectionLabel1 = new Frankyu.WinformControls.SelectionLabel();
             this.tabButton3 = new Frankyu.WinformControls.TabButton();
             this.tabButton2 = new Frankyu.WinformControls.TabButton();
@@ -50,6 +53,35 @@
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 8;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(371, 30);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(199, 20);
+            this.textBox2.TabIndex = 17;
+            // 
+            // sysHintTextBox1
+            // 
+            this.sysHintTextBox1.Hint = "";
+            this.sysHintTextBox1.Location = new System.Drawing.Point(371, 56);
+            this.sysHintTextBox1.Name = "sysHintTextBox1";
+            this.sysHintTextBox1.Size = new System.Drawing.Size(199, 20);
+            this.sysHintTextBox1.TabIndex = 18;
+            // 
+            // ellipticLabel1
+            // 
+            this.ellipticLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.ellipticLabel1.EllipticColor = System.Drawing.Color.IndianRed;
+            this.ellipticLabel1.ForeColor = System.Drawing.Color.White;
+            this.ellipticLabel1.ImageOffset = new System.Drawing.Size(0, 0);
+            this.ellipticLabel1.ImageSize = new System.Drawing.Size(0, 0);
+            this.ellipticLabel1.Location = new System.Drawing.Point(366, 262);
+            this.ellipticLabel1.Name = "ellipticLabel1";
+            this.ellipticLabel1.Size = new System.Drawing.Size(100, 100);
+            this.ellipticLabel1.TabIndex = 16;
+            this.ellipticLabel1.Text = "ellipticLabel1";
+            this.ellipticLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // selectionLabel1
             // 
             this.selectionLabel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -59,7 +91,7 @@
             this.selectionLabel1.MinimumSize = new System.Drawing.Size(0, 20);
             this.selectionLabel1.Name = "selectionLabel1";
             this.selectionLabel1.ReadOnly = true;
-            this.selectionLabel1.Size = new System.Drawing.Size(264, 20);
+            this.selectionLabel1.Size = new System.Drawing.Size(264, 19);
             this.selectionLabel1.TabIndex = 15;
             this.selectionLabel1.Text = "this is a selection label";
             // 
@@ -207,6 +239,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 485);
+            this.Controls.Add(this.sysHintTextBox1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.ellipticLabel1);
             this.Controls.Add(this.selectionLabel1);
             this.Controls.Add(this.tabButton3);
             this.Controls.Add(this.tabButton2);
@@ -238,6 +273,9 @@
         private TabButton tabButton2;
         private TabButton tabButton3;
         private SelectionLabel selectionLabel1;
+        private EllipticLabel ellipticLabel1;
+        private System.Windows.Forms.TextBox textBox2;
+        private SysHintTextBox sysHintTextBox1;
     }
 }
 

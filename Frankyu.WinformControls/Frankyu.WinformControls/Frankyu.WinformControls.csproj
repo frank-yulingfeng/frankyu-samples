@@ -100,6 +100,9 @@
     <Compile Include="SplitLine.designer.cs">
       <DependentUpon>SplitLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="SysHintTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TabButton.cs">
       <SubType>UserControl</SubType>
     </Compile>

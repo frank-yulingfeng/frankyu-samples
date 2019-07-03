@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,6 +13,16 @@ namespace Frankyu.WinformControls
     public partial class Form1 : Form
     {
         TabButtonCollection _tabManager;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+
+        private static extern Int32 SendMessage(IntPtr hWnd, int msg,
+                    int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
+
+        public static void SetHintText(Control control, string text)
+        {
+            SendMessage(control.Handle, 0x1501, 0, text);
+        }
 
         public Form1()
         {
@@ -25,6 +36,7 @@ namespace Frankyu.WinformControls
                  tabButton3
             });
             _tabManager.AutoLayout(tabButton1.Location, 3);
+            SetHintText(textBox2, "输入你的名字");
         }
 
         private void roundButton1_Click(object sender, EventArgs e)
@@ -33,6 +45,8 @@ namespace Frankyu.WinformControls
             _tabManager.AutoVericalLayoutVerical(tabButton1.Location, 3);
             _tabManager.SetProperty(nameof(TabButton.LineLocation), SelectedLineLocation.Right);
             _tabManager.SetProperty(nameof(TabButton.TextAlignment), StringAlignment.Near);
+
+            sysHintTextBox1.Hint = "请输入您的年龄";
         }
 
         private void flatButton1_Click(object sender, EventArgs e)
