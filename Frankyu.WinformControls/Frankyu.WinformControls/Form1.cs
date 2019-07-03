@@ -11,11 +11,20 @@ namespace Frankyu.WinformControls
 {
     public partial class Form1 : Form
     {
+        TabButtonManager _tabManager;
+
         public Form1()
         {
             InitializeComponent();
             this.roundControl1.SetRound();
-            this.selectionLabel1.AutoSizeHeight();
+
+            _tabManager = new TabButtonManager(new List<TabButton>
+            {
+                 tabButton1,
+                 tabButton2,
+                 tabButton3
+            });
+            _tabManager.AutoLayout(tabButton1.Location, false, 3);
         }
 
         private void roundButton1_Click(object sender, EventArgs e)

@@ -100,6 +100,13 @@
     <Compile Include="SplitLine.designer.cs">
       <DependentUpon>SplitLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="TabButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TabButton.Designer.cs">
+      <DependentUpon>TabButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabButtonManager.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplitLine.resx">
       <DependentUpon>SplitLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabButton.resx">
+      <DependentUpon>TabButton.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
