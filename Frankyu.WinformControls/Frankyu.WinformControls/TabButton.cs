@@ -40,6 +40,9 @@ namespace Frankyu.WinformControls
             get { return _isSelected; }
             set
             {
+                if (_isSelected == value)
+                    return;
+
                 _isSelected = value;
                 Invalidate();
             }

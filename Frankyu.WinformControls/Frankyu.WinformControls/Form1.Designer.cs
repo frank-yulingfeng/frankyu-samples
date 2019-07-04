@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.sysHintTextBox1 = new Frankyu.WinformControls.SysHintTextBox();
             this.ellipticLabel1 = new Frankyu.WinformControls.EllipticLabel();
             this.selectionLabel1 = new Frankyu.WinformControls.SelectionLabel();
@@ -60,12 +61,24 @@
             this.textBox2.Size = new System.Drawing.Size(199, 20);
             this.textBox2.TabIndex = 17;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(366, 415);
+            this.richTextBox1.Multiline = false;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(272, 15);
+            this.richTextBox1.TabIndex = 19;
+            this.richTextBox1.Text = "I AM IRON MAN";
+            // 
             // sysHintTextBox1
             // 
-            this.sysHintTextBox1.Hint = "";
+            this.sysHintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
+            this.sysHintTextBox1.Hint = "Enter your name";
             this.sysHintTextBox1.Location = new System.Drawing.Point(371, 56);
             this.sysHintTextBox1.Name = "sysHintTextBox1";
-            this.sysHintTextBox1.Size = new System.Drawing.Size(199, 20);
+            this.sysHintTextBox1.Size = new System.Drawing.Size(199, 23);
             this.sysHintTextBox1.TabIndex = 18;
             // 
             // ellipticLabel1
@@ -77,7 +90,7 @@
             this.ellipticLabel1.ImageSize = new System.Drawing.Size(0, 0);
             this.ellipticLabel1.Location = new System.Drawing.Point(366, 262);
             this.ellipticLabel1.Name = "ellipticLabel1";
-            this.ellipticLabel1.Size = new System.Drawing.Size(100, 100);
+            this.ellipticLabel1.Size = new System.Drawing.Size(100, 54);
             this.ellipticLabel1.TabIndex = 16;
             this.ellipticLabel1.Text = "ellipticLabel1";
             this.ellipticLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,6 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 485);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.sysHintTextBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.ellipticLabel1);
@@ -276,6 +290,7 @@
         private EllipticLabel ellipticLabel1;
         private System.Windows.Forms.TextBox textBox2;
         private SysHintTextBox sysHintTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
