@@ -17,6 +17,36 @@ namespace Frankyu.WinformControls
         /// </summary>
         public Color UnselectedLineColor { get; set; }
 
+        private int _horizonPadding = 10;
+
+        public int HorizonPadding
+        {
+            get { return _horizonPadding; }
+            set
+            {
+                if (_horizonPadding == value)
+                    return;
+
+                _horizonPadding = value;
+                Invalidate();
+            }
+        }
+
+        private int _vericalPadding = 10;
+
+        public int VericalPadding
+        {
+            get { return _vericalPadding; }
+            set
+            {
+                if (_vericalPadding == value)
+                    return;
+
+                _vericalPadding = value;
+                Invalidate();
+            }
+        }
+
         /// <summary>
         /// 选中时文本颜色
         /// </summary>
@@ -88,7 +118,19 @@ namespace Frankyu.WinformControls
             }
         }
 
-        
+        private float _unselectedLineWidth = 3f;
+
+        public float UnselectedLineWidth
+        {
+            get { return _unselectedLineWidth; }
+            set
+            {
+                _unselectedLineWidth = value;
+                Invalidate();
+            }
+        }
+
+
         public StringAlignment TextAlignment { get; set; } = StringAlignment.Center;
 
         /// <summary>
@@ -123,33 +165,33 @@ namespace Frankyu.WinformControls
                 LineAlignment = StringAlignment.Center,
                 Trimming = StringTrimming.EllipsisCharacter
             };
-
-            var border = 10;
+            
             var rect = new RectangleF
             {
-                X = border,
-                Y = border,
-                Width = this.Width - 2 * border,
-                Height = this.Height - 2 * border,
+                X = HorizonPadding,
+                Y = VericalPadding,
+                Width = this.Width - 2 * HorizonPadding,
+                Height = this.Height - 2 * VericalPadding,
             };
             g.DrawString(TabText, Font, new SolidBrush(color), rect, stringFormat);
-
-            if (_lineWidth <= 0)
+            
+            var lineWidth = IsSelected ? LineWidth : UnselectedLineWidth;
+            if (lineWidth <= 0)
                 return;
 
-            Color penColor = IsSelected ? SelectedLineColor : UnselectedLineColor;
-            var pen = new Pen(penColor, _lineWidth);
+            var penColor = IsSelected ? SelectedLineColor : UnselectedLineColor;
+            var pen = new Pen(penColor, lineWidth);
 
             switch (LineLocation)
             {
                 case SelectedLineLocation.Bottom:
-                    g.DrawLine(pen, new Point(0, Height), new Point(Width, Height));
+                    g.DrawLine(pen, new Point(0, Height - 1), new Point(Width, Height - 1));
                     break;
                 case SelectedLineLocation.Left:
-                    g.DrawLine(pen, new Point(0, 0), new Point(0, Height));
+                    g.DrawLine(pen, new Point(1, 0), new Point(1, Height));
                     break;
                 case SelectedLineLocation.Right:
-                    g.DrawLine(pen, new Point(Width, 0), new Point(Width, Height));
+                    g.DrawLine(pen, new Point(Width - 1, 0), new Point(Width - 1, Height));
                     break;
             }
         }

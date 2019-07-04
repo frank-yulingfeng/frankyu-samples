@@ -23,18 +23,7 @@ namespace Frankyu.WinformControls
         public static void SetHintText(Control control, string text)
         {
             SendMessage(control.Handle, 0x1501, 0, text);
-        }
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
-                return cp;
-            }
-        }
+        }       
 
         public Form1()
         {
@@ -48,16 +37,18 @@ namespace Frankyu.WinformControls
                  tabButton2,
                  tabButton3
             });
-            _tabManager.AutoLayout(tabButton1.Location, 3);
+            _tabManager.AutoLayout(tabButton1.Location, 0);
+            _tabManager.SetProperty(nameof(TabButton.UnselectedLineWidth), 1f);
             SetHintText(textBox2, "输入你的名字");
         }
 
         private void roundButton1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(hintTextBox1.Text);
-            _tabManager.AutoVericalLayoutVerical(tabButton1.Location, 3);
+            _tabManager.AutoVericalLayoutVerical(tabButton1.Location, 0);
             _tabManager.SetProperty(nameof(TabButton.LineLocation), SelectedLineLocation.Right);
-            _tabManager.SetProperty(nameof(TabButton.TextAlignment), StringAlignment.Near);
+            _tabManager.SetProperty(nameof(TabButton.TextAlignment), StringAlignment.Far);
+            _tabManager.SetProperty(nameof(TabButton.HorizonPadding), 15);
 
             sysHintTextBox1.Hint = "请输入您的年龄";
         }

@@ -112,55 +112,64 @@
             // 
             this.tabButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabButton3.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.tabButton3.HorizonPadding = 10;
             this.tabButton3.IsSelected = false;
             this.tabButton3.LineLocation = Frankyu.WinformControls.SelectedLineLocation.Bottom;
             this.tabButton3.LineWidth = 6F;
-            this.tabButton3.Location = new System.Drawing.Point(91, 365);
+            this.tabButton3.Location = new System.Drawing.Point(37, 370);
             this.tabButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabButton3.Name = "tabButton3";
             this.tabButton3.SelectedForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabButton3.SelectedLineColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tabButton3.Size = new System.Drawing.Size(85, 38);
+            this.tabButton3.Size = new System.Drawing.Size(90, 38);
             this.tabButton3.TabIndex = 14;
             this.tabButton3.TabText = "未读邮件";
             this.tabButton3.TextAlignment = System.Drawing.StringAlignment.Center;
             this.tabButton3.UnselectedLineColor = System.Drawing.Color.LightGray;
+            this.tabButton3.UnselectedLineWidth = 3F;
+            this.tabButton3.VericalPadding = 10;
             // 
             // tabButton2
             // 
             this.tabButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabButton2.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.tabButton2.HorizonPadding = 10;
             this.tabButton2.IsSelected = false;
             this.tabButton2.LineLocation = Frankyu.WinformControls.SelectedLineLocation.Bottom;
             this.tabButton2.LineWidth = 6F;
-            this.tabButton2.Location = new System.Drawing.Point(91, 324);
+            this.tabButton2.Location = new System.Drawing.Point(37, 324);
             this.tabButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabButton2.Name = "tabButton2";
             this.tabButton2.SelectedForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabButton2.SelectedLineColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tabButton2.Size = new System.Drawing.Size(85, 38);
+            this.tabButton2.Size = new System.Drawing.Size(90, 38);
             this.tabButton2.TabIndex = 13;
             this.tabButton2.TabText = "已加密";
             this.tabButton2.TextAlignment = System.Drawing.StringAlignment.Center;
             this.tabButton2.UnselectedLineColor = System.Drawing.Color.LightGray;
+            this.tabButton2.UnselectedLineWidth = 3F;
+            this.tabButton2.VericalPadding = 10;
             // 
             // tabButton1
             // 
             this.tabButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabButton1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.tabButton1.HorizonPadding = 10;
             this.tabButton1.IsSelected = true;
             this.tabButton1.LineLocation = Frankyu.WinformControls.SelectedLineLocation.Bottom;
             this.tabButton1.LineWidth = 6F;
-            this.tabButton1.Location = new System.Drawing.Point(91, 278);
+            this.tabButton1.Location = new System.Drawing.Point(37, 278);
             this.tabButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabButton1.Name = "tabButton1";
             this.tabButton1.SelectedForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabButton1.SelectedLineColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tabButton1.Size = new System.Drawing.Size(85, 38);
+            this.tabButton1.Size = new System.Drawing.Size(90, 38);
             this.tabButton1.TabIndex = 12;
             this.tabButton1.TabText = "全部";
             this.tabButton1.TextAlignment = System.Drawing.StringAlignment.Center;
             this.tabButton1.UnselectedLineColor = System.Drawing.Color.LightGray;
+            this.tabButton1.UnselectedLineWidth = 3F;
+            this.tabButton1.VericalPadding = 10;
             // 
             // roundButton2
             // 
