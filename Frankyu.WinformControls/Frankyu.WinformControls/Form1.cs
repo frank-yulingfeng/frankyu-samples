@@ -38,7 +38,7 @@ namespace Frankyu.WinformControls
                  tabButton3
             });
             _tabManager.AutoLayout(tabButton1.Location, 0);
-            _tabManager.SetProperty(nameof(TabButton.UnselectedLineWidth), 1f);
+            _tabManager.SetProperty("UnselectedLineWidth", 1f);
             SetHintText(textBox2, "输入你的名字");
         }
 
@@ -46,9 +46,9 @@ namespace Frankyu.WinformControls
         {
             MessageBox.Show(hintTextBox1.Text);
             _tabManager.AutoVericalLayoutVerical(tabButton1.Location, 0);
-            _tabManager.SetProperty(nameof(TabButton.LineLocation), SelectedLineLocation.Right);
-            _tabManager.SetProperty(nameof(TabButton.TextAlignment), StringAlignment.Far);
-            _tabManager.SetProperty(nameof(TabButton.HorizonPadding), 15);
+            _tabManager.SetProperty("LineLocation", SelectedLineLocation.Right);
+            _tabManager.SetProperty("TextAlignment", StringAlignment.Far);
+            _tabManager.SetProperty("HorizonPadding", 15);
 
             sysHintTextBox1.Hint = "请输入您的年龄";
         }

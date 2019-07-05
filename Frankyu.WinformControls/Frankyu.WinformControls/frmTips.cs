@@ -15,12 +15,13 @@ namespace WindowsFormsApplication1
         /// <summary>
         /// 延迟描述
         /// </summary>
-        public int DelayMilliseconds { get; set; } = 1000;
+        public int DelayMilliseconds { get; set; }
 
         public frmTips()
         {
             InitializeComponent();
 
+            DelayMilliseconds = 1000;
             this.Shown += FrmTips_Shown;
 
             this.BackColor = Color.FromArgb(59, 183, 119);//Color.FromArgb(0, 47, 91);
@@ -60,7 +61,8 @@ namespace WindowsFormsApplication1
             Thread thread = new Thread(() =>
             {
                 Thread.Sleep(DelayMilliseconds);
-                TimeConsumingAction?.Invoke();
+                if (TimeConsumingAction != null)
+                    TimeConsumingAction.Invoke();
 
                 if (this.IsHandleCreated)
                 {

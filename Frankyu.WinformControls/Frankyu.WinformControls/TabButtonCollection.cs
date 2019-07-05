@@ -27,8 +27,8 @@ namespace Frankyu.WinformControls
 
         private void SetSelectedTab(TabButton tabButton)
         {
-            if (tabButton == null || _tabButtons?.Count == 0)
-                return;            
+            if (tabButton == null || _tabButtons == null || _tabButtons.Count == 0)
+                return;
 
             foreach (var tab in _tabButtons)
             {

@@ -131,7 +131,7 @@ namespace Frankyu.WinformControls
         }
 
 
-        public StringAlignment TextAlignment { get; set; } = StringAlignment.Center;
+        public StringAlignment TextAlignment { get; set; }
 
         /// <summary>
         /// 页签按键
@@ -142,6 +142,7 @@ namespace Frankyu.WinformControls
             SelectedForeColor = ForeColor;
             SelectedLineColor = BackColor;
             UnselectedLineColor = BackColor;
+            TextAlignment= StringAlignment.Center;
             this.Cursor = Cursors.Hand;
             TabText = "Tab Button";            
         }
