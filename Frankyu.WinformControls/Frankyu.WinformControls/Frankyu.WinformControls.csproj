@@ -65,6 +65,18 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTips.designer.cs">
+      <DependentUpon>frmTips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoundControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -100,6 +112,16 @@
     <Compile Include="SplitLine.designer.cs">
       <DependentUpon>SplitLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="SysHintTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TabButton.Designer.cs">
+      <DependentUpon>TabButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabButtonCollection.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,8 +131,14 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTips.resx">
+      <DependentUpon>frmTips.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HintTextBox.resx">
       <DependentUpon>HintTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplitLine.resx">
       <DependentUpon>SplitLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabButton.resx">
+      <DependentUpon>TabButton.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
