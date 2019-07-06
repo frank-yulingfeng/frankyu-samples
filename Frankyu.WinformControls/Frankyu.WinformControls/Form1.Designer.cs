@@ -30,6 +30,12 @@
         {
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnMin = new WinformSample.FlatButton();
+            this.btnMax = new WinformSample.FlatButton();
+            this.btnClose = new WinformSample.FlatButton();
+            this.flatButton2 = new WinformSample.FlatButton();
             this.sysHintTextBox1 = new Frankyu.WinformControls.SysHintTextBox();
             this.ellipticLabel1 = new Frankyu.WinformControls.EllipticLabel();
             this.selectionLabel1 = new Frankyu.WinformControls.SelectionLabel();
@@ -41,12 +47,12 @@
             this.hintTextBox2 = new WindowsFormsApplication1.HintTextBox();
             this.roundButton1 = new WindowsFormsApplication1.RoundButton();
             this.hintTextBox1 = new WindowsFormsApplication1.HintTextBox();
-            this.roundControl1 = new WinformSample.RoundControl();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(371, 28);
+            this.textBox2.Location = new System.Drawing.Point(366, 47);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 21);
             this.textBox2.TabIndex = 17;
@@ -62,11 +68,109 @@
             this.richTextBox1.TabIndex = 19;
             this.richTextBox1.Text = "I AM IRON MAN";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Controls.Add(this.btnMin);
+            this.panel1.Controls.Add(this.btnMax);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(669, 30);
+            this.panel1.TabIndex = 21;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("SimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Location = new System.Drawing.Point(12, 7);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(35, 14);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "测试";
+            // 
+            // btnMin
+            // 
+            this.btnMin.BorderColor = System.Drawing.Color.Empty;
+            this.btnMin.BorderWidth = 0F;
+            this.btnMin.CornerRadius = 0;
+            this.btnMin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMin.ForeColor = System.Drawing.Color.White;
+            this.btnMin.Image = global::Frankyu.WinformControls.Properties.Resources.最小化;
+            this.btnMin.Location = new System.Drawing.Point(567, 0);
+            this.btnMin.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnMin.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(34, 30);
+            this.btnMin.TabIndex = 2;
+            this.btnMin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
+            // btnMax
+            // 
+            this.btnMax.BorderColor = System.Drawing.Color.Empty;
+            this.btnMax.BorderWidth = 0F;
+            this.btnMax.CornerRadius = 0;
+            this.btnMax.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMax.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMax.ForeColor = System.Drawing.Color.White;
+            this.btnMax.Image = global::Frankyu.WinformControls.Properties.Resources.最大化;
+            this.btnMax.Location = new System.Drawing.Point(601, 0);
+            this.btnMax.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnMax.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnMax.Name = "btnMax";
+            this.btnMax.Size = new System.Drawing.Size(34, 30);
+            this.btnMax.TabIndex = 1;
+            this.btnMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BorderColor = System.Drawing.Color.Empty;
+            this.btnClose.BorderWidth = 0F;
+            this.btnClose.CornerRadius = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Frankyu.WinformControls.Properties.Resources.关闭;
+            this.btnClose.Location = new System.Drawing.Point(635, 0);
+            this.btnClose.MouseDownBackColor = System.Drawing.Color.DarkRed;
+            this.btnClose.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(34, 30);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // flatButton2
+            // 
+            this.flatButton2.BackColor = System.Drawing.Color.Silver;
+            this.flatButton2.BorderColor = System.Drawing.Color.Black;
+            this.flatButton2.BorderWidth = 1F;
+            this.flatButton2.CornerRadius = 4;
+            this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flatButton2.Location = new System.Drawing.Point(35, 122);
+            this.flatButton2.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.flatButton2.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.flatButton2.Name = "flatButton2";
+            this.flatButton2.Size = new System.Drawing.Size(103, 39);
+            this.flatButton2.TabIndex = 20;
+            this.flatButton2.Text = "flatButton2";
+            this.flatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flatButton2.Click += new System.EventHandler(this.flatButton2_Click);
+            // 
             // sysHintTextBox1
             // 
             this.sysHintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
             this.sysHintTextBox1.Hint = "Enter your name";
-            this.sysHintTextBox1.Location = new System.Drawing.Point(371, 52);
+            this.sysHintTextBox1.Location = new System.Drawing.Point(372, 74);
             this.sysHintTextBox1.Name = "sysHintTextBox1";
             this.sysHintTextBox1.Size = new System.Drawing.Size(199, 23);
             this.sysHintTextBox1.TabIndex = 18;
@@ -78,7 +182,7 @@
             this.ellipticLabel1.ForeColor = System.Drawing.Color.White;
             this.ellipticLabel1.ImageOffset = new System.Drawing.Size(0, 0);
             this.ellipticLabel1.ImageSize = new System.Drawing.Size(0, 0);
-            this.ellipticLabel1.Location = new System.Drawing.Point(366, 242);
+            this.ellipticLabel1.Location = new System.Drawing.Point(553, 242);
             this.ellipticLabel1.Name = "ellipticLabel1";
             this.ellipticLabel1.Size = new System.Drawing.Size(100, 50);
             this.ellipticLabel1.TabIndex = 16;
@@ -167,7 +271,7 @@
             this.roundButton2.BorderWidth = 1F;
             this.roundButton2.FlatAppearance.BorderSize = 0;
             this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton2.Location = new System.Drawing.Point(366, 166);
+            this.roundButton2.Location = new System.Drawing.Point(37, 177);
             this.roundButton2.Name = "roundButton2";
             this.roundButton2.Radius = 3;
             this.roundButton2.Size = new System.Drawing.Size(153, 51);
@@ -185,7 +289,7 @@
             this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.flatButton1.Location = new System.Drawing.Point(368, 92);
+            this.flatButton1.Location = new System.Drawing.Point(370, 109);
             this.flatButton1.MouseDownBackColor = System.Drawing.Color.Silver;
             this.flatButton1.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.flatButton1.Name = "flatButton1";
@@ -204,7 +308,7 @@
             this.hintTextBox2.Font = new System.Drawing.Font("SimHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.hintTextBox2.HightLight = false;
             this.hintTextBox2.HintText = "hint";
-            this.hintTextBox2.Location = new System.Drawing.Point(37, 154);
+            this.hintTextBox2.Location = new System.Drawing.Point(366, 201);
             this.hintTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hintTextBox2.Name = "hintTextBox2";
             this.hintTextBox2.PasswordChar = '\0';
@@ -217,7 +321,7 @@
             this.roundButton1.BorderWidth = 1F;
             this.roundButton1.FlatAppearance.BorderSize = 0;
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Location = new System.Drawing.Point(91, 92);
+            this.roundButton1.Location = new System.Drawing.Point(37, 68);
             this.roundButton1.Name = "roundButton1";
             this.roundButton1.Radius = 3;
             this.roundButton1.Size = new System.Drawing.Size(159, 38);
@@ -234,23 +338,20 @@
             this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hintTextBox1.HightLight = true;
             this.hintTextBox1.HintText = "Enter your name";
-            this.hintTextBox1.Location = new System.Drawing.Point(50, 28);
+            this.hintTextBox1.Location = new System.Drawing.Point(371, 151);
             this.hintTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.hintTextBox1.Name = "hintTextBox1";
             this.hintTextBox1.PasswordChar = '\0';
             this.hintTextBox1.Size = new System.Drawing.Size(200, 28);
             this.hintTextBox1.TabIndex = 0;
             // 
-            // roundControl1
-            // 
-            this.roundControl1.CornerRadius = 5;
-            this.roundControl1.TargetControl = null;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 448);
+            this.ClientSize = new System.Drawing.Size(669, 509);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.flatButton2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.sysHintTextBox1);
             this.Controls.Add(this.textBox2);
@@ -264,9 +365,15 @@
             this.Controls.Add(this.hintTextBox2);
             this.Controls.Add(this.roundButton1);
             this.Controls.Add(this.hintTextBox1);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(200, 80);
             this.Name = "Form1";
             this.Text = "TEST";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +386,6 @@
         private WindowsFormsApplication1.HintTextBox hintTextBox2;
         private WinformSample.FlatButton flatButton1;
         private WindowsFormsApplication1.RoundButton roundButton2;
-        private WinformSample.RoundControl roundControl1;
         private TabButton tabButton1;
         private TabButton tabButton2;
         private TabButton tabButton3;
@@ -288,6 +394,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private SysHintTextBox sysHintTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private WinformSample.FlatButton flatButton2;
+        private System.Windows.Forms.Panel panel1;
+        private WinformSample.FlatButton btnClose;
+        private WinformSample.FlatButton btnMax;
+        private WinformSample.FlatButton btnMin;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
 

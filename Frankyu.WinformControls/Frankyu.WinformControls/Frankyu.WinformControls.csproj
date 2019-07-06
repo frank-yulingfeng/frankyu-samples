@@ -65,6 +65,18 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTips.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,7 @@
     <Compile Include="MessageForm.designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NativeWinAPI.cs" />
     <Compile Include="RoundControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -131,6 +144,12 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTips.resx">
       <DependentUpon>frmTips.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +167,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RoundButton.resx">
       <DependentUpon>RoundButton.cs</DependentUpon>
@@ -167,6 +187,45 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\标准大小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最大化.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最小化.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最小化1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\标准大小1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最大化1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最小化2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\标准大小2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最大化2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
