@@ -53,6 +53,12 @@
     <Compile Include="EllipticLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FlatScrollBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlatScrollBar.Designer.cs">
+      <DependentUpon>FlatScrollBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form6.Designer.cs">
+      <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTips.cs">
       <SubType>Form</SubType>
@@ -135,6 +147,9 @@
       <DependentUpon>TabButton.cs</DependentUpon>
     </Compile>
     <Compile Include="TabButtonCollection.cs" />
+    <EmbeddedResource Include="FlatScrollBar.resx">
+      <DependentUpon>FlatScrollBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form6.resx">
+      <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTips.resx">
       <DependentUpon>frmTips.cs</DependentUpon>

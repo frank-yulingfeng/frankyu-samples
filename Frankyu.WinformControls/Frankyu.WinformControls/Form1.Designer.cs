@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.flatScrollBar1 = new Frankyu.WinformControls.FlatScrollBar();
             this.btnMin = new WinformSample.FlatButton();
             this.btnMax = new WinformSample.FlatButton();
             this.btnClose = new WinformSample.FlatButton();
             this.flatButton2 = new WinformSample.FlatButton();
             this.sysHintTextBox1 = new Frankyu.WinformControls.SysHintTextBox();
-            this.ellipticLabel1 = new Frankyu.WinformControls.EllipticLabel();
-            this.selectionLabel1 = new Frankyu.WinformControls.SelectionLabel();
             this.tabButton3 = new Frankyu.WinformControls.TabButton();
             this.tabButton2 = new Frankyu.WinformControls.TabButton();
             this.tabButton1 = new Frankyu.WinformControls.TabButton();
@@ -56,17 +56,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 21);
             this.textBox2.TabIndex = 17;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(366, 383);
-            this.richTextBox1.Multiline = false;
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(272, 14);
-            this.richTextBox1.TabIndex = 19;
-            this.richTextBox1.Text = "I AM IRON MAN";
             // 
             // panel1
             // 
@@ -91,6 +80,31 @@
             this.lblTitle.Size = new System.Drawing.Size(35, 14);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "测试";
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(619, 257);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(20, 180);
+            this.vScrollBar1.TabIndex = 22;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(410, 257);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(191, 180);
+            this.textBox1.TabIndex = 24;
+            // 
+            // flatScrollBar1
+            // 
+            this.flatScrollBar1.BackColor = System.Drawing.Color.Transparent;
+            this.flatScrollBar1.Location = new System.Drawing.Point(602, 257);
+            this.flatScrollBar1.Name = "flatScrollBar1";
+            this.flatScrollBar1.Size = new System.Drawing.Size(15, 180);
+            this.flatScrollBar1.TabIndex = 100;
             // 
             // btnMin
             // 
@@ -174,33 +188,6 @@
             this.sysHintTextBox1.Name = "sysHintTextBox1";
             this.sysHintTextBox1.Size = new System.Drawing.Size(199, 23);
             this.sysHintTextBox1.TabIndex = 18;
-            // 
-            // ellipticLabel1
-            // 
-            this.ellipticLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.ellipticLabel1.EllipticColor = System.Drawing.Color.IndianRed;
-            this.ellipticLabel1.ForeColor = System.Drawing.Color.White;
-            this.ellipticLabel1.ImageOffset = new System.Drawing.Size(0, 0);
-            this.ellipticLabel1.ImageSize = new System.Drawing.Size(0, 0);
-            this.ellipticLabel1.Location = new System.Drawing.Point(553, 242);
-            this.ellipticLabel1.Name = "ellipticLabel1";
-            this.ellipticLabel1.Size = new System.Drawing.Size(100, 50);
-            this.ellipticLabel1.TabIndex = 16;
-            this.ellipticLabel1.Text = "ellipticLabel1";
-            this.ellipticLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // selectionLabel1
-            // 
-            this.selectionLabel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.selectionLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectionLabel1.HideCaretP = true;
-            this.selectionLabel1.Location = new System.Drawing.Point(366, 352);
-            this.selectionLabel1.MinimumSize = new System.Drawing.Size(0, 20);
-            this.selectionLabel1.Name = "selectionLabel1";
-            this.selectionLabel1.ReadOnly = true;
-            this.selectionLabel1.Size = new System.Drawing.Size(264, 19);
-            this.selectionLabel1.TabIndex = 15;
-            this.selectionLabel1.Text = "this is a selection label";
             // 
             // tabButton3
             // 
@@ -350,13 +337,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 509);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.flatScrollBar1);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flatButton2);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.sysHintTextBox1);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.ellipticLabel1);
-            this.Controls.Add(this.selectionLabel1);
             this.Controls.Add(this.tabButton3);
             this.Controls.Add(this.tabButton2);
             this.Controls.Add(this.tabButton1);
@@ -370,6 +357,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(200, 80);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "TEST";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -389,17 +377,17 @@
         private TabButton tabButton1;
         private TabButton tabButton2;
         private TabButton tabButton3;
-        private SelectionLabel selectionLabel1;
-        private EllipticLabel ellipticLabel1;
         private System.Windows.Forms.TextBox textBox2;
         private SysHintTextBox sysHintTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private WinformSample.FlatButton flatButton2;
         private System.Windows.Forms.Panel panel1;
         private WinformSample.FlatButton btnClose;
         private WinformSample.FlatButton btnMax;
         private WinformSample.FlatButton btnMin;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private FlatScrollBar flatScrollBar1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

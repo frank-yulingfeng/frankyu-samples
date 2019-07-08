@@ -30,7 +30,25 @@ namespace Frankyu.WinformControls
             _tabManager.AutoLayout(tabButton1.Location, 0);
             _tabManager.SetProperty("UnselectedLineWidth", 1f);
 
-            DoubleBuffered = true; 
+            DoubleBuffered = true;
+            for (int i = 0; i < 100; i++)
+            {
+                this.textBox1.Text += "这是第" + (i + 1) + "行\r\n";
+            }
+
+            this.vScrollBar1.Minimum = 0;
+            this.vScrollBar1.Maximum = this.textBox1.DisplayRectangle.Height;
+            this.vScrollBar1.LargeChange = vScrollBar1.Maximum / vScrollBar1.Height;
+            this.vScrollBar1.SmallChange = 15;
+            this.vScrollBar1.Value = Math.Abs(this.textBox1.AutoScrollOffset.Y);
+            vScrollBar1.Scroll += vScrollBar1_Scroll;
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            textBox1.AutoScrollOffset = new Point(0, vScrollBar1.Value);
+            Application.DoEvents();
+            //Debug.WriteLine("vscroll: " + vScrollBar1.Value.ToString() + "  custom: " + customScrollbar1.Value.ToString());
         }
 
         private void roundButton1_Click(object sender, EventArgs e)
@@ -62,48 +80,35 @@ namespace Frankyu.WinformControls
 
         #region 窗口移动代码
 
-        private Point _point;
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         private void InitFormMove()
         {
-            panel1.MouseDown += mouseDown;
-            panel1.MouseMove += mouseMove;
-            panel1.DoubleClick += panel1_DoubleClick;
-        }
-
-        void panel1_DoubleClick(object sender, EventArgs e)
-        {
-            btnMax_Click(null, null);
+           panel1.MouseDown += mouseDown;            
         }
 
         private void mouseDown(object sender, MouseEventArgs e)
         {
-            _point = new Point(e.X, e.Y);
-        }
-
-        private void mouseMove(object sender, MouseEventArgs e)
-        {
-            if (this.Cursor != Cursors.Arrow)
-                this.Cursor = Cursors.Arrow;
             if (e.Button == MouseButtons.Left)
             {
-                if (WindowState == FormWindowState.Maximized)
+                if (e.Clicks == 2)
                 {
-                    //Rectangle ScreenArea = Screen.GetWorkingArea(this);                   
-                    //if ((_point.X / ScreenArea.Width) >= 0.5)
-                    //{
-                    //    this.Location = new Point(e.Location.X - Width / 2, _point.Y + 5);
-                    //}
                     btnMax_Click(null, null);
                 }
                 else
                 {
-                    Rectangle ScreenArea = Screen.GetWorkingArea(this);
-                    this.Location = new Point(this.Location.X + e.X - _point.X, this.Location.Y + e.Y - _point.Y);
+                    ReleaseCapture();
+                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
             }
-            
         }
+
         #endregion   
 
         #region 阴影
@@ -177,11 +182,12 @@ namespace Frankyu.WinformControls
         Rectangle BottomLeftRect { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRightRect { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
         #endregion
-      
+
+
         protected override void WndProc(ref Message message)
         {
             base.WndProc(ref message);
-
+            
             switch (message.Msg)
             {
                 case WM_NCPAINT:
@@ -199,7 +205,7 @@ namespace Frankyu.WinformControls
                         DwmExtendFrameIntoClientArea(this.Handle, ref margins);
                     }
                     break;
-            }          
+            }
 
 
             if (message.Msg == 0x84) // WM_NCHITTEST
@@ -217,8 +223,10 @@ namespace Frankyu.WinformControls
                 else if (TopRect.Contains(cursor)) message.Result = (IntPtr)HTTOP;
                 else if (LeftRect.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
                 else if (RightRect.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (BottomRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+                else if (BottomRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;              
             }
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -257,6 +265,7 @@ namespace Frankyu.WinformControls
        
         private void flatButton2_Click(object sender, EventArgs e)
         {
+            textBox1.AutoScrollOffset = new Point(textBox1.Location.X, textBox1.Location.Y + textBox1.Height);
         }
     }
 }
