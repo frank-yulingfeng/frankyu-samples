@@ -80,6 +80,32 @@ namespace Frankyu.WinformControls
 
         #region 窗口移动代码
 
+        FormWindowState _lastState = FormWindowState.Normal;
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            if (this.WindowState != _lastState)
+            {
+                _lastState = this.WindowState;
+                OnWindowStateChanged();
+            }
+        }
+
+        protected void OnWindowStateChanged()
+        {
+            switch (_lastState)
+            {
+                case FormWindowState.Maximized:
+                    btnMax.Image = Properties.Resources.标准大小;
+                    break;
+                case FormWindowState.Minimized:
+                    break;
+                case FormWindowState.Normal:
+                    btnMax.Image = Properties.Resources.最大化;
+                    break;
+            }
+        }
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -90,7 +116,7 @@ namespace Frankyu.WinformControls
 
         private void InitFormMove()
         {
-           panel1.MouseDown += mouseDown;            
+           panel1.MouseDown += mouseDown;
         }
 
         private void mouseDown(object sender, MouseEventArgs e)
@@ -134,6 +160,8 @@ namespace Frankyu.WinformControls
             public int topHeight;
             public int bottomHeight;
         }
+
+        const int WS_MINIMIZEBOX = 0x20000;
         protected override CreateParams CreateParams
         {
             get
@@ -142,6 +170,9 @@ namespace Frankyu.WinformControls
                 CreateParams cp = base.CreateParams;
                 if (!m_aeroEnabled)
                     cp.ClassStyle |= CS_DROPSHADOW;
+
+                cp.Style |= WS_MINIMIZEBOX;//最小化
+
                 return cp;
             }
         }
@@ -183,6 +214,19 @@ namespace Frankyu.WinformControls
         Rectangle BottomRightRect { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
         #endregion
 
+        //#region 任务栏最小化
+        //protected override CreateParams CreateParams
+        //{
+        //    get
+        //    {
+        //        const int WS_MINIMIZEBOX = 0x20000;
+
+        //        CreateParams cp = base.CreateParams;
+        //        cp.Style |= WS_MINIMIZEBOX;
+        //        return cp;
+        //    }
+        //}
+        //#endregion
 
         protected override void WndProc(ref Message message)
         {
@@ -223,10 +267,8 @@ namespace Frankyu.WinformControls
                 else if (TopRect.Contains(cursor)) message.Result = (IntPtr)HTTOP;
                 else if (LeftRect.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
                 else if (RightRect.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (BottomRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;              
+                else if (BottomRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
             }
-
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -243,11 +285,9 @@ namespace Frankyu.WinformControls
             if (WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
-                btnMax.Image = Properties.Resources.最大化;
             }
             else
             {
-                btnMax.Image = Properties.Resources.标准大小;
                 Screen screen = Screen.FromControl(this);
                 int x = screen.WorkingArea.X - screen.Bounds.X;
                 int y = screen.WorkingArea.Y - screen.Bounds.Y;
