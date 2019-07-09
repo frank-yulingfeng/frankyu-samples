@@ -41,7 +41,12 @@ namespace Frankyu.WinformControls
             this.vScrollBar1.LargeChange = vScrollBar1.Maximum / vScrollBar1.Height;
             this.vScrollBar1.SmallChange = 15;
             this.vScrollBar1.Value = Math.Abs(this.textBox1.AutoScrollOffset.Y);
-            vScrollBar1.Scroll += vScrollBar1_Scroll;
+            vScrollBar1.Scroll += vScrollBar1_Scroll;            
+        }
+
+        protected override void OnResizeEnd(EventArgs e)
+        {
+            base.OnResizeEnd(e);
         }
 
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -139,13 +144,14 @@ namespace Frankyu.WinformControls
 
         #region 阴影
 
-        private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
         private const int HTCAPTION = 0x2;
-        private bool m_aeroEnabled;
         private const int CS_DROPSHADOW = 0x00020000;
+        private const int WM_NCHITTEST = 0x84;
         private const int WM_NCPAINT = 0x0085;
         private const int WM_ACTIVATEAPP = 0x001C;
+        private bool m_aeroEnabled;
+
         [DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
         [DllImport("dwmapi.dll")]
@@ -160,22 +166,11 @@ namespace Frankyu.WinformControls
             public int topHeight;
             public int bottomHeight;
         }
-
-        const int WS_MINIMIZEBOX = 0x20000;
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                m_aeroEnabled = CheckAeroEnabled();
-                CreateParams cp = base.CreateParams;
-                if (!m_aeroEnabled)
-                    cp.ClassStyle |= CS_DROPSHADOW;
-
-                cp.Style |= WS_MINIMIZEBOX;//最小化
-
-                return cp;
-            }
-        }
+              
+        /// <summary>
+        /// 检查是否桌面特效是否有效
+        /// </summary>
+        /// <returns></returns>                 
         private bool CheckAeroEnabled()
         {
             if (Environment.OSVersion.Version.Major >= 6)
@@ -213,20 +208,25 @@ namespace Frankyu.WinformControls
         Rectangle BottomLeftRect { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRightRect { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
         #endregion
+        
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int WS_SIZEBOX = 0x40000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                m_aeroEnabled = CheckAeroEnabled();
+                CreateParams cp = base.CreateParams;
+                if (!m_aeroEnabled)
+                    cp.ClassStyle |= CS_DROPSHADOW;//默认阴影
 
-        //#region 任务栏最小化
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        const int WS_MINIMIZEBOX = 0x20000;
+                cp.Style |= WS_MINIMIZEBOX;//任务栏最小化
+                //cp.Style |= 0x20000 | 0x80000 | 0x40000; //WS_MINIMIZEBOX | WS_SYSMENU | WS_SIZEBOX;
+                //cp.Style |= WS_SIZEBOX; //无边框时实现Aero snap 效果，但是还是会出现Border;
 
-        //        CreateParams cp = base.CreateParams;
-        //        cp.Style |= WS_MINIMIZEBOX;
-        //        return cp;
-        //    }
-        //}
-        //#endregion
+                return cp;
+            }
+        }
 
         protected override void WndProc(ref Message message)
         {
@@ -234,7 +234,7 @@ namespace Frankyu.WinformControls
             
             switch (message.Msg)
             {
-                case WM_NCPAINT:
+                case WM_NCPAINT://阴影
                     if (m_aeroEnabled)
                     {
                         var v = 2;
@@ -249,25 +249,23 @@ namespace Frankyu.WinformControls
                         DwmExtendFrameIntoClientArea(this.Handle, ref margins);
                     }
                     break;
-            }
 
+                case WM_NCHITTEST://缩放
+                    if (WindowState == FormWindowState.Maximized)
+                        return;
 
-            if (message.Msg == 0x84) // WM_NCHITTEST
-            {
-                if (WindowState == FormWindowState.Maximized)
-                    return;
+                    var cursor = this.PointToClient(Cursor.Position);
 
-                var cursor = this.PointToClient(Cursor.Position);
+                    if (TopLeftRect.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
+                    else if (TopRightRect.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
+                    else if (BottomLeftRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
+                    else if (BottomRightRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
 
-                if (TopLeftRect.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
-                else if (TopRightRect.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
-                else if (BottomLeftRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
-                else if (BottomRightRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
-
-                else if (TopRect.Contains(cursor)) message.Result = (IntPtr)HTTOP;
-                else if (LeftRect.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
-                else if (RightRect.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (BottomRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+                    else if (TopRect.Contains(cursor)) message.Result = (IntPtr)HTTOP;
+                    else if (LeftRect.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
+                    else if (RightRect.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
+                    else if (BottomRect.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+                    break;
             }
         }
 
@@ -301,11 +299,6 @@ namespace Frankyu.WinformControls
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-       
-        private void flatButton2_Click(object sender, EventArgs e)
-        {
-            textBox1.AutoScrollOffset = new Point(textBox1.Location.X, textBox1.Location.Y + textBox1.Height);
-        }
+        }       
     }
 }
