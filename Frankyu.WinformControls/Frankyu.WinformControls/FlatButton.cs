@@ -53,7 +53,7 @@ namespace WinformSample
             TextAlign = ContentAlignment.MiddleCenter;
             FlatStyle = FlatStyle.Flat;
 
-            _backColor = BackColor;
+            BackColor = Color.Transparent;
             _cornerRadius = 0;
         }
 
@@ -78,44 +78,52 @@ namespace WinformSample
 
         private Color _backColor;
 
+        public new Color BackColor
+        {
+            get { return base.BackColor; }
+            set
+            {
+                base.BackColor = value;
+                _backColor = value;
+            }
+        }
+
         protected override void OnMouseEnter(EventArgs e)
         {
-            _backColor = BackColor;
-
             base.OnMouseEnter(e);
             if (MouseOverBackColor.IsEmpty)
                 return;
 
-            BackColor = MouseOverBackColor;
+            base.BackColor = MouseOverBackColor;
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            BackColor = _backColor;
+            base.BackColor = _backColor;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
 
-            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
                 return;
 
             if (MouseDownBackColor.IsEmpty)
                 return;
 
-            BackColor = MouseDownBackColor;
+            base.BackColor = MouseDownBackColor;
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
 
-            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
                 return;
 
-            BackColor = MouseOverBackColor;
+            base.BackColor = MouseOverBackColor;
         }
 
         protected override void OnSizeChanged(EventArgs e)
