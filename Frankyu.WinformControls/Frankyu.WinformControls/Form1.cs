@@ -41,7 +41,29 @@ namespace Frankyu.WinformControls
             this.vScrollBar1.LargeChange = vScrollBar1.Maximum / vScrollBar1.Height;
             this.vScrollBar1.SmallChange = 15;
             this.vScrollBar1.Value = Math.Abs(this.textBox1.AutoScrollOffset.Y);
-            vScrollBar1.Scroll += vScrollBar1_Scroll;            
+            vScrollBar1.Scroll += vScrollBar1_Scroll;
+
+            this.Text = "fdfsa fsd fasd";
+
+            this.Shown += Form1_Shown;
+            this.Opacity = 0.0;
+        }
+
+        void Form1_Shown(object sender, EventArgs e)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 50;
+            timer.Tick += (s, a) =>
+            {
+                timer.Stop();
+                if (Opacity < 1)
+                {
+                    Opacity += 0.2;
+                    timer.Interval = 20;
+                    timer.Start();
+                }               
+            };
+            timer.Start();
         }
 
         protected override void OnResizeEnd(EventArgs e)
@@ -78,9 +100,9 @@ namespace Frankyu.WinformControls
 
         private void roundButton2_Click(object sender, EventArgs e)
         {
-            WindowsFormsApplication1.MessageForm frm = new WindowsFormsApplication1.MessageForm("登录成功", "提示");
-            frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.ShowDialog();
+            //WindowsFormsApplication1.MessageForm frm = new WindowsFormsApplication1.MessageForm("登录成功", "提示");
+            //frm.StartPosition = FormStartPosition.CenterScreen;
+            //frm.ShowDialog();
         }
 
         #region 窗口移动代码
@@ -91,21 +113,38 @@ namespace Frankyu.WinformControls
             base.OnSizeChanged(e);
             if (this.WindowState != _lastState)
             {
+                if (_lastState== FormWindowState.Minimized)
+                {
+                    Timer timer = new Timer();
+                    timer.Interval = 10;
+                    timer.Tick += (s, a) =>
+                    {
+                        timer.Stop();
+                        if (Opacity < 1)
+                        {
+                            Opacity += 0.2;
+                            timer.Start();
+                        }
+                    };
+                    timer.Start();
+                }
+
                 _lastState = this.WindowState;
-                OnWindowStateChanged();
+                OnWindowStateChanged(_lastState);
             }
         }
 
-        protected void OnWindowStateChanged()
+        protected void OnWindowStateChanged(FormWindowState windowState)
         {
-            switch (_lastState)
+            switch (windowState)
             {
                 case FormWindowState.Maximized:
                     btnMax.Image = Properties.Resources.标准大小;
                     break;
                 case FormWindowState.Minimized:
+                    Opacity = 0;
                     break;
-                case FormWindowState.Normal:
+                case FormWindowState.Normal:                    
                     btnMax.Image = Properties.Resources.最大化;
                     break;
             }

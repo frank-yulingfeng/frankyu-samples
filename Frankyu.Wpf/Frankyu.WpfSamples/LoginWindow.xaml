@@ -1,0 +1,58 @@
+﻿<Window x:Class="Frankyu.WpfSamples.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" ResizeMode="NoResize"
+        Title="LoginWindow" Height="400" Width="280" Background="WhiteSmoke">
+
+    <Window.Resources>
+        <Style x:Key="flatButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value=" Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="template"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        SnapsToDevicePixels="True">
+                            <Image Stretch="None" Source="pack://siteoforigin:,,,/Resources/settings.png">  </Image>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="template" Property="Background" Value="LightGray"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="template" Property="Background" Value="Silver"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="gridWrap" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Header-->
+        <Grid x:Name="header" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="35"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Foreground="#A7A6AA" FontSize="13.5" Padding="10,5,5,5">
+                WeChat
+            </TextBlock>
+            <Button Grid.Column="1" VerticalAlignment="Top" Height="25" Style="{StaticResource flatButton}"></Button>
+            
+        </Grid>
+        <!--Body-->
+    </Grid>
+</Window>

@@ -78,21 +78,32 @@ namespace WinformSample
 
         private Color _backColor;
 
+        public new Color BackColor
+        {
+            get 
+            {
+                return _backColor;
+            }
+            set 
+            {
+                base.BackColor = value;
+                _backColor = value;
+            }
+        }
+
         protected override void OnMouseEnter(EventArgs e)
         {
-            _backColor = BackColor;
-
             base.OnMouseEnter(e);
             if (MouseOverBackColor.IsEmpty)
                 return;
 
-            BackColor = MouseOverBackColor;
+            base.BackColor = MouseOverBackColor;
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            BackColor = _backColor;
+            base.BackColor = _backColor;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -105,7 +116,7 @@ namespace WinformSample
             if (MouseDownBackColor.IsEmpty)
                 return;
 
-            BackColor = MouseDownBackColor;
+            base.BackColor = MouseDownBackColor;
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -115,7 +126,7 @@ namespace WinformSample
             if (e.Button != System.Windows.Forms.MouseButtons.Left)
                 return;
 
-            BackColor = MouseOverBackColor;
+            base.BackColor = MouseOverBackColor;
         }
 
         protected override void OnSizeChanged(EventArgs e)

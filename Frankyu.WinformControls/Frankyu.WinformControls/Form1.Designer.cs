@@ -51,9 +51,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(366, 51);
+            this.textBox2.Location = new System.Drawing.Point(366, 47);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 20);
+            this.textBox2.Size = new System.Drawing.Size(199, 21);
             this.textBox2.TabIndex = 17;
             // 
             // panel1
@@ -66,15 +66,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(669, 33);
+            this.panel1.Size = new System.Drawing.Size(669, 30);
             this.panel1.TabIndex = 21;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTitle.Font = new System.Drawing.Font("SimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblTitle.ForeColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Location = new System.Drawing.Point(12, 8);
+            this.lblTitle.Location = new System.Drawing.Point(12, 7);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(35, 14);
             this.lblTitle.TabIndex = 3;
@@ -82,27 +82,27 @@
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(619, 278);
+            this.vScrollBar1.Location = new System.Drawing.Point(619, 257);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 195);
+            this.vScrollBar1.Size = new System.Drawing.Size(20, 180);
             this.vScrollBar1.TabIndex = 22;
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(410, 278);
+            this.textBox1.Location = new System.Drawing.Point(410, 257);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(191, 195);
+            this.textBox1.Size = new System.Drawing.Size(191, 180);
             this.textBox1.TabIndex = 24;
             // 
             // flatScrollBar1
             // 
             this.flatScrollBar1.BackColor = System.Drawing.Color.Transparent;
-            this.flatScrollBar1.Location = new System.Drawing.Point(602, 278);
+            this.flatScrollBar1.Location = new System.Drawing.Point(602, 257);
             this.flatScrollBar1.Name = "flatScrollBar1";
-            this.flatScrollBar1.Size = new System.Drawing.Size(15, 195);
+            this.flatScrollBar1.Size = new System.Drawing.Size(15, 180);
             this.flatScrollBar1.TabIndex = 100;
             // 
             // btnMin
@@ -119,7 +119,7 @@
             this.btnMin.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnMin.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(34, 33);
+            this.btnMin.Size = new System.Drawing.Size(34, 30);
             this.btnMin.TabIndex = 2;
             this.btnMin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
@@ -138,7 +138,7 @@
             this.btnMax.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnMax.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnMax.Name = "btnMax";
-            this.btnMax.Size = new System.Drawing.Size(34, 33);
+            this.btnMax.Size = new System.Drawing.Size(34, 30);
             this.btnMax.TabIndex = 1;
             this.btnMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
@@ -157,7 +157,7 @@
             this.btnClose.MouseDownBackColor = System.Drawing.Color.DarkRed;
             this.btnClose.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(34, 33);
+            this.btnClose.Size = new System.Drawing.Size(34, 30);
             this.btnClose.TabIndex = 0;
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -166,7 +166,7 @@
             // 
             this.sysHintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
             this.sysHintTextBox1.Hint = "Enter your name";
-            this.sysHintTextBox1.Location = new System.Drawing.Point(366, 82);
+            this.sysHintTextBox1.Location = new System.Drawing.Point(366, 76);
             this.sysHintTextBox1.Name = "sysHintTextBox1";
             this.sysHintTextBox1.Size = new System.Drawing.Size(199, 23);
             this.sysHintTextBox1.TabIndex = 18;
@@ -179,12 +179,12 @@
             this.tabButton3.IsSelected = false;
             this.tabButton3.LineLocation = Frankyu.WinformControls.SelectedLineLocation.Bottom;
             this.tabButton3.LineWidth = 6F;
-            this.tabButton3.Location = new System.Drawing.Point(37, 371);
-            this.tabButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabButton3.Location = new System.Drawing.Point(37, 342);
+            this.tabButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabButton3.Name = "tabButton3";
             this.tabButton3.SelectedForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabButton3.SelectedLineColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tabButton3.Size = new System.Drawing.Size(112, 38);
+            this.tabButton3.Size = new System.Drawing.Size(112, 35);
             this.tabButton3.TabIndex = 14;
             this.tabButton3.TabText = "未读邮件";
             this.tabButton3.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -200,12 +200,12 @@
             this.tabButton2.IsSelected = false;
             this.tabButton2.LineLocation = Frankyu.WinformControls.SelectedLineLocation.Bottom;
             this.tabButton2.LineWidth = 6F;
-            this.tabButton2.Location = new System.Drawing.Point(37, 324);
-            this.tabButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabButton2.Location = new System.Drawing.Point(37, 299);
+            this.tabButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabButton2.Name = "tabButton2";
             this.tabButton2.SelectedForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabButton2.SelectedLineColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tabButton2.Size = new System.Drawing.Size(112, 38);
+            this.tabButton2.Size = new System.Drawing.Size(112, 35);
             this.tabButton2.TabIndex = 13;
             this.tabButton2.TabText = "已加密";
             this.tabButton2.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -221,12 +221,12 @@
             this.tabButton1.IsSelected = true;
             this.tabButton1.LineLocation = Frankyu.WinformControls.SelectedLineLocation.Bottom;
             this.tabButton1.LineWidth = 6F;
-            this.tabButton1.Location = new System.Drawing.Point(37, 278);
-            this.tabButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabButton1.Location = new System.Drawing.Point(37, 257);
+            this.tabButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabButton1.Name = "tabButton1";
             this.tabButton1.SelectedForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabButton1.SelectedLineColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tabButton1.Size = new System.Drawing.Size(112, 38);
+            this.tabButton1.Size = new System.Drawing.Size(112, 35);
             this.tabButton1.TabIndex = 12;
             this.tabButton1.TabText = "全部";
             this.tabButton1.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -240,10 +240,10 @@
             this.roundButton2.BorderWidth = 1F;
             this.roundButton2.FlatAppearance.BorderSize = 0;
             this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton2.Location = new System.Drawing.Point(37, 121);
+            this.roundButton2.Location = new System.Drawing.Point(37, 112);
             this.roundButton2.Name = "roundButton2";
             this.roundButton2.Radius = 3;
-            this.roundButton2.Size = new System.Drawing.Size(153, 55);
+            this.roundButton2.Size = new System.Drawing.Size(153, 51);
             this.roundButton2.TabIndex = 5;
             this.roundButton2.Text = "OK";
             this.roundButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -258,12 +258,12 @@
             this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.flatButton1.Location = new System.Drawing.Point(365, 119);
+            this.flatButton1.Location = new System.Drawing.Point(365, 110);
             this.flatButton1.MouseDownBackColor = System.Drawing.Color.Silver;
             this.flatButton1.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.flatButton1.Name = "flatButton1";
             this.flatButton1.Padding = new System.Windows.Forms.Padding(10, 0, 5, 0);
-            this.flatButton1.Size = new System.Drawing.Size(203, 41);
+            this.flatButton1.Size = new System.Drawing.Size(203, 38);
             this.flatButton1.TabIndex = 4;
             this.flatButton1.Text = "新建笔记";
             this.flatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -274,14 +274,14 @@
             this.hintTextBox2.BorderColors = System.Drawing.Color.LightGray;
             this.hintTextBox2.BorderRadius = 0;
             this.hintTextBox2.BorderWidth = 0.01F;
-            this.hintTextBox2.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.hintTextBox2.Font = new System.Drawing.Font("SimHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.hintTextBox2.HightLight = false;
             this.hintTextBox2.HintText = "hint";
-            this.hintTextBox2.Location = new System.Drawing.Point(365, 202);
-            this.hintTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.hintTextBox2.Location = new System.Drawing.Point(365, 186);
+            this.hintTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hintTextBox2.Name = "hintTextBox2";
             this.hintTextBox2.PasswordChar = '\0';
-            this.hintTextBox2.Size = new System.Drawing.Size(199, 40);
+            this.hintTextBox2.Size = new System.Drawing.Size(199, 37);
             this.hintTextBox2.TabIndex = 2;
             // 
             // roundButton1
@@ -290,10 +290,10 @@
             this.roundButton1.BorderWidth = 1F;
             this.roundButton1.FlatAppearance.BorderSize = 0;
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Location = new System.Drawing.Point(37, 74);
+            this.roundButton1.Location = new System.Drawing.Point(37, 68);
             this.roundButton1.Name = "roundButton1";
             this.roundButton1.Radius = 3;
-            this.roundButton1.Size = new System.Drawing.Size(159, 41);
+            this.roundButton1.Size = new System.Drawing.Size(159, 38);
             this.roundButton1.TabIndex = 1;
             this.roundButton1.Text = "OK";
             this.roundButton1.UseVisualStyleBackColor = true;
@@ -307,18 +307,18 @@
             this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hintTextBox1.HightLight = true;
             this.hintTextBox1.HintText = "Enter your name";
-            this.hintTextBox1.Location = new System.Drawing.Point(365, 164);
+            this.hintTextBox1.Location = new System.Drawing.Point(365, 151);
             this.hintTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.hintTextBox1.Name = "hintTextBox1";
             this.hintTextBox1.PasswordChar = '\0';
-            this.hintTextBox1.Size = new System.Drawing.Size(200, 30);
+            this.hintTextBox1.Size = new System.Drawing.Size(200, 28);
             this.hintTextBox1.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 551);
+            this.ClientSize = new System.Drawing.Size(669, 509);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.flatScrollBar1);
             this.Controls.Add(this.vScrollBar1);
@@ -336,7 +336,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(200, 87);
+            this.MinimumSize = new System.Drawing.Size(200, 80);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "TEST";

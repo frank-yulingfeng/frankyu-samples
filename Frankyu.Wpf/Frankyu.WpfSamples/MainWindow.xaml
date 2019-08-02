@@ -1,0 +1,78 @@
+﻿<Window x:Class="Frankyu.WpfSamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="600" Width="450"
+        WindowStartupLocation="CenterScreen" 
+        xmlns:vmodel="clr-namespace:WpfVModel;assembly=WpfVModel"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Background="#FF5E146E" AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Window.DataContext>
+        <vmodel:MainVModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="BtnInfoStyle" TargetType="Button">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#43a9c7"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True">
+
+                            <Label Content="{TemplateBinding Content}" 
+                                       Foreground="{TemplateBinding Foreground}" 
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#2f96b4"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#2a89a4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="New_CanExecute" 
+                        Executed="New_Execute">
+        </CommandBinding>
+    </Window.CommandBindings>
+    <Grid>
+        <StackPanel Margin="50">
+            <TextBlock  Margin="5" Foreground="White" Text="{Binding Path= Name}"></TextBlock>
+            <TextBlock Margin="5" Foreground="White" Text="{Binding ElementName=txt, Path=Text}"></TextBlock>
+            <TextBox x:Name="txt" Margin="5">
+               
+            </TextBox>
+            <Button Style="{StaticResource BtnInfoStyle}" 
+                    Margin="5" Content="Change Name"
+                    Command="{Binding ShowNameCommand}"
+                    CommandParameter="{Binding ElementName=txt, Path=Text}"/>
+
+            <Button Style="{StaticResource BtnInfoStyle}" 
+                    Margin="5" Content="New">
+                <Button.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick" Command="New" CommandParameter="Label"/>
+                </Button.InputBindings>
+
+            </Button>
+
+            <Button Style="{StaticResource BtnInfoStyle}" 
+                    Click="Button_Click" 
+                    Margin="5" Content="Close"/>
+        </StackPanel>
+    </Grid>
+</Window>
