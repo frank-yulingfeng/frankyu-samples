@@ -53,7 +53,7 @@ namespace WinformSample
             TextAlign = ContentAlignment.MiddleCenter;
             FlatStyle = FlatStyle.Flat;
 
-            _backColor = BackColor;
+            BackColor = Color.Transparent;
             _cornerRadius = 0;
         }
 
@@ -80,11 +80,8 @@ namespace WinformSample
 
         public new Color BackColor
         {
-            get 
-            {
-                return _backColor;
-            }
-            set 
+            get { return base.BackColor; }
+            set
             {
                 base.BackColor = value;
                 _backColor = value;
@@ -110,7 +107,7 @@ namespace WinformSample
         {
             base.OnMouseDown(e);
 
-            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
                 return;
 
             if (MouseDownBackColor.IsEmpty)
@@ -123,7 +120,7 @@ namespace WinformSample
         {
             base.OnMouseUp(e);
 
-            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
                 return;
 
             base.BackColor = MouseOverBackColor;
