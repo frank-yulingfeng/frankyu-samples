@@ -32,14 +32,18 @@ namespace Frankyu.WinformControls
 
         private void Form5_Load(object sender, EventArgs e)
         {
-
+            selectionCard1.Click += SelectionCard1_Click;            
         }
-        
+
+        private void SelectionCard1_Click(object sender, EventArgs e)
+        {
+            selectionCard1.IsSelected = !selectionCard1.IsSelected;
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             _graphicsBuffer.Graphics.Clear(this.BackColor);
-
             _graphicsBuffer.Graphics.DrawRectangle(Pens.Gray, new Rectangle
             {
                 Location = new Point(0, 0),
@@ -47,7 +51,9 @@ namespace Frankyu.WinformControls
             });
             //_graphicsBuffer.Graphics.DrawLine(Pens.LightSteelBlue, new Point(0, 0), new Point(Width, 0));
             //_graphicsBuffer.Graphics.DrawLine(Pens.LightSteelBlue, new Point(0, 0), new Point(0, 31));
-            _graphicsBuffer.Render(e.Graphics);            
+            _graphicsBuffer.Render(e.Graphics);
+
+            ControlPaint.DrawBorder(e.Graphics, flowLayoutPanel1.Bounds, Color.Black, ButtonBorderStyle.Solid);
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -163,6 +169,29 @@ namespace Frankyu.WinformControls
         private bool m_aeroEnabled;
         private const int CS_DROPSHADOW = 0x00020000;
         private const int WM_NCPAINT = 0x0085;
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void flatButton2_Click(object sender, EventArgs e)
+        {
+            var lbl = new CustomLabel()
+            {
+                Width = 100,
+                Height = 40,
+                BorderRadius = 3
+            };
+
+            lbl.Text = DateTime.Now.ToString();
+            flowLayoutPanel1.Controls.Add(lbl);
+            lbl.ImageClick += (s, ee) =>
+            {
+                flowLayoutPanel1.Controls.Remove(lbl);
+            };
+        }
+
         private const int WM_ACTIVATEAPP = 0x001C;
         [DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);

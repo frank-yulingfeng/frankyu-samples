@@ -50,6 +50,12 @@
     <Compile Include="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomLabel.Designer.cs">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="EllipticLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     <Compile Include="RoundPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SelectionCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectionCard.Designer.cs">
+      <DependentUpon>SelectionCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SelectionLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -147,6 +159,9 @@
       <DependentUpon>TabButton.cs</DependentUpon>
     </Compile>
     <Compile Include="TabButtonCollection.cs" />
+    <EmbeddedResource Include="CustomLabel.resx">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FlatScrollBar.resx">
       <DependentUpon>FlatScrollBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +204,9 @@
     </Compile>
     <EmbeddedResource Include="RoundButton.resx">
       <DependentUpon>RoundButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectionCard.resx">
+      <DependentUpon>SelectionCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplitLine.resx">
       <DependentUpon>SplitLine.cs</DependentUpon>
@@ -244,6 +262,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\最大化2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unchecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
