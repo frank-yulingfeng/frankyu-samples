@@ -132,6 +132,20 @@ namespace WinformSample
             SetRound();
         }
 
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            base.OnEnabledChanged(e);
+
+            if (Enabled)
+            {
+                base.BackColor = BackColor;
+            }
+            else
+            {
+                base.BackColor = ControlPaint.Light(BackColor);
+            }
+        }
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
             (
@@ -238,7 +252,7 @@ namespace WinformSample
                 return;
 
             if (BorderWidth <= 0)
-                return;                         
+                return;
 
             Pen pen = new Pen(BorderColor, BorderWidth);
             pen.StartCap = LineCap.Round;
@@ -246,12 +260,12 @@ namespace WinformSample
             pen.LineJoin = LineJoin.Round;
             pevent.Graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;//消除锯齿
-            DrawRoundRect(pevent.Graphics, pen, new Point(0, 0), Width - 2, Height - 2, CornerRadius);
+            DrawRoundRect(pevent.Graphics, pen, new Point(0, 0), Width - 1, Height - 1, CornerRadius);
         }
 
         private void SetRound()
         {
-            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, CornerRadius, CornerRadius);
+            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, CornerRadius, CornerRadius);
             Region = Region.FromHrgn(ptr);
         }
     }

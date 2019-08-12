@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flatButton1 = new WinformSample.FlatButton();
             this.customLabel1 = new Frankyu.WinformControls.CustomLabel();
             this.flatButton2 = new WinformSample.FlatButton();
             this.selectionCard1 = new Frankyu.WinformControls.SelectionCard();
@@ -59,6 +60,24 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 196);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
+            // flatButton1
+            // 
+            this.flatButton1.BackColor = System.Drawing.Color.ForestGreen;
+            this.flatButton1.BorderColor = System.Drawing.Color.Empty;
+            this.flatButton1.BorderWidth = 0F;
+            this.flatButton1.CornerRadius = 0;
+            this.flatButton1.Enabled = false;
+            this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flatButton1.ForeColor = System.Drawing.Color.White;
+            this.flatButton1.Location = new System.Drawing.Point(79, 474);
+            this.flatButton1.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.flatButton1.MouseOverBackColor = System.Drawing.Color.Empty;
+            this.flatButton1.Name = "flatButton1";
+            this.flatButton1.Size = new System.Drawing.Size(148, 35);
+            this.flatButton1.TabIndex = 10;
+            this.flatButton1.Text = "flatButton1";
+            this.flatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // customLabel1
             // 
             this.customLabel1.BackColor = System.Drawing.Color.Transparent;
@@ -71,8 +90,8 @@
             // flatButton2
             // 
             this.flatButton2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.flatButton2.BorderColor = System.Drawing.Color.Empty;
-            this.flatButton2.BorderWidth = 0F;
+            this.flatButton2.BorderColor = System.Drawing.Color.Red;
+            this.flatButton2.BorderWidth = 0.5F;
             this.flatButton2.CornerRadius = 3;
             this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton2.Location = new System.Drawing.Point(319, 76);
@@ -127,6 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(618, 550);
+            this.Controls.Add(this.flatButton1);
             this.Controls.Add(this.customLabel1);
             this.Controls.Add(this.flatButton2);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -149,5 +169,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private WinformSample.FlatButton flatButton2;
         private CustomLabel customLabel1;
+        private WinformSample.FlatButton flatButton1;
     }
 }
