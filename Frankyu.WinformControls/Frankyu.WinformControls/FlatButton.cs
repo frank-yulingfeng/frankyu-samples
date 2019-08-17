@@ -88,6 +88,40 @@ namespace WinformSample
             }
         }
 
+        private string _text;
+
+        public new string Text
+        {
+            get { return base.Text; }
+            set
+            {
+                _text = value;
+                base.Text = _text;
+            }
+        }
+
+        public new bool Enabled
+        {
+            get
+            {
+                return base.Enabled;
+
+            }
+            set
+            {
+                base.Enabled = value;
+
+                if (!value)
+                {
+                    base.BackColor = MouseDownBackColor;                        
+                }
+                else
+                {
+                    base.BackColor = _backColor;
+                }
+            }
+        }
+
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -248,6 +282,32 @@ namespace WinformSample
         {
             base.OnPaint(pevent);
 
+            if (!Enabled)
+            {
+                base.Text = string.Empty;
+
+                if (string.IsNullOrEmpty(_text))
+                    return;
+
+                StringFormat format = new StringFormat
+                {
+                    Alignment = GetHorizontalAlignment(),
+                    LineAlignment = GetVericalAlignment(),
+                    Trimming = AutoEllipsis ? StringTrimming.EllipsisCharacter : StringTrimming.None,
+                    FormatFlags = StringFormatFlags.MeasureTrailingSpaces
+                };
+
+                pevent.Graphics.DrawString(_text, Font, new SolidBrush(ForeColor), new Rectangle
+                {
+                    Location = ClientRectangle.Location,
+                    Size = ClientRectangle.Size - new Size(2, 0),
+                }, format);
+            }
+            else
+            {
+                base.Text = _text;
+            }
+
             if (BorderColor.IsEmpty)
                 return;
 
@@ -267,6 +327,52 @@ namespace WinformSample
         {
             IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, CornerRadius, CornerRadius);
             Region = Region.FromHrgn(ptr);
+        }
+        
+        private StringAlignment GetVericalAlignment()
+        {
+            switch (TextAlign)
+            {
+                case ContentAlignment.BottomLeft:
+                case ContentAlignment.BottomRight:
+                case ContentAlignment.BottomCenter:
+                    return StringAlignment.Near;
+
+                case ContentAlignment.MiddleCenter:
+                case ContentAlignment.MiddleLeft:
+                case ContentAlignment.MiddleRight:
+                    return StringAlignment.Center;
+
+                case ContentAlignment.TopCenter:
+                case ContentAlignment.TopLeft:
+                case ContentAlignment.TopRight:
+                    return StringAlignment.Far;
+            }
+
+            return StringAlignment.Center;
+        }
+
+        private StringAlignment GetHorizontalAlignment()
+        {
+            switch (TextAlign)
+            {
+                case ContentAlignment.TopLeft:
+                case ContentAlignment.MiddleLeft:
+                case ContentAlignment.BottomLeft:
+                    return StringAlignment.Near;
+
+                case ContentAlignment.TopRight:
+                case ContentAlignment.MiddleRight:
+                case ContentAlignment.BottomRight:
+                    return StringAlignment.Far;
+
+                case ContentAlignment.TopCenter:
+                case ContentAlignment.MiddleCenter:
+                case ContentAlignment.BottomCenter:
+                    return StringAlignment.Center;
+            }
+
+            return StringAlignment.Center;
         }
     }
 }

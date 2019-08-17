@@ -65,17 +65,16 @@
             this.flatButton1.BackColor = System.Drawing.Color.ForestGreen;
             this.flatButton1.BorderColor = System.Drawing.Color.Empty;
             this.flatButton1.BorderWidth = 0F;
-            this.flatButton1.CornerRadius = 0;
-            this.flatButton1.Enabled = false;
+            this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ForeColor = System.Drawing.Color.White;
             this.flatButton1.Location = new System.Drawing.Point(79, 474);
-            this.flatButton1.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.flatButton1.MouseOverBackColor = System.Drawing.Color.Empty;
+            this.flatButton1.MouseDownBackColor = System.Drawing.Color.OliveDrab;
+            this.flatButton1.MouseOverBackColor = System.Drawing.Color.Green;
             this.flatButton1.Name = "flatButton1";
             this.flatButton1.Size = new System.Drawing.Size(148, 35);
             this.flatButton1.TabIndex = 10;
-            this.flatButton1.Text = "flatButton1";
+            this.flatButton1.Text = "确定";
             this.flatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // customLabel1
