@@ -191,7 +191,7 @@ namespace Frankyu.WinformControls
                 flowLayoutPanel1.Controls.Remove(lbl);
             };
 
-            flatButton1.Enabled = !flatButton1.Enabled;
+            flatButton3.Enabled = !flatButton3.Enabled;
         }
 
         private const int WM_ACTIVATEAPP = 0x001C;

@@ -102,34 +102,14 @@ namespace WinformSample
                 base.Text = _text;
             }
         }
-
-        public new bool Enabled
-        {
-            get
-            {
-                return base.Enabled;
-
-            }
-            set
-            {
-                base.Enabled = value;
-
-                if (!value)
-                {
-                    base.BackColor = MouseDownBackColor;                        
-                }
-                else
-                {
-                    base.BackColor = _backColor;
-                }
-            }
-        }
-
+        
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
             if (MouseOverBackColor.IsEmpty)
+            {
                 return;
+            }
 
             base.BackColor = MouseOverBackColor;
         }
@@ -148,7 +128,13 @@ namespace WinformSample
                 return;
 
             if (MouseDownBackColor.IsEmpty)
+            {
+                if (_backColor == Color.Transparent)
+                    return;
+
+                base.BackColor = ControlPaint.Light(_backColor);
                 return;
+            }
 
             base.BackColor = MouseDownBackColor;
         }
@@ -159,6 +145,15 @@ namespace WinformSample
 
             if (e.Button != MouseButtons.Left)
                 return;
+
+            if (MouseOverBackColor.IsEmpty)
+            {
+                if (_backColor == Color.Transparent)
+                    return;
+
+                base.BackColor = _backColor;
+                return;                
+            }
 
             base.BackColor = MouseOverBackColor;
         }
@@ -175,11 +170,12 @@ namespace WinformSample
 
             if (Enabled)
             {
-                base.BackColor = BackColor;
+                base.BackColor = _backColor;
             }
             else
             {
-                base.BackColor = ControlPaint.Light(BackColor);
+                if (!BackColor.IsEmpty && BackColor != Color.Transparent)
+                    base.BackColor = ControlPaint.Light(_backColor);
             }
         }
 

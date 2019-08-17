@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flatButton3 = new WinformSample.FlatButton();
             this.flatButton1 = new WinformSample.FlatButton();
             this.customLabel1 = new Frankyu.WinformControls.CustomLabel();
             this.flatButton2 = new WinformSample.FlatButton();
@@ -59,6 +60,22 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 196);
             this.flowLayoutPanel1.TabIndex = 7;
+            // 
+            // flatButton3
+            // 
+            this.flatButton3.BackColor = System.Drawing.Color.Gray;
+            this.flatButton3.BorderColor = System.Drawing.Color.Empty;
+            this.flatButton3.BorderWidth = 0F;
+            this.flatButton3.CornerRadius = 0;
+            this.flatButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flatButton3.Location = new System.Drawing.Point(374, 480);
+            this.flatButton3.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.flatButton3.MouseOverBackColor = System.Drawing.Color.Empty;
+            this.flatButton3.Name = "flatButton3";
+            this.flatButton3.Size = new System.Drawing.Size(109, 29);
+            this.flatButton3.TabIndex = 11;
+            this.flatButton3.Text = "flatButton3";
+            this.flatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flatButton1
             // 
@@ -145,6 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(618, 550);
+            this.Controls.Add(this.flatButton3);
             this.Controls.Add(this.flatButton1);
             this.Controls.Add(this.customLabel1);
             this.Controls.Add(this.flatButton2);
@@ -169,5 +187,6 @@
         private WinformSample.FlatButton flatButton2;
         private CustomLabel customLabel1;
         private WinformSample.FlatButton flatButton1;
+        private WinformSample.FlatButton flatButton3;
     }
 }
