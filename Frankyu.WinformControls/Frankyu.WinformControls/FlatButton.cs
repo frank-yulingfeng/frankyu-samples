@@ -25,10 +25,13 @@ namespace WinformSample
                 if (value < 0)
                 {
                     _borderWidth = 0;
-                    return;
-                }
 
-                _borderWidth = value;
+                }
+                else
+                {
+                    _borderWidth = value;
+                }
+                SetRound();
             }
         }
 
@@ -325,7 +328,8 @@ namespace WinformSample
 
         private void SetRound()
         {
-            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, CornerRadius, CornerRadius);
+            var corerRadius = CornerRadius; //+ (BorderWidth > 0 ? 1 : 0);
+            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, corerRadius, corerRadius);
             Region = Region.FromHrgn(ptr);
         }
         

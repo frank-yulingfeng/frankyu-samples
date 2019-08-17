@@ -63,8 +63,8 @@
             // flatButton1
             // 
             this.flatButton1.BackColor = System.Drawing.Color.ForestGreen;
-            this.flatButton1.BorderColor = System.Drawing.Color.Empty;
-            this.flatButton1.BorderWidth = 0F;
+            this.flatButton1.BorderColor = System.Drawing.Color.Blue;
+            this.flatButton1.BorderWidth = 1F;
             this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ForeColor = System.Drawing.Color.White;
@@ -88,10 +88,10 @@
             // 
             // flatButton2
             // 
-            this.flatButton2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.flatButton2.BackColor = System.Drawing.Color.Transparent;
             this.flatButton2.BorderColor = System.Drawing.Color.Red;
-            this.flatButton2.BorderWidth = 0.5F;
-            this.flatButton2.CornerRadius = 3;
+            this.flatButton2.BorderWidth = 1F;
+            this.flatButton2.CornerRadius = 2;
             this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton2.Location = new System.Drawing.Point(319, 76);
             this.flatButton2.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue;
