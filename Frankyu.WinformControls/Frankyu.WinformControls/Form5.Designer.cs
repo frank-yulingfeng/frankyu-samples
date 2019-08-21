@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new WinformSample.FlatButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flatButton3 = new WinformSample.FlatButton();
             this.flatButton1 = new WinformSample.FlatButton();
             this.customLabel1 = new Frankyu.WinformControls.CustomLabel();
             this.flatButton2 = new WinformSample.FlatButton();
             this.selectionCard1 = new Frankyu.WinformControls.SelectionCard();
-            this.btnClose = new WinformSample.FlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,26 @@
             this.panel1.Size = new System.Drawing.Size(616, 33);
             this.panel1.TabIndex = 2;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Empty;
+            this.btnClose.BorderWidth = 0F;
+            this.btnClose.CornerRadius = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClose.ForeColor = System.Drawing.Color.Brown;
+            this.btnClose.Location = new System.Drawing.Point(581, 0);
+            this.btnClose.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnClose.MouseOverBackColor = System.Drawing.Color.Empty;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(35, 33);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "X";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -63,7 +83,7 @@
             // 
             // flatButton3
             // 
-            this.flatButton3.BackColor = System.Drawing.Color.Gray;
+            this.flatButton3.BackColor = System.Drawing.Color.Silver;
             this.flatButton3.BorderColor = System.Drawing.Color.Empty;
             this.flatButton3.BorderWidth = 0F;
             this.flatButton3.CornerRadius = 0;
@@ -81,7 +101,7 @@
             // 
             this.flatButton1.BackColor = System.Drawing.Color.ForestGreen;
             this.flatButton1.BorderColor = System.Drawing.Color.Blue;
-            this.flatButton1.BorderWidth = 1F;
+            this.flatButton1.BorderWidth = 0F;
             this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ForeColor = System.Drawing.Color.White;
@@ -135,26 +155,6 @@
             this.selectionCard1.PaddingLeft = 25;
             this.selectionCard1.Size = new System.Drawing.Size(210, 60);
             this.selectionCard1.TabIndex = 5;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.Empty;
-            this.btnClose.BorderWidth = 0F;
-            this.btnClose.CornerRadius = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.ForeColor = System.Drawing.Color.Brown;
-            this.btnClose.Location = new System.Drawing.Point(581, 0);
-            this.btnClose.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnClose.MouseOverBackColor = System.Drawing.Color.Empty;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 33);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "X";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // Form5
             // 

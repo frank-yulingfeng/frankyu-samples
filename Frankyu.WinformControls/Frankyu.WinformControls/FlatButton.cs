@@ -52,6 +52,7 @@ namespace WinformSample
             : base()
         {
             AutoSize = false;
+            Enabled = true;
             BorderStyle = BorderStyle.None;
             TextAlign = ContentAlignment.MiddleCenter;
             FlatStyle = FlatStyle.Flat;
@@ -80,7 +81,6 @@ namespace WinformSample
         public Color MouseDownBackColor { get; set; }
 
         private Color _backColor;
-
         public new Color BackColor
         {
             get { return base.BackColor; }
@@ -91,22 +91,31 @@ namespace WinformSample
             }
         }
 
-        private string _text;
-
-        public new string Text
+        private bool _enabled = true;
+        public new bool Enabled
         {
-            get { return base.Text; }
+            get { return _enabled; }
             set
             {
-                _text = value;
-                base.Text = _text;
+                _enabled = value;
+                if (_enabled)
+                {
+                    base.BackColor = _backColor;
+                }
+                else
+                {
+                    if (_backColor == Color.Transparent)
+                        return;
+
+                    base.BackColor = ControlPaint.LightLight(_backColor);
+                }
             }
-        }
+        }     
         
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            if (MouseOverBackColor.IsEmpty)
+            if (MouseOverBackColor.IsEmpty || !this.Enabled)
             {
                 return;
             }
@@ -117,6 +126,9 @@ namespace WinformSample
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
+            if (!this.Enabled)
+                return;
+
             base.BackColor = _backColor;
         }
 
@@ -125,6 +137,9 @@ namespace WinformSample
             base.OnMouseDown(e);
 
             if (e.Button != MouseButtons.Left)
+                return;
+
+            if (!this.Enabled)
                 return;
 
             if (MouseDownBackColor.IsEmpty)
@@ -146,7 +161,10 @@ namespace WinformSample
             if (e.Button != MouseButtons.Left)
                 return;
 
-            if (MouseOverBackColor.IsEmpty)
+            if (!this.Enabled)
+                return;
+
+            if (MouseOverBackColor.IsEmpty )
             {
                 if (_backColor == Color.Transparent)
                     return;
@@ -279,33 +297,7 @@ namespace WinformSample
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            base.OnPaint(pevent);
-
-            if (!Enabled)
-            {
-                base.Text = string.Empty;
-
-                if (string.IsNullOrEmpty(_text))
-                    return;
-
-                StringFormat format = new StringFormat
-                {
-                    Alignment = GetHorizontalAlignment(),
-                    LineAlignment = GetVericalAlignment(),
-                    Trimming = AutoEllipsis ? StringTrimming.EllipsisCharacter : StringTrimming.None,
-                    FormatFlags = StringFormatFlags.MeasureTrailingSpaces
-                };
-
-                pevent.Graphics.DrawString(_text, Font, new SolidBrush(ForeColor), new Rectangle
-                {
-                    Location = ClientRectangle.Location,
-                    Size = ClientRectangle.Size - new Size(2, 0),
-                }, format);
-            }
-            else
-            {
-                base.Text = _text;
-            }
+            base.OnPaint(pevent);           
 
             if (BorderColor.IsEmpty)
                 return;
