@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new WinformSample.FlatButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.testControl1 = new Frankyu.WinformControls.TestControl();
             this.flatButton3 = new WinformSample.FlatButton();
             this.flatButton1 = new WinformSample.FlatButton();
             this.customLabel1 = new Frankyu.WinformControls.CustomLabel();
             this.flatButton2 = new WinformSample.FlatButton();
             this.selectionCard1 = new Frankyu.WinformControls.SelectionCard();
+            this.btnClose = new WinformSample.FlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,28 +50,8 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(616, 33);
+            this.panel1.Size = new System.Drawing.Size(742, 33);
             this.panel1.TabIndex = 2;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.Empty;
-            this.btnClose.BorderWidth = 0F;
-            this.btnClose.CornerRadius = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.ForeColor = System.Drawing.Color.Brown;
-            this.btnClose.Location = new System.Drawing.Point(581, 0);
-            this.btnClose.MouseDownBackColor = System.Drawing.Color.Empty;
-            this.btnClose.MouseOverBackColor = System.Drawing.Color.Empty;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 33);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "X";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -81,6 +62,17 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 196);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
+            // testControl1
+            // 
+            this.testControl1.BackColor = System.Drawing.Color.LightGray;
+            this.testControl1.BorderColor = System.Drawing.Color.Gray;
+            this.testControl1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.testControl1.Location = new System.Drawing.Point(17, 469);
+            this.testControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.testControl1.Name = "testControl1";
+            this.testControl1.Size = new System.Drawing.Size(714, 40);
+            this.testControl1.TabIndex = 12;
+            // 
             // flatButton3
             // 
             this.flatButton3.BackColor = System.Drawing.Color.Silver;
@@ -88,11 +80,11 @@
             this.flatButton3.BorderWidth = 0F;
             this.flatButton3.CornerRadius = 0;
             this.flatButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton3.Location = new System.Drawing.Point(374, 480);
+            this.flatButton3.Location = new System.Drawing.Point(234, 595);
             this.flatButton3.MouseDownBackColor = System.Drawing.Color.Empty;
             this.flatButton3.MouseOverBackColor = System.Drawing.Color.Empty;
             this.flatButton3.Name = "flatButton3";
-            this.flatButton3.Size = new System.Drawing.Size(109, 29);
+            this.flatButton3.Size = new System.Drawing.Size(137, 29);
             this.flatButton3.TabIndex = 11;
             this.flatButton3.Text = "flatButton3";
             this.flatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,7 +97,7 @@
             this.flatButton1.CornerRadius = 3;
             this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flatButton1.ForeColor = System.Drawing.Color.White;
-            this.flatButton1.Location = new System.Drawing.Point(79, 474);
+            this.flatButton1.Location = new System.Drawing.Point(47, 589);
             this.flatButton1.MouseDownBackColor = System.Drawing.Color.OliveDrab;
             this.flatButton1.MouseOverBackColor = System.Drawing.Color.Green;
             this.flatButton1.Name = "flatButton1";
@@ -118,20 +110,20 @@
             // 
             this.customLabel1.BackColor = System.Drawing.Color.Transparent;
             this.customLabel1.BorderRadius = 3;
-            this.customLabel1.Location = new System.Drawing.Point(247, 385);
+            this.customLabel1.Location = new System.Drawing.Point(12, 383);
             this.customLabel1.Name = "customLabel1";
-            this.customLabel1.Size = new System.Drawing.Size(203, 40);
+            this.customLabel1.Size = new System.Drawing.Size(370, 55);
             this.customLabel1.TabIndex = 9;
             // 
             // flatButton2
             // 
-            this.flatButton2.BackColor = System.Drawing.Color.Transparent;
-            this.flatButton2.BorderColor = System.Drawing.Color.Red;
-            this.flatButton2.BorderWidth = 1F;
-            this.flatButton2.CornerRadius = 2;
+            this.flatButton2.BackColor = System.Drawing.Color.Silver;
+            this.flatButton2.BorderColor = System.Drawing.Color.Gray;
+            this.flatButton2.BorderWidth = 0.5F;
+            this.flatButton2.CornerRadius = 3;
             this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton2.Location = new System.Drawing.Point(319, 76);
-            this.flatButton2.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.flatButton2.Location = new System.Drawing.Point(79, 122);
+            this.flatButton2.MouseDownBackColor = System.Drawing.SystemColors.Window;
             this.flatButton2.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.flatButton2.Name = "flatButton2";
             this.flatButton2.Size = new System.Drawing.Size(116, 28);
@@ -149,19 +141,41 @@
             this.selectionCard1.Image = ((System.Drawing.Image)(resources.GetObject("selectionCard1.Image")));
             this.selectionCard1.ImageWidth = 35;
             this.selectionCard1.IsSelected = false;
-            this.selectionCard1.Location = new System.Drawing.Point(34, 74);
+            this.selectionCard1.Location = new System.Drawing.Point(17, 44);
+            this.selectionCard1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectionCard1.MaximumSize = new System.Drawing.Size(1000, 500);
             this.selectionCard1.Name = "selectionCard1";
             this.selectionCard1.PaddingLeft = 25;
-            this.selectionCard1.Size = new System.Drawing.Size(210, 60);
+            this.selectionCard1.Size = new System.Drawing.Size(572, 60);
             this.selectionCard1.TabIndex = 5;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Empty;
+            this.btnClose.BorderWidth = 0F;
+            this.btnClose.CornerRadius = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClose.ForeColor = System.Drawing.Color.Brown;
+            this.btnClose.Location = new System.Drawing.Point(707, 0);
+            this.btnClose.MouseDownBackColor = System.Drawing.Color.Empty;
+            this.btnClose.MouseOverBackColor = System.Drawing.Color.Empty;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(35, 33);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "X";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(618, 550);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(744, 663);
+            this.Controls.Add(this.testControl1);
             this.Controls.Add(this.flatButton3);
             this.Controls.Add(this.flatButton1);
             this.Controls.Add(this.customLabel1);
@@ -188,5 +202,6 @@
         private CustomLabel customLabel1;
         private WinformSample.FlatButton flatButton1;
         private WinformSample.FlatButton flatButton3;
+        private TestControl testControl1;
     }
 }

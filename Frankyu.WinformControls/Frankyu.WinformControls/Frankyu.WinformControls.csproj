@@ -159,6 +159,12 @@
       <DependentUpon>TabButton.cs</DependentUpon>
     </Compile>
     <Compile Include="TabButtonCollection.cs" />
+    <Compile Include="TestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestControl.Designer.cs">
+      <DependentUpon>TestControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomLabel.resx">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TabButton.resx">
       <DependentUpon>TabButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestControl.resx">
+      <DependentUpon>TestControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -52,16 +52,16 @@
             this.img.TabIndex = 0;
             this.img.TabStop = false;
             // 
-            // SelectCard
+            // SelectionCard
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.img);
-            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.MaximumSize = new System.Drawing.Size(1000, 500);
-            this.Name = "SelectCard";
-            this.Size = new System.Drawing.Size(542, 117);
+            this.Name = "SelectionCard";
+            this.Size = new System.Drawing.Size(343, 104);
             ((System.ComponentModel.ISupportInitialize)(this.img)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

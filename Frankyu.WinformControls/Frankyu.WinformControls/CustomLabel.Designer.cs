@@ -43,12 +43,14 @@
             this.lbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl.Location = new System.Drawing.Point(6, 6);
+            this.lbl.MaximumSize = new System.Drawing.Size(2000, 2000);
             this.lbl.Name = "lbl";
             this.lbl.Padding = new System.Windows.Forms.Padding(5);
-            this.lbl.Size = new System.Drawing.Size(364, 176);
+            this.lbl.Size = new System.Drawing.Size(364, 180);
             this.lbl.TabIndex = 0;
             this.lbl.Text = "label1";
             this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl.Click += new System.EventHandler(this.lbl_Click);
             // 
             // img
             // 

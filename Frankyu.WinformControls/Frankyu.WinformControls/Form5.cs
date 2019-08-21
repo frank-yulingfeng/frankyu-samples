@@ -194,6 +194,11 @@ namespace Frankyu.WinformControls
             flatButton3.Enabled = !flatButton3.Enabled;
         }
 
+        private void selectionCard1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private const int WM_ACTIVATEAPP = 0x001C;
         [DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
