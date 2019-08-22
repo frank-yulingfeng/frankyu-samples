@@ -271,7 +271,6 @@
             // 
             // hintTextBox2
             // 
-            this.hintTextBox2.BorderColors = System.Drawing.Color.LightGray;
             this.hintTextBox2.BorderRadius = 0;
             this.hintTextBox2.BorderWidth = 0.01F;
             this.hintTextBox2.Font = new System.Drawing.Font("SimHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -301,7 +300,6 @@
             // 
             // hintTextBox1
             // 
-            this.hintTextBox1.BorderColors = System.Drawing.Color.LightGray;
             this.hintTextBox1.BorderRadius = 3;
             this.hintTextBox1.BorderWidth = 0.01F;
             this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -77,24 +77,38 @@ namespace WindowsFormsApplication1
         }
 
         private Color _borderColor;
-
-        public Color BorderColors
+        public Color BorderColor
         {
-            get
-            {
-                return _borderColor;
-            }
+            get { return _borderColor; }
             set
             {
                 _borderColor = value;
+                if (HightLight)
+                {
+                    _colorBorder = BorderColor.IsEmpty ? Color_LostFocus : BorderColor;
+                }
+                Invalidate();
             }
         }
-               
+
+        private Color _highLightBorderColor;
+
+        public Color HighLightBorderColor
+        {
+            get
+            {
+                return _highLightBorderColor;
+            }
+            set
+            {
+                _highLightBorderColor = value;
+                Invalidate();
+            }
+        }
 
         public HintTextBox()
         {
             InitializeComponent();
-            _colorBorder = Color_LostFocus;
             this.txtbox.BackColor = BackColor;            
             this.lbHint.BackColor = Color.Transparent;
 
@@ -105,10 +119,18 @@ namespace WindowsFormsApplication1
             this.FontChanged += HintTextBox_FontChanged;
             this.BackColorChanged += HintTextBox_BackColorChanged;
             
-            BorderWidth = 0.01f;
-            BorderColors = Color.LightGray;
+            BorderWidth = 1f;
 
-            RefreshFont();
+            RefreshFont();           
+        }
+
+        private void HintTextBox_Load(object sender, EventArgs e)
+        {
+            if (HightLight)
+            {
+                _colorBorder = BorderColor.IsEmpty ? Color_LostFocus : BorderColor;
+                Invalidate();
+            }
         }
 
         void HintTextBox_BackColorChanged(object sender, EventArgs e)
@@ -148,25 +170,28 @@ namespace WindowsFormsApplication1
 
         private void Txtbox_LostFocus(object sender, EventArgs e)
         {
-            _colorBorder = Color_LostFocus;
-            this.Invalidate();
+            if (HightLight)
+            {
+                _colorBorder = BorderColor.IsEmpty ? Color_LostFocus : BorderColor;
+                this.Invalidate();
+            }
         }
 
         private void Txtbox_GotFocus(object sender, EventArgs e)
         {
-            _colorBorder = Color_GotFocus;
-            this.Invalidate();
+            if (HightLight)
+            {
+                _colorBorder = HighLightBorderColor.IsEmpty ? Color_GotFocus : HighLightBorderColor;
+                this.Invalidate();
+            }
         }
 
         private void CustomTextBox_Paint(object sender, PaintEventArgs e)
         {
             if (!HightLight)
             {
-                _colorBorder = Color_LostFocus;
+                _colorBorder = BorderColor.IsEmpty ? Color_LostFocus : BorderColor;
             }
-
-            if (BorderColors.IsEmpty)
-                return;
 
             if (BorderWidth <= 0)
                 return;
@@ -270,8 +295,8 @@ namespace WindowsFormsApplication1
 
         private void SetRound()
         {
-            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, BorderRadius, BorderRadius);
+            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, BorderRadius, BorderRadius);
             Region = Region.FromHrgn(ptr);
-        }
+        }       
     }
 }
