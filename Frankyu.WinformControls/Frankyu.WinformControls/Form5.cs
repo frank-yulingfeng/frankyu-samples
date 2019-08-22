@@ -32,13 +32,9 @@ namespace Frankyu.WinformControls
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            selectionCard1.Click += SelectionCard1_Click;            
+                     
         }
-
-        private void SelectionCard1_Click(object sender, EventArgs e)
-        {
-            selectionCard1.IsSelected = !selectionCard1.IsSelected;
-        }
+        
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -190,8 +186,6 @@ namespace Frankyu.WinformControls
             {
                 flowLayoutPanel1.Controls.Remove(lbl);
             };
-
-            flatButton3.Enabled = !flatButton3.Enabled;
         }
 
         private void selectionCard1_Load(object sender, EventArgs e)
