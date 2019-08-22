@@ -255,17 +255,17 @@ namespace WindowsFormsApplication1
         /// <param name="size"></param>
         private void RefreshFont()
         {
-            txtbox.Font = this.Font;//new Font(fontName, size, FontStyle.Regular, GraphicsUnit.Pixel);
-            lbHint.Font = this.Font;// new Font(fontName, size, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox.Font = this.Font;
+            lbHint.Font = this.Font;
             lbHint.ForeColor = Color.DarkGray;
             RefreshHeight(txtbox);
 
             var y = (Height - txtbox.Height) / 2;
-            txtbox.Location = new Point(9, y + 1);
-            txtbox.Width = Width - 18;
+            txtbox.Location = new Point(8, y + 1);
+            txtbox.Width = Width - 16;
 
             y = (Height - lbHint.Height) / 2;
-            lbHint.Location = new Point(10, y);
+            lbHint.Location = new Point(9, y);
         }
 
         private void RefreshHeight(TextBox textbox)

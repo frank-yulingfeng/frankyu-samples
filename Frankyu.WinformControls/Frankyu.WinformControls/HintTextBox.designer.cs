@@ -39,7 +39,7 @@
             this.txtbox.Location = new System.Drawing.Point(17, 21);
             this.txtbox.Multiline = true;
             this.txtbox.Name = "txtbox";
-            this.txtbox.Size = new System.Drawing.Size(271, 15);
+            this.txtbox.Size = new System.Drawing.Size(603, 15);
             this.txtbox.TabIndex = 0;
             this.txtbox.WordWrap = false;
             // 
@@ -65,7 +65,7 @@
             this.Controls.Add(this.lbHint);
             this.Controls.Add(this.txtbox);
             this.Name = "HintTextBox";
-            this.Size = new System.Drawing.Size(300, 60);
+            this.Size = new System.Drawing.Size(632, 60);
             this.Load += new System.EventHandler(this.HintTextBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
