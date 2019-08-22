@@ -73,6 +73,7 @@ namespace WindowsFormsApplication1
                 }
 
                 _borderWidth = value;
+                SetRound();
             }
         }
 
@@ -120,8 +121,13 @@ namespace WindowsFormsApplication1
             this.BackColorChanged += HintTextBox_BackColorChanged;
             
             BorderWidth = 1f;
-
             RefreshFont();           
+        }
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            SetRound();
         }
 
         private void HintTextBox_Load(object sender, EventArgs e)
@@ -295,7 +301,8 @@ namespace WindowsFormsApplication1
 
         private void SetRound()
         {
-            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, BorderRadius, BorderRadius);
+            var corerRadius = BorderRadius + (BorderWidth > 0 ? 2 : 0);
+            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, corerRadius, corerRadius);
             Region = Region.FromHrgn(ptr);
         }       
     }

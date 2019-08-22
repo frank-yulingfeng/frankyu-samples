@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ellipticLabel1 = new Frankyu.WinformControls.EllipticLabel();
             this.hintTextBox1 = new WindowsFormsApplication1.HintTextBox();
             this.testControl1 = new Frankyu.WinformControls.TestControl();
             this.flatButton3 = new WinformSample.FlatButton();
@@ -61,21 +62,36 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 196);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
+            // ellipticLabel1
+            // 
+            this.ellipticLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.ellipticLabel1.EllipticColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(183)))), ((int)(((byte)(119)))));
+            this.ellipticLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
+            this.ellipticLabel1.ForeColor = System.Drawing.Color.White;
+            this.ellipticLabel1.ImageOffset = new System.Drawing.Size(0, 0);
+            this.ellipticLabel1.ImageSize = new System.Drawing.Size(0, 0);
+            this.ellipticLabel1.Location = new System.Drawing.Point(425, 54);
+            this.ellipticLabel1.Name = "ellipticLabel1";
+            this.ellipticLabel1.Size = new System.Drawing.Size(100, 100);
+            this.ellipticLabel1.TabIndex = 14;
+            this.ellipticLabel1.Text = "温";
+            this.ellipticLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // hintTextBox1
             // 
-            this.hintTextBox1.BackColor = System.Drawing.Color.LightYellow;
-            this.hintTextBox1.BorderColor = System.Drawing.Color.Black;
-            this.hintTextBox1.BorderRadius = 3;
+            this.hintTextBox1.BackColor = System.Drawing.Color.PeachPuff;
+            this.hintTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(208)))), ((int)(((byte)(226)))));
+            this.hintTextBox1.BorderRadius = 4;
             this.hintTextBox1.BorderWidth = 1F;
-            this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.hintTextBox1.HighLightBorderColor = System.Drawing.Color.Tomato;
+            this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.hintTextBox1.HighLightBorderColor = System.Drawing.Color.Orange;
             this.hintTextBox1.HightLight = true;
             this.hintTextBox1.HintText = "账号";
             this.hintTextBox1.Location = new System.Drawing.Point(292, 377);
             this.hintTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hintTextBox1.Name = "hintTextBox1";
             this.hintTextBox1.PasswordChar = '\0';
-            this.hintTextBox1.Size = new System.Drawing.Size(231, 30);
+            this.hintTextBox1.Size = new System.Drawing.Size(210, 47);
             this.hintTextBox1.TabIndex = 13;
             // 
             // testControl1
@@ -166,6 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(620, 475);
+            this.Controls.Add(this.ellipticLabel1);
             this.Controls.Add(this.hintTextBox1);
             this.Controls.Add(this.testControl1);
             this.Controls.Add(this.flatButton3);
@@ -192,5 +209,6 @@
         private WinformSample.FlatButton flatButton3;
         private TestControl testControl1;
         private WindowsFormsApplication1.HintTextBox hintTextBox1;
+        private EllipticLabel ellipticLabel1;
     }
 }
