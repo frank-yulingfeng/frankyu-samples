@@ -261,11 +261,11 @@ namespace WindowsFormsApplication1
             RefreshHeight(txtbox);
 
             var y = (Height - txtbox.Height) / 2;
-            txtbox.Location = new Point(8, y + 1);
+            txtbox.Location = new Point(8, y);
             txtbox.Width = Width - 16;
 
             y = (Height - lbHint.Height) / 2;
-            lbHint.Location = new Point(9, y);
+            lbHint.Location = new Point(9, y - 1);
         }
 
         private void RefreshHeight(TextBox textbox)
