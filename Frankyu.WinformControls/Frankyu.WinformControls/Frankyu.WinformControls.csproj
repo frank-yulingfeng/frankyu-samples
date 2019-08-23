@@ -101,6 +101,9 @@
     <Compile Include="MessageForm.designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NativeWinAPI.cs" />
     <Compile Include="RoundControl.cs">
       <SubType>Component</SubType>

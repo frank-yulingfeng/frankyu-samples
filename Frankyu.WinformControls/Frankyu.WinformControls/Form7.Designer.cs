@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.roundPanel1 = new Frankyu.WinformControls.RoundPanel();
+            this.myTextBox1 = new Frankyu.WinformControls.MyTextBox();
             this.SuspendLayout();
             // 
-            // roundPanel1
+            // myTextBox1
             // 
-            this.roundPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.myTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundPanel1.BackColor = System.Drawing.Color.SeaShell;
-            this.roundPanel1.BorderColor = System.Drawing.Color.DarkGray;
-            this.roundPanel1.CornerRadius = 0;
-            this.roundPanel1.DropShadow = true;
-            this.roundPanel1.Location = new System.Drawing.Point(81, 69);
-            this.roundPanel1.Name = "roundPanel1";
-            this.roundPanel1.Size = new System.Drawing.Size(562, 346);
-            this.roundPanel1.TabIndex = 0;
+            this.myTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.myTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
+            this.myTextBox1.Location = new System.Drawing.Point(12, 44);
+            this.myTextBox1.Multiline = true;
+            this.myTextBox1.Name = "myTextBox1";
+            this.myTextBox1.ReadOnly = true;
+            this.myTextBox1.Size = new System.Drawing.Size(704, 34);
+            this.myTextBox1.TabIndex = 0;
             // 
             // Form7
             // 
@@ -51,15 +50,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(728, 489);
-            this.Controls.Add(this.roundPanel1);
+            this.Controls.Add(this.myTextBox1);
             this.Name = "Form7";
             this.Text = "Form7";
+            this.Load += new System.EventHandler(this.Form7_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private RoundPanel roundPanel1;
+        private MyTextBox myTextBox1;
     }
 }
