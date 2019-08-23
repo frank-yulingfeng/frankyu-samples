@@ -1,19 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Frankyu.WinformControls
 {
     public class RoundPanel : Panel
     {
-
+        private int _cornerRadius = 0;
         /// <summary>
         /// 圆角半径
         /// </summary>
-        public int CornerRadius { get; set; }
+        public int CornerRadius
+        {
+            get { return _cornerRadius; }
+            set
+            {
+                _cornerRadius = value;
+                SetRound();
+            }
+        }
 
         /// <summary>
         /// 边框颜色
@@ -27,6 +35,13 @@ namespace Frankyu.WinformControls
 
         public RoundPanel() : base()
         {
+            ResizeRedraw = true;
+        }       
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);           
+            SetRound();
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -36,48 +51,112 @@ namespace Frankyu.WinformControls
             if (BorderStyle != BorderStyle.None)
                 return;
 
-            DrawShadom(e.Graphics, ClientRectangle);
+            var pen = new Pen(BorderColor, 0.5f);
+            var rect = new Rectangle
+            {
+                Location = ClientRectangle.Location,
+                Width = Width - 1,
+                Height = Height - 1
+            };
+            //非圆角时，阴影才生效
+            if (DropShadow && CornerRadius == 0)
+            {
+                rect.Width -= 4;
+                rect.Height -= 4;
+                DrawShadom(e.Graphics);
+            }
+            DrawRoundedRectangle(e.Graphics, new Pen(BorderColor, 0.5f), rect, CornerRadius);
         }
 
-        private void DrawShadom(Graphics g, Rectangle rect)
+        private void DrawShadom(Graphics g)
         {
-            //一共画5圈
-            var pen1 = new Pen(Color.FromArgb(236, 236, 236), 0.5f);
-            g.DrawRectangle(pen1, rect);
+            // horizon line
+            var pen = new Pen(Color.FromArgb(236, 236, 236), 0.5f);
+            g.DrawLine(pen, new Point(0, Height - 4), new Point(Width, Height - 4));
+            g.DrawLine(pen, new Point(0, Height - 3), new Point(Width, Height - 3));
+            g.DrawLine(pen, new Point(0, Height - 2), new Point(Width, Height - 2));
+            g.DrawLine(pen, new Point(0, Height - 1), new Point(Width, Height - 1));
 
-            //第二圈
-            var pen2 = new Pen(Color.FromArgb(230, 230, 230), 0.5f);
-            var rect2 = new Rectangle
-            {
-                //Location = rect.Location - new Size(1, 1),
-                Size = rect.Size - new Size(1, 1),
-            };
-            
-            g.DrawRectangle(pen2, rect2);            
+            pen.Color = Color.FromArgb(213, 213, 213);
+            g.DrawLine(pen, new Point(1, Height - 4), new Point(Width - 4, Height - 4));
+            pen.Color = Color.FromArgb(223, 223, 223);
+            g.DrawLine(pen, new Point(3, Height - 3), new Point(Width - 4, Height - 3));
+            pen.Color = Color.FromArgb(230, 230, 230);
+            g.DrawLine(pen, new Point(5, Height - 2), new Point(Width - 3, Height - 2));
+            pen.Color = Color.FromArgb(236, 236, 236);
+            g.DrawLine(pen, new Point(6, Height - 1), new Point(Width - 2, Height - 1));
 
-            var pen3 = new Pen(Color.FromArgb(223, 223, 223), 0.5f);
-            var rect3 = new Rectangle
-            {
-                //Location = rect2.Location - new Size(1, 1),
-                Size = rect2.Size - new Size(1, 1),
-            };
-            g.DrawRectangle(pen3, rect3);
+            //verical line
+            pen.Color = Color.FromArgb(236, 236, 236);
+            g.DrawLine(pen, new Point(Width - 1, 0), new Point(Width - 1, Height));
+            g.DrawLine(pen, new Point(Width - 2, 0), new Point(Width - 2, Height));
+            g.DrawLine(pen, new Point(Width - 3, 0), new Point(Width - 3, Height));
+            g.DrawLine(pen, new Point(Width - 4, 0), new Point(Width - 4, Height));
 
-            var pen4 = new Pen(Color.FromArgb(213, 213, 213), 0.5f);
-            var rect4 = new Rectangle
-            {
-                //Location = rect3.Location - new Size(1, 1),
-                Size = rect3.Size - new Size(1, 1),
-            };
-            g.DrawRectangle(pen4, rect4);
+            pen.Color = Color.FromArgb(213, 213, 213);
+            g.DrawLine(pen, new Point(Width - 4, 1), new Point(Width - 4, Height - 5));
+            pen.Color = Color.FromArgb(223, 223, 223);
+            g.DrawLine(pen, new Point(Width - 3, 3), new Point(Width - 3, Height - 4));
+            pen.Color = Color.FromArgb(230, 230, 230);
+            g.DrawLine(pen, new Point(Width - 2, 5), new Point(Width - 2, Height - 3));
+            pen.Color = Color.FromArgb(236, 236, 236);
+            g.DrawLine(pen, new Point(Width - 1, 6), new Point(Width - 1, Height - 2));
+        }
 
-            var pen5 = new Pen(Color.FromArgb(205, 205, 205), 0.5f);
-            var rect5 = new Rectangle
+        public static GraphicsPath RoundedRect(Rectangle bounds, int radius)
+        {
+            int diameter = radius * 2;
+            Size size = new Size(diameter, diameter);
+            Rectangle arc = new Rectangle(bounds.Location, size);
+            GraphicsPath path = new GraphicsPath();
+            if (radius == 0)
             {
-                //Location = rect4.Location - new Size(1, 1),
-                Size = rect4.Size - new Size(1, 1),
-            };
-            g.DrawRectangle(Pens.Brown, rect5);
+                path.AddRectangle(bounds);
+                return path;
+            }
+            // top left arc
+            path.AddArc(arc, 180, 90);
+            // top right arc
+            arc.X = bounds.Right - diameter;
+            path.AddArc(arc, 270, 90);
+            // bottom right arc
+            arc.Y = bounds.Bottom - diameter;
+            path.AddArc(arc, 0, 90);
+            // bottom left arc
+            arc.X = bounds.Left;
+            path.AddArc(arc, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
+
+        public static void DrawRoundedRectangle(Graphics graphics, Pen pen, Rectangle bounds, int cornerRadius)
+        {
+            if (graphics == null)
+                throw new ArgumentNullException("graphics");
+            if (pen == null)
+                throw new ArgumentNullException("pen");
+            using (GraphicsPath path = RoundedRect(bounds, cornerRadius))
+            {
+                graphics.DrawPath(pen, path);
+            }
+        }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+           (
+               int nLeftRect,
+               int nTopRect,
+               int nRightRect,
+               int nBottomRect,
+               int nWidthEllipse,
+               int nHeightEllipse
+           );
+
+        private void SetRound()
+        {
+            var corerRadius = CornerRadius + (!BorderColor.IsEmpty ? 1 : 0);
+            IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width + 1, this.Height + 1, corerRadius, corerRadius);
+            Region = Region.FromHrgn(ptr);
         }
     }
 }

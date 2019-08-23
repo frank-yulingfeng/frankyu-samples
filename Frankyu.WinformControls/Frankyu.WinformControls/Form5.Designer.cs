@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.roundPanel1 = new Frankyu.WinformControls.RoundPanel();
-            this.ellipticLabel1 = new Frankyu.WinformControls.EllipticLabel();
-            this.hintTextBox1 = new WindowsFormsApplication1.HintTextBox();
-            this.testControl1 = new Frankyu.WinformControls.TestControl();
-            this.flatButton2 = new WinformSample.FlatButton();
             this.btnClose = new WinformSample.FlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,89 +42,8 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 33);
+            this.panel1.Size = new System.Drawing.Size(559, 33);
             this.panel1.TabIndex = 2;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 169);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(536, 140);
-            this.flowLayoutPanel1.TabIndex = 7;
-            // 
-            // roundPanel1
-            // 
-            this.roundPanel1.BorderColor = System.Drawing.Color.Empty;
-            this.roundPanel1.CornerRadius = 0;
-            this.roundPanel1.DropShadow = false;
-            this.roundPanel1.Location = new System.Drawing.Point(12, 334);
-            this.roundPanel1.Name = "roundPanel1";
-            this.roundPanel1.Size = new System.Drawing.Size(351, 106);
-            this.roundPanel1.TabIndex = 16;
-            // 
-            // ellipticLabel1
-            // 
-            this.ellipticLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.ellipticLabel1.EllipticBorderColor = System.Drawing.Color.DarkGray;
-            this.ellipticLabel1.EllipticColor = System.Drawing.Color.Gainsboro;
-            this.ellipticLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
-            this.ellipticLabel1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.ellipticLabel1.ImageOffset = new System.Drawing.Size(0, 0);
-            this.ellipticLabel1.ImageSize = new System.Drawing.Size(0, 0);
-            this.ellipticLabel1.Location = new System.Drawing.Point(263, 51);
-            this.ellipticLabel1.Name = "ellipticLabel1";
-            this.ellipticLabel1.Size = new System.Drawing.Size(100, 100);
-            this.ellipticLabel1.TabIndex = 14;
-            this.ellipticLabel1.Text = "温";
-            this.ellipticLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // hintTextBox1
-            // 
-            this.hintTextBox1.BackColor = System.Drawing.Color.PeachPuff;
-            this.hintTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(208)))), ((int)(((byte)(226)))));
-            this.hintTextBox1.BorderRadius = 4;
-            this.hintTextBox1.BorderWidth = 4F;
-            this.hintTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.hintTextBox1.HighLightBorderColor = System.Drawing.Color.Orange;
-            this.hintTextBox1.HightLight = true;
-            this.hintTextBox1.HintText = "账号";
-            this.hintTextBox1.Location = new System.Drawing.Point(396, 104);
-            this.hintTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.hintTextBox1.Name = "hintTextBox1";
-            this.hintTextBox1.PasswordChar = '\0';
-            this.hintTextBox1.Size = new System.Drawing.Size(210, 47);
-            this.hintTextBox1.TabIndex = 13;
-            // 
-            // testControl1
-            // 
-            this.testControl1.BackColor = System.Drawing.Color.LightGray;
-            this.testControl1.BorderColor = System.Drawing.Color.DarkGray;
-            this.testControl1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.testControl1.Location = new System.Drawing.Point(12, 111);
-            this.testControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.testControl1.Name = "testControl1";
-            this.testControl1.Size = new System.Drawing.Size(232, 40);
-            this.testControl1.TabIndex = 12;
-            // 
-            // flatButton2
-            // 
-            this.flatButton2.BackColor = System.Drawing.Color.White;
-            this.flatButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.flatButton2.BorderWidth = 1F;
-            this.flatButton2.CornerRadius = 2;
-            this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton2.ForeColor = System.Drawing.Color.Black;
-            this.flatButton2.Location = new System.Drawing.Point(12, 63);
-            this.flatButton2.MouseDownBackColor = System.Drawing.Color.LightGray;
-            this.flatButton2.MouseOverBackColor = System.Drawing.Color.White;
-            this.flatButton2.Name = "flatButton2";
-            this.flatButton2.Size = new System.Drawing.Size(116, 28);
-            this.flatButton2.TabIndex = 8;
-            this.flatButton2.Text = "Add label";
-            this.flatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.flatButton2.Click += new System.EventHandler(this.flatButton2_Click);
             // 
             // btnClose
             // 
@@ -142,7 +55,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnClose.ForeColor = System.Drawing.Color.Brown;
-            this.btnClose.Location = new System.Drawing.Point(583, 0);
+            this.btnClose.Location = new System.Drawing.Point(524, 0);
             this.btnClose.MouseDownBackColor = System.Drawing.Color.Empty;
             this.btnClose.MouseOverBackColor = System.Drawing.Color.Empty;
             this.btnClose.Name = "btnClose";
@@ -157,13 +70,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(620, 475);
-            this.Controls.Add(this.roundPanel1);
-            this.Controls.Add(this.ellipticLabel1);
-            this.Controls.Add(this.hintTextBox1);
-            this.Controls.Add(this.testControl1);
-            this.Controls.Add(this.flatButton2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(561, 464);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(100, 54);
@@ -178,11 +85,5 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private WinformSample.FlatButton btnClose;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private WinformSample.FlatButton flatButton2;
-        private TestControl testControl1;
-        private WindowsFormsApplication1.HintTextBox hintTextBox1;
-        private EllipticLabel ellipticLabel1;
-        private RoundPanel roundPanel1;
     }
 }

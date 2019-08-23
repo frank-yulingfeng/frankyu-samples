@@ -15,6 +15,8 @@ namespace Frankyu.WinformControls
     {
         private readonly Color _Dark_TAN = Color.FromArgb(176, 125, 68);
         private const int _STRING_PADDING = 10;
+
+        //用于重新会Resize的框架
         private BufferedGraphics _graphicsBuffer;
 
         public Form5()
@@ -27,14 +29,13 @@ namespace Frankyu.WinformControls
                 | ControlStyles.UserPaint, true);
 
             UpdateGraphicsBuffer();
-        }
-              
+        }              
 
         private void Form5_Load(object sender, EventArgs e)
         {
-                     
+           
         }
-        
+
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -48,22 +49,24 @@ namespace Frankyu.WinformControls
             //_graphicsBuffer.Graphics.DrawLine(Pens.LightSteelBlue, new Point(0, 0), new Point(Width, 0));
             //_graphicsBuffer.Graphics.DrawLine(Pens.LightSteelBlue, new Point(0, 0), new Point(0, 31));
             _graphicsBuffer.Render(e.Graphics);
-
-            ControlPaint.DrawBorder(e.Graphics, flowLayoutPanel1.Bounds, Color.Black, ButtonBorderStyle.Solid);
         }
 
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
 
-            UpdateGraphicsBuffer();
-           
+            UpdateGraphicsBuffer();           
         }
 
         private void UpdateGraphicsBuffer()
         {
             var bufferContext = BufferedGraphicsManager.Current;
             _graphicsBuffer = bufferContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         #region 拖拽
@@ -164,34 +167,7 @@ namespace Frankyu.WinformControls
         private const int HTCAPTION = 0x2;
         private bool m_aeroEnabled;
         private const int CS_DROPSHADOW = 0x00020000;
-        private const int WM_NCPAINT = 0x0085;
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void flatButton2_Click(object sender, EventArgs e)
-        {
-            var lbl = new CustomLabel()
-            {
-                Width = 100,
-                Height = 40,
-                BorderRadius = 3
-            };
-
-            lbl.Text = DateTime.Now.ToString();
-            flowLayoutPanel1.Controls.Add(lbl);
-            lbl.ImageClick += (s, ee) =>
-            {
-                flowLayoutPanel1.Controls.Remove(lbl);
-            };
-        }
-
-        private void selectionCard1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private const int WM_NCPAINT = 0x0085;        
 
         private const int WM_ACTIVATEAPP = 0x001C;
         [DllImport("dwmapi.dll")]
