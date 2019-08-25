@@ -12,6 +12,8 @@
         <h2>Search by ID</h2>
         <input type="text" id="prodId" size="5"/>
         <input type="button" value="Search" onclick="find();" />
+        <input type="button" value="New" onclick="create();" />
+        <input type="button" value="Delete" onclick="remove();" />
         <p id="product"></p>
     </div>
 
@@ -36,14 +38,59 @@
         }
 
         function find() {
+
             var id = $('#prodId').val();
-            $.post(uri + '/getbyid')
+
+            $.getJSON(uri + '/getbyid/' + id)
                 .done(function (data) {
                     $('#product').text(formatItem(data));
                 })
                 .fail(function (jqXHR, textStatus, err) {
                     $('#product').text('Error: ' + err);
+                });            
+        }
+
+        function create() {
+
+            var id = $('#prodId').val();
+
+            $.post(uri + "newproduct",
+                { "": id },
+                function (data, textStatus) {
+                    $('#product').text(data);
                 });
+
+
+            //$.ajax("http://localhost:2951/api/products/" + "newproduct",
+            //    {
+            //        type: "post",
+            //        contentType: "application/json",
+            //        data: JSON.stringify(data), // JSON data goes here
+            //        dataType: "json",                   
+            //        success: function (result) {
+            //            $('#product').text(result);
+            //        },
+            //        error : function() {
+            //            $('#product').text("error");
+            //        }
+            //    })
+        }
+
+        function remove() {
+            var id = $('#prodId').val();
+            $.ajax("http://localhost:2951/api/products/" + "deleteproduct",
+                {
+                    type: "delete",
+                    contentType: "application/json",
+                    data: JSON.stringify(id), // JSON data goes here
+                    dataType: "json",                   
+                    success: function (result) {
+                        $('#product').text(result);
+                    },
+                    error : function() {
+                        $('#product').text("error");
+                    }
+                })
         }
     </script>
 </body>

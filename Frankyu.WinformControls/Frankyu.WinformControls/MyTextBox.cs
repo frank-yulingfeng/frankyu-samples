@@ -19,5 +19,45 @@ namespace Frankyu.WinformControls
             base.DefWndProc(ref msg);
             return msg.Result.ToInt32();
         }
+
+        #region 光标
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool HideCaret(IntPtr hWnd);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool ShowCaret(IntPtr hWnd);
+
+        private bool hideCaret = true;
+
+        public bool HideCaretP
+        {
+            get
+            {
+                return hideCaret;
+            }
+            set
+            {
+                hideCaret = value;
+            }
+        }
+
+        void MouseHideCaret(object sender, MouseEventArgs e)
+        {
+            SetCaret(sender as TextBox);
+        }
+
+        void SetCaret(TextBox textbox)
+        {
+            if (HideCaretP)
+            {
+                HideCaret(textbox.Handle);
+            }
+            else
+            {
+                ShowCaret(textbox.Handle);
+            }
+        }
+        
+        #endregion
     }
 }

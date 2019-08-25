@@ -56,15 +56,71 @@ namespace Frankyu.WebApiSample.Controllers
             return products;
         }
 
-        [HttpPost]
+        [HttpGet]
         [ActionName("GetById")]
-        public IHttpActionResult GetProduct([FromBody]int id)
+        public IHttpActionResult GetProduct([FromUri]int id)
         {
             var product = products.FirstOrDefault(p => p.Id == id);
             if (product == null)
                 return NotFound();
 
             return Ok(product);
+        }
+
+        [HttpPost]
+        [ActionName("NewProduct")]
+        public string NewProduct([FromBody]int id)
+        {
+            if (id == 0)
+                return "id is zero";
+
+            var pro = products.FirstOrDefault(p => p.Id == id);
+            if (pro == null)
+            {
+                return "you create a new product, product id is " + id;
+            }
+
+            return "the product id " + id + " is exist";
+        }
+
+        [HttpPut]
+        [ActionName("UpdateProduct")]
+        public string UpdateProduct([FromBody]Product product)
+        {
+            var pro = products.FirstOrDefault(p => p.Id == product.Id);
+            if (pro == null)
+                return "false";
+
+            return "true";
+        }
+
+        [HttpDelete]
+        [ActionName("DeleteProduct")]
+        public string DeleteProduct([FromBody]int id)
+        {
+            var pro = products.FirstOrDefault(p => p.Id == id);
+            if (pro == null)
+                return "false";
+
+            return "true";
+        }
+
+        [HttpGet]
+        [Route("api/Test/GetDataForXML")]
+        public HttpResponseMessage GetDataForXML(string date)
+        {
+            var response = Request.CreateResponse<List<Product>>(
+                HttpStatusCode.OK,
+                products.ToList(),
+                Configuration.Formatters.JsonFormatter);
+            return response;
+        }
+
+        [HttpGet]
+        [ActionName("redicrct")]
+        public IHttpActionResult RedicrctNewUrl()
+        {
+            return Redirect("https://www.mesince.com");
         }
     }
 }

@@ -74,7 +74,8 @@ namespace Frankyu.WinformControls
 
         private void Img_Click(object sender, EventArgs e)
         {
-            ImageClick?.Invoke(this, e);
+            if (ImageClick != null)
+                ImageClick.Invoke(this, e);
         }
 
         protected override void OnPaint(PaintEventArgs e)

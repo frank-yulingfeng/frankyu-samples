@@ -19,6 +19,7 @@ namespace Frankyu.WinformControls
                         
             SizeChanged += Form7_SizeChanged;
             Form7_SizeChanged(null, null);
+            myTextBox1.SelectionStart = 0;
         }
 
         private void Form7_SizeChanged(object sender, EventArgs e)
