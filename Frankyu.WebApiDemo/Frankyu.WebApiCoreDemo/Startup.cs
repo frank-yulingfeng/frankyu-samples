@@ -15,6 +15,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Frankyu.WebApiCoreDemo
 {
@@ -58,13 +59,11 @@ namespace Frankyu.WebApiCoreDemo
             app.UseMvc();
 
             #if DEBUG
-            //配置Swagger
             app.UseStaticFiles(); //静态文件服务
-            app.UseSwagger();
+            app.UseSwagger(); // 使用Swagger
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WoTrus API V1");
-                c.SwaggerEndpoint("/swagger/v2/swagger.json", "WoTrus API V2");
+                InitSwaggerUI(c);
             });
             #endif
         }
@@ -87,6 +86,14 @@ namespace Frankyu.WebApiCoreDemo
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath + "Frankyu.WebApiCoreDemo.xml");
                 swaggerGenOptions.IncludeXmlComments(xmlPath);
+            });
+        }
+
+        private void InitSwaggerUI(SwaggerUIOptions swaggerUIOptions)
+        {
+            typeof(Swagger.ApiVersions).GetEnumNames().ToList().ForEach(version =>
+            {
+                swaggerUIOptions.SwaggerEndpoint($"/swagger/{version}/swagger.json", $"WoTrus API {version}");
             });
         }
     }

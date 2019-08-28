@@ -22,6 +22,13 @@
             <param name="id">值ID</param>
             <returns></returns>
         </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.GetV2(System.Int32)">
+            <summary>
+            通过id 获取对应的值
+            </summary>        
+            <param name="id">值ID</param>
+            <returns></returns>
+        </member>
         <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Post(System.String)">
              <summary>
              添加新的Value
@@ -52,7 +59,7 @@
             <param name="id">值ID</param>
             <param name="value">值</param>
         </member>
-        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Delete(System.Int32)">
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.DeleteV2(System.Int32)">
             <summary>
             通过ID删除Value
             </summary>

@@ -41,8 +41,23 @@ namespace Frankyu.WebApiCoreDemo.Controllers
         /// <param name="id">值ID</param>
         /// <returns></returns>
         [HttpGet]
-        [VersionRoute("GetById")]
+        [Route("GetById")]
         public ActionResult<string> Get(int id)
+        {
+            if (id < 0 || id >= stringList.Count)
+                return "NOT FOUND";
+
+            return stringList[id];
+        }
+
+        /// <summary>
+        /// 通过id 获取对应的值
+        /// </summary>        
+        /// <param name="id">值ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        [VersionRoute(ApiVersions.v2, "GetById")]
+        public ActionResult<string> GetV2(int id)
         {
             if (id < 0 || id >= stringList.Count)
                 return "NOT FOUND";
@@ -66,7 +81,7 @@ namespace Frankyu.WebApiCoreDemo.Controllers
         /// <response code="201">Returns the newly created item</response>
         /// <response code="400">If the item is null</response>        
         [HttpPost]
-        [VersionRoute("New")]
+        [Route("New")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public void Post([FromBody] string value)
@@ -91,22 +106,22 @@ namespace Frankyu.WebApiCoreDemo.Controllers
         /// <param name="id">值ID</param>
         /// <param name="value">值</param>
         [HttpPut]
-        [VersionRoute("Update")]
+        [Route("Update")]
         public void Put(int id, [FromBody] string value)
         {
             if (id < 0 || id >= stringList.Count || string.IsNullOrEmpty(value))
                 return;
 
             stringList[id] = value;
-        }
+        }      
 
-         /// <summary>
-         /// 通过ID删除Value
-         /// </summary>
-         /// <param name="id"></param>
+        /// <summary>
+        /// 通过ID删除Value
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete]
         [VersionRoute(ApiVersions.v2, "Delete")]
-        public void Delete(int id)
+        public void DeleteV2(int id)
         {
             if (id < 0 || id >= stringList.Count)
                 return;
