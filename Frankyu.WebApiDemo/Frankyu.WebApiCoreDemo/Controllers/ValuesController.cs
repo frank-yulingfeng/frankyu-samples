@@ -1,13 +1,16 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Frankyu.WebApiCoreDemo.Swagger;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frankyu.WebApiCoreDemo.Controllers
 {
-    [Route("api/[controller]")]
+    /// <summary>
+    /// 处理Value接口
+    /// </summary>    
     [ApiController]
+    [Route("api/[controller]")]
+    [Produces("application/json")]
     public class ValuesController : ControllerBase
     {
         static List<string> stringList = new List<string>
@@ -20,15 +23,25 @@ namespace Frankyu.WebApiCoreDemo.Controllers
             "value6",
         };
 
-        // GET api/values
+        /// <summary>
+        /// 获取所有Values
+        /// </summary>
+        /// <returns>Values List</returns>
         [HttpGet]
+        [Route("GetAll")]
+        [ApiVersions(ApiVersions.v2)]
         public ActionResult<IEnumerable<string>> Get()
         {
             return stringList;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
+        /// <summary>
+        /// 通过id 获取对应的值
+        /// </summary>        
+        /// <param name="id">值ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        [VersionRoute("GetById")]
         public ActionResult<string> Get(int id)
         {
             if (id < 0 || id >= stringList.Count)
@@ -37,15 +50,48 @@ namespace Frankyu.WebApiCoreDemo.Controllers
             return stringList[id];
         }
 
-        // POST api/values
+        /// <summary>
+        /// 添加新的Value
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///        "value": "what the fuck",
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="value"></param>
+        /// <response code="201">Returns the newly created item</response>
+        /// <response code="400">If the item is null</response>        
         [HttpPost]
+        [VersionRoute("New")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public void Post([FromBody] string value)
         {
             stringList.Add(value);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
+        /// <summary>
+        /// 添加新的Value
+        /// </summary>
+        /// <param name="value"></param>
+        [HttpPost]
+        [VersionRoute(ApiVersions.v2, "PostNewValue")]       
+        public void PostNewValue([FromBody] string value)
+        {
+            stringList.Add(value);
+        }
+
+        /// <summary>
+        /// 通过Id 更新Value
+        /// </summary>
+        /// <param name="id">值ID</param>
+        /// <param name="value">值</param>
+        [HttpPut]
+        [VersionRoute("Update")]
         public void Put(int id, [FromBody] string value)
         {
             if (id < 0 || id >= stringList.Count || string.IsNullOrEmpty(value))
@@ -54,8 +100,12 @@ namespace Frankyu.WebApiCoreDemo.Controllers
             stringList[id] = value;
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
+         /// <summary>
+         /// 通过ID删除Value
+         /// </summary>
+         /// <param name="id"></param>
+        [HttpDelete]
+        [VersionRoute(ApiVersions.v2, "Delete")]
         public void Delete(int id)
         {
             if (id < 0 || id >= stringList.Count)

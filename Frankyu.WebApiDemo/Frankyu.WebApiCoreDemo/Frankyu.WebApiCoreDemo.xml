@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Frankyu.WebApiCoreDemo</name>
+    </assembly>
+    <members>
+        <member name="T:Frankyu.WebApiCoreDemo.Controllers.ValuesController">
+            <summary>
+            处理Value接口
+            </summary>    
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Get">
+            <summary>
+            获取所有Values
+            </summary>
+            <returns>Values List</returns>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            通过id 获取对应的值
+            </summary>        
+            <param name="id">值ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Post(System.String)">
+             <summary>
+             添加新的Value
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Todo
+                 {
+                    "value": "what the fuck",
+                 }
+            
+             </remarks>
+             <param name="value"></param>
+             <response code="201">Returns the newly created item</response>
+             <response code="400">If the item is null</response>        
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.PostNewValue(System.String)">
+            <summary>
+            添加新的Value
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Put(System.Int32,System.String)">
+            <summary>
+            通过Id 更新Value
+            </summary>
+            <param name="id">值ID</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Delete(System.Int32)">
+            <summary>
+            通过ID删除Value
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Swagger.ApiVersions">
+            <summary>
+            API版本枚举
+            </summary>
+        </member>
+        <member name="F:Frankyu.WebApiCoreDemo.Swagger.ApiVersions.v1">
+            <summary>
+            版本1
+            </summary>
+        </member>
+        <member name="F:Frankyu.WebApiCoreDemo.Swagger.ApiVersions.v2">
+            <summary>
+            版本2
+            </summary>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Swagger.ApiVersionsAttribute">
+            <summary>
+            api版本控制，只是给接口版本标识，不改变请求路由
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Swagger.ApiVersionsAttribute.#ctor(Frankyu.WebApiCoreDemo.Swagger.ApiVersions)">
+            <summary>
+            版本控制
+            </summary>
+            <param name="apiVersion"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Swagger.VersionRouteAttribute">
+            <summary>
+            自定义路由，实现版本控制，在请求路由中带上接口版本
+            /api/{version}/[controler]/[action] 
+            </summary>
+        </member>
+        <member name="P:Frankyu.WebApiCoreDemo.Swagger.VersionRouteAttribute.GroupName">
+            <summary>
+            分组名称,是来实现接口 IApiDescriptionGroupNameProvider 
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Swagger.VersionRouteAttribute.#ctor(System.String)">
+            <summary>
+            自定义路由构造函数，继承基类路由，默认版本v1
+            </summary>
+            <param name="actionName">方法名</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Frankyu.WebApiCoreDemo.Swagger.VersionRouteAttribute.#ctor(Frankyu.WebApiCoreDemo.Swagger.ApiVersions,System.String)" -->
+    </members>
+</doc>

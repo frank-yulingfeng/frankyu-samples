@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.PlatformAbstractions;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Frankyu.WebApiCoreDemo
 {
@@ -25,6 +30,15 @@ namespace Frankyu.WebApiCoreDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+#if DEBUG
+            //配置Swagger
+            services.AddSwaggerGen(c =>
+            {
+                InitSwaggerGen(c);
+            });
+            #endif
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -42,6 +56,38 @@ namespace Frankyu.WebApiCoreDemo
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            #if DEBUG
+            //配置Swagger
+            app.UseStaticFiles(); //静态文件服务
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WoTrus API V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "WoTrus API V2");
+            });
+            #endif
+        }
+
+        private void InitSwaggerGen(SwaggerGenOptions swaggerGenOptions)
+        {
+            string apiName = "WOTRUS";
+
+            typeof(Swagger.ApiVersions).GetEnumNames().ToList().ForEach(version =>
+            {
+                swaggerGenOptions.SwaggerDoc(version, new Info
+                {
+                    // {ApiName} 定义成全局变量，方便修改
+                    Version = version,
+                    Title = $"{apiName} 接口文档",
+                    Description = $"{apiName} HTTP API " + version,
+                    TermsOfService = "None",
+                });
+                //API注释xml文档生成路径
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var xmlPath = Path.Combine(basePath + "Frankyu.WebApiCoreDemo.xml");
+                swaggerGenOptions.IncludeXmlComments(xmlPath);
+            });
         }
     }
 }
