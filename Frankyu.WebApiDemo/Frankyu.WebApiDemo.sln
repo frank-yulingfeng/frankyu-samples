@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frankyu.WebApiDemo.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frankyu.WebApiSample", "Frankyu.WebApiSample\Frankyu.WebApiSample.csproj", "{F6974C75-2039-4983-A0F0-00226C70D358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frankyu.WebApiCoreDemo", "Frankyu.WebApiCoreDemo\Frankyu.WebApiCoreDemo.csproj", "{F3D93C40-E1F1-4113-9619-94D199A3198B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frankyu.WebApiCoreDemo", "Frankyu.WebApiCoreDemo\Frankyu.WebApiCoreDemo.csproj", "{F3D93C40-E1F1-4113-9619-94D199A3198B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacDemo", "AutofacDemo\AutofacDemo.csproj", "{345C0CC5-0441-4D0B-8316-D2544478F3FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F3D93C40-E1F1-4113-9619-94D199A3198B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3D93C40-E1F1-4113-9619-94D199A3198B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3D93C40-E1F1-4113-9619-94D199A3198B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{345C0CC5-0441-4D0B-8316-D2544478F3FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345C0CC5-0441-4D0B-8316-D2544478F3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345C0CC5-0441-4D0B-8316-D2544478F3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345C0CC5-0441-4D0B-8316-D2544478F3FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,6 @@ namespace Frankyu.WebApiCoreDemo.Controllers
     /// </summary>    
     [ApiController]
     [Route("api/[controller]")]
-    [Produces("application/json")]
     public class ValuesController : ControllerBase
     {
         static List<string> stringList = new List<string>
