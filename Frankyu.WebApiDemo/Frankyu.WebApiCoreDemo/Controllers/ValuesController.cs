@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using Frankyu.WebApiCoreDemo.Swagger;
 using Microsoft.AspNetCore.Mvc;
@@ -8,9 +9,7 @@ namespace Frankyu.WebApiCoreDemo.Controllers
     /// <summary>
     /// 处理Value接口
     /// </summary>    
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ValuesController : ControllerBase
+    public class ValuesController : BaseController
     {
         static List<string> stringList = new List<string>
         {
@@ -31,6 +30,7 @@ namespace Frankyu.WebApiCoreDemo.Controllers
         [ApiVersions(ApiVersions.v2)]
         public ActionResult<IEnumerable<string>> Get()
         {
+            Logger.Info("info log " + DateTime.Now.ToString());
             return stringList;
         }
 

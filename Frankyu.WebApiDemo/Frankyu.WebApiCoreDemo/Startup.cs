@@ -19,27 +19,32 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Frankyu.WebApiCoreDemo
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime.
+        /// Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-
-#if DEBUG
-            //配置Swagger
-            services.AddSwaggerGen(c =>
-            {
-                InitSwaggerGen(c);
-            });
-            #endif
-
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true; // false by default
@@ -47,9 +52,22 @@ namespace Frankyu.WebApiCoreDemo
             .AddXmlSerializerFormatters()
             .AddXmlDataContractSerializerFormatters()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+#if DEBUG
+            //配置Swagger
+            services.AddSwaggerGen(c =>
+            {
+                InitSwaggerGen(c);
+            });
+#endif
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. 
+        /// Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -64,14 +82,15 @@ namespace Frankyu.WebApiCoreDemo
             app.UseHttpsRedirection();
             app.UseMvc();
 
-            #if DEBUG
+#if DEBUG
+            //配置Swagger
             app.UseStaticFiles(); //静态文件服务
             app.UseSwagger(); // 使用Swagger
             app.UseSwaggerUI(c =>
             {
                 InitSwaggerUI(c);
             });
-            #endif
+#endif
         }
 
         private void InitSwaggerGen(SwaggerGenOptions swaggerGenOptions)
