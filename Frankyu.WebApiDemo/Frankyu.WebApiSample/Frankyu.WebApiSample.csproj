@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApiKeyHandler.cs" />
-    <Compile Include="App_Start\ModelActionFilter.cs" />
+    <Compile Include="Filter\RequestModelFilterAttribute.cs" />
     <Compile Include="App_Start\MyConstraints.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />

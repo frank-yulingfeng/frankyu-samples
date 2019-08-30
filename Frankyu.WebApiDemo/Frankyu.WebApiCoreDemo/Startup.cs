@@ -65,6 +65,7 @@ namespace Frankyu.WebApiCoreDemo
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true; // false by default
+                //options.Filters.Add(typeof());
             })
             .AddXmlSerializerFormatters()
             .AddXmlDataContractSerializerFormatters()

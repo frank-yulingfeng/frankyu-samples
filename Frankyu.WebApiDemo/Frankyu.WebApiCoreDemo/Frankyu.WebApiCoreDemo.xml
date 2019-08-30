@@ -116,6 +116,22 @@
             </summary>
             <param name="id"></param>
         </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Filter.RequestModelFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.RequestModelFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            接口请求前验证数据
+            </summary>
+            <param name="actionContext">上下文</param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Models.Product">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Frankyu.WebApiCoreDemo.Program.Main(System.String[])">
             <summary>
             主程序入口

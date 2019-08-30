@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Frankyu.WebApiSample.Filter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -12,7 +13,7 @@ namespace Frankyu.WebApiSample
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.Filters.Add(new ModelActionFilter());
+            config.Filters.Add(new RequestModelFilterAttribute());//全局
 
             // Create a message handler chain with an end-point.
             var routeHandlers = HttpClientFactory.CreatePipeline(

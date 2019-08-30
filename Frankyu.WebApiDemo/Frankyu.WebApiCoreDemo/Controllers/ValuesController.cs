@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using Frankyu.WebApiCoreDemo.Filter;
+using Frankyu.WebApiCoreDemo.Models;
 using Frankyu.WebApiCoreDemo.Swagger;
 using Microsoft.AspNetCore.Mvc;
 using Mongo.Business;
@@ -95,6 +97,14 @@ namespace Frankyu.WebApiCoreDemo.Controllers
         public void Post([FromBody] string value)
         {
             stringList.Add(value);
+        }
+
+        [HttpPost]
+        //[RequestModelFilter]
+        [Route("NewProduct")]
+        public ActionResult<bool> NewProduct([FromBody] Product value)
+        {
+            return value != null;
         }
 
         /// <summary>

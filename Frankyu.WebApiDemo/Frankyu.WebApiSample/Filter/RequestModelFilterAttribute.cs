@@ -8,9 +8,9 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
 
-namespace Frankyu.WebApiSample
+namespace Frankyu.WebApiSample.Filter
 {
-    public class ModelActionFilter : ActionFilterAttribute
+    public class RequestModelFilterAttribute : ActionFilterAttribute
     {
         /// <summary>
         /// 接口请求前验证数据
@@ -29,9 +29,7 @@ namespace Frankyu.WebApiSample
                 }
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.BadRequest, new
                 {
-                    code = HttpStatusCode.BadRequest,//返回客户端的状态码
-                    success = false,
-                    error = errors//显示验证错误的信息
+                    RequestArgError = errors//显示验证错误的信息
                 });
             }
         }

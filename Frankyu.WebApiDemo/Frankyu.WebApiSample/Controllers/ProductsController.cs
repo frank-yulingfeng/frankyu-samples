@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Frankyu.WebApiSample.Filter;
 using Frankyu.WebApiSample.Models;
 
 namespace Frankyu.WebApiSample.Controllers
@@ -84,6 +85,7 @@ namespace Frankyu.WebApiSample.Controllers
         }
 
         [HttpPut]
+        [RequestModelFilter]
         [ActionName("UpdateProduct")]
         public string UpdateProduct([FromBody]Product product)
         {
