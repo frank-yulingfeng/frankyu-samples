@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Text;
 using Mongo.DataAccess;
 using Mongo.Models;
+using MongoDB.Driver;
 
 namespace Mongo.Business
 {
@@ -34,6 +35,11 @@ namespace Mongo.Business
         public T FindOne(Expression<Func<T, bool>> filter)
         {
             return _dal.FindOne(filter);
+        }
+
+        public T FindAndUpdate(Expression<Func<T, bool>> filter, UpdateDefinition<T> update)
+        {
+            return _dal.FindOneAndUpdate(filter, update);
         }
 
         public List<T> FindMany(Expression<Func<T, bool>> filter)

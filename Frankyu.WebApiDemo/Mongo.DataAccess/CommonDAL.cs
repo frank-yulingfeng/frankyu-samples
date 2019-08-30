@@ -46,6 +46,16 @@ namespace Mongo.DataAccess
             return _collection.Find(filter).FirstOrDefault();
         }
 
+        public virtual T FindOneAndUpdate(Expression<Func<T, bool>> filter, UpdateDefinition<T> update)
+        {
+            var options = new FindOneAndUpdateOptions<T, T>
+            {
+                ReturnDocument = ReturnDocument.Before,
+            };
+
+            return _collection.FindOneAndUpdate(filter, update, options);
+        }
+
         public virtual List<T> FindMany(Expression<Func<T, bool>> filter)
         {
             return _collection.Find(filter).ToList();

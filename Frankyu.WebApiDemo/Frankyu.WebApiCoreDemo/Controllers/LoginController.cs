@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Mongo.Business;
+using Mongo.Models;
+using MongoDB.Driver;
 
 namespace Frankyu.WebApiCoreDemo.Controllers
 {
@@ -54,7 +56,9 @@ namespace Frankyu.WebApiCoreDemo.Controllers
         [Route("GetUserPassword")]
         public ActionResult<string> GetUserPassword(string username)
         {
-            return DbContext.UserBLL.FindOne(r => r.UserName == username).Password;
+            var update = Builders<User>.Update.Set(a => a.Password, "changed");
+            var user = DbContext.UserBLL.FindAndUpdate(r => r.UserName == username, update);
+            return user?.Password;
         }
     }
 }
