@@ -14,10 +14,51 @@
             记录Log对象
             </summary>
         </member>
+        <member name="P:Frankyu.WebApiCoreDemo.Controllers.BaseController.DbContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.BaseController.#ctor(Mongo.Business.BusinessContext)">
+            <summary>
+            
+            </summary>
+            <param name="businessContext"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Controllers.LoginController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.LoginController.#ctor(Mongo.Business.BusinessContext)">
+            <summary>
+            
+            </summary>
+            <param name="businessContext"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.LoginController.AddUser(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.LoginController.GetUserPassword(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
         <member name="T:Frankyu.WebApiCoreDemo.Controllers.ValuesController">
             <summary>
             处理Value接口
             </summary>    
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.#ctor(Mongo.Business.BusinessContext)">
+            <summary>
+            
+            </summary>
+            <param name="businessContext"></param>
         </member>
         <member name="M:Frankyu.WebApiCoreDemo.Controllers.ValuesController.Get">
             <summary>

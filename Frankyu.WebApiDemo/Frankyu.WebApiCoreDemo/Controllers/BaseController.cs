@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Mongo.Business;
 using NLog;
 
 namespace Frankyu.WebApiCoreDemo.Controllers
@@ -31,6 +32,20 @@ namespace Frankyu.WebApiCoreDemo.Controllers
 
                 return logger;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected BusinessContext DbContext { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="businessContext"></param>
+        public BaseController(BusinessContext businessContext)
+        {
+            DbContext = businessContext;
         }
     }
 }

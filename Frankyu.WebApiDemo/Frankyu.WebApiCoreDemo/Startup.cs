@@ -16,6 +16,9 @@ using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using Mongo.DataAccess.DataProvider;
+using Mongo.DataAccess;
+using Mongo.Business;
 
 namespace Frankyu.WebApiCoreDemo
 {
@@ -45,6 +48,20 @@ namespace Frankyu.WebApiCoreDemo
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            //基本数据库
+            services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
+            services.AddSingleton<IDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+
+            //文件数据库
+            services.Configure<FileDbSettings>(Configuration.GetSection(nameof(FileDbSettings)));
+            services.AddSingleton<IDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<FileDbSettings>>().Value);
+
+            services.AddSingleton(typeof(CommonDAL<>));
+            services.AddSingleton(typeof(UserBLL));
+            services.AddSingleton(typeof(BusinessContext));
+
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true; // false by default

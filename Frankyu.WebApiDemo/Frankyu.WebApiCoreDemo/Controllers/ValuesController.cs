@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Frankyu.WebApiCoreDemo.Swagger;
 using Microsoft.AspNetCore.Mvc;
+using Mongo.Business;
 
 namespace Frankyu.WebApiCoreDemo.Controllers
 {
@@ -11,6 +12,14 @@ namespace Frankyu.WebApiCoreDemo.Controllers
     /// </summary>    
     public class ValuesController : BaseController
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="businessContext"></param>
+        public ValuesController(BusinessContext businessContext) : base(businessContext)
+        {
+        }
+
         static List<string> stringList = new List<string>
         {
             "value1",

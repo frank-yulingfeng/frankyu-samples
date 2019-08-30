@@ -21,4 +21,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mongo.Business\Mongo.Business.csproj" />
+    <ProjectReference Include="..\Mongo.DataAccess\Mongo.DataAccess.csproj" />
+    <ProjectReference Include="..\Mongo.Models\Mongo.Models.csproj" />
+  </ItemGroup>
+
 </Project>
