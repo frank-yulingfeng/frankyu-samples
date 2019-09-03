@@ -58,14 +58,16 @@ namespace Frankyu.WebApiSample.Controllers
         }
 
         [HttpGet]
+        [ApiExceptionFilter]
         [ActionName("GetById")]
         public IHttpActionResult GetProduct([FromUri]int id)
         {
-            var product = products.FirstOrDefault(p => p.Id == id);
-            if (product == null)
-                return NotFound();
+            throw new Exception("no product");
+            //var product = products.FirstOrDefault(p => p.Id == id);
+            //if (product == null)
+            //    return NotFound();
 
-            return Ok(product);
+            //return Ok(product);
         }
 
         [HttpPost]

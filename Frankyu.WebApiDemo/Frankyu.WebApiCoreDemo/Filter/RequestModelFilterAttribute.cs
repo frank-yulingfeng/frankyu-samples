@@ -23,12 +23,12 @@ namespace Frankyu.WebApiCoreDemo.Filter
             {
                 // Return the validation errors in the response body.
                 // 在响应体中返回验证错误信息
-                var errors = new Dictionary<string, IEnumerable<string>>();
-                foreach (var keyValue in actionContext.ModelState)
-                {
-                    errors[keyValue.Key] = keyValue.Value.Errors.Select(e => e.ErrorMessage);
-                }
-                actionContext.Result = new JsonResult(errors);              
+                //var errors = new Dictionary<string, IEnumerable<string>>();
+                //foreach (var keyValue in actionContext.ModelState)
+                //{
+                //    errors[keyValue.Key] = keyValue.Value.Errors.Select(e => e.ErrorMessage);
+                //}
+                //actionContext.Result = new JsonResult(errors);              
             }
         }
     }

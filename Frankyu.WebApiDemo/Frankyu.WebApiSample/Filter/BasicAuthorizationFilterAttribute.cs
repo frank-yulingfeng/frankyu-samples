@@ -11,7 +11,10 @@ using System.Security.Principal;
 
 namespace Frankyu.WebApiSample
 {
-    public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
+    /// <summary>
+    /// 身份认证过滤器
+    /// </summary>
+    public class BasicAuthorizationFilterAttribute : AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
