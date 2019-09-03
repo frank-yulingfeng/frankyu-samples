@@ -127,6 +127,110 @@
             </summary>
             <param name="actionContext">上下文</param>
         </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Filter.SimpleActionFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleActionFilterAttribute.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleActionFilterAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleActionFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Filter.SimpleExceptionFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleExceptionFilterAttribute.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleExceptionFilterAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Filter.SimpleResourceFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleResourceFilterAttribute.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleResourceFilterAttribute.OnResourceExecuted(Microsoft.AspNetCore.Mvc.Filters.ResourceExecutedContext)">
+            <summary>
+            执行后
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleResourceFilterAttribute.OnResourceExecuting(Microsoft.AspNetCore.Mvc.Filters.ResourceExecutingContext)">
+            <summary>
+            执行时
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Filter.SimpleResultFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleResultFilterAttribute.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleResultFilterAttribute.OnResultExecuted(Microsoft.AspNetCore.Mvc.Filters.ResultExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Filter.SimpleResultFilterAttribute.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Frankyu.WebApiCoreDemo.Middleware.Step1Middleware">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Middleware.Step1Middleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Frankyu.WebApiCoreDemo.Middleware.Step1Middleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
         <member name="T:Frankyu.WebApiCoreDemo.Models.Product">
             <summary>
             

@@ -19,6 +19,7 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 using Mongo.DataAccess.DataProvider;
 using Mongo.DataAccess;
 using Mongo.Business;
+using Frankyu.WebApiCoreDemo.Middleware;
 
 namespace Frankyu.WebApiCoreDemo
 {
@@ -60,7 +61,7 @@ namespace Frankyu.WebApiCoreDemo
 
             services.AddSingleton(typeof(CommonDAL<>));
             services.AddSingleton(typeof(UserBLL));
-            services.AddSingleton(typeof(BusinessContext));
+            services.AddSingleton(typeof(BusinessContext));          
 
             services.AddMvc(options =>
             {
@@ -95,7 +96,7 @@ namespace Frankyu.WebApiCoreDemo
             else
             {
                 app.UseHsts();
-            }
+            }           
 
             app.UseHttpsRedirection();
             app.UseMvc();
@@ -109,6 +110,13 @@ namespace Frankyu.WebApiCoreDemo
                 InitSwaggerUI(c);
             });
 #endif
+            // 添加自定义中间件
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+                await next();
+            });
+            app.UseMiddleware<Step1Middleware>();
         }
 
         private void InitSwaggerGen(SwaggerGenOptions swaggerGenOptions)
