@@ -89,6 +89,7 @@ namespace Frankyu.WebApiCoreDemo
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //配置注册是有顺序的，要注意顺序
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -98,8 +99,7 @@ namespace Frankyu.WebApiCoreDemo
                 app.UseHsts();
             }           
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseHttpsRedirection();           
 
 #if DEBUG
             //配置Swagger
@@ -110,13 +110,15 @@ namespace Frankyu.WebApiCoreDemo
                 InitSwaggerUI(c);
             });
 #endif
-            // 添加自定义中间件
+            // 添加自定义中间件，中间件注册要放在 MVC前面
             app.Use(async (context, next) =>
             {
                 await context.Response.WriteAsync("Hello World!");
                 await next();
             });
             app.UseMiddleware<Step1Middleware>();
+
+            app.UseMvc();
         }
 
         private void InitSwaggerGen(SwaggerGenOptions swaggerGenOptions)
