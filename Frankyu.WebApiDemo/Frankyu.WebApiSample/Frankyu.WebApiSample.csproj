@@ -83,6 +83,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Web.config" />
+    <Content Include="学习目录.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApiKeyHandler.cs" />
