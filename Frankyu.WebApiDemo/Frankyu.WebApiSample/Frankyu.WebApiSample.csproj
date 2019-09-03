@@ -74,8 +74,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="Register.html" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +89,7 @@
     <Compile Include="Filter\RequestModelFilterAttribute.cs" />
     <Compile Include="App_Start\MyConstraints.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BasicAuthenticationAttribute.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

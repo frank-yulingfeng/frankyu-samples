@@ -16,8 +16,8 @@ namespace Frankyu.EFDemo.DataAccess.Initializer
             var admins = new List<Admin> 
             { 
                 new Admin { AdminName="Frank Wang", Password="abc123", Type= AdminType.Superior},
-                new Admin {AdminName="Sam Wang",Password="FrankYu",Type= AdminType.Superior},
-                new Admin {AdminName="Mark Pig",Password="piggy",Type = AdminType.Normal},
+                new Admin {AdminName="Sam Wang", Password="FrankYu", Type= AdminType.Superior},
+                new Admin {AdminName="Mark Pig", Password="piggy", Type = AdminType.Normal},
             };
 
             context.Admins.AddRange(admins);
