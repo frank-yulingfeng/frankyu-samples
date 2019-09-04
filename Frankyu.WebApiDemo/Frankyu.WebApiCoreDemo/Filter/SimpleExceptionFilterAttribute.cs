@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Frankyu.WebApiCoreDemo.Filter
@@ -30,6 +32,11 @@ namespace Frankyu.WebApiCoreDemo.Filter
         public void OnException(ExceptionContext context)
         {
             logger.LogError("Exception Execute! Message:" + context.Exception.Message);
+            context.Result = new ContentResult()
+            {
+                Content = context.Exception.Message,
+                StatusCode = (int)HttpStatusCode.InternalServerError
+            };
             context.ExceptionHandled = true;
         }
     }
