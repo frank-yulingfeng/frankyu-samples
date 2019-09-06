@@ -78,7 +78,7 @@
 
         function remove() {
             var id = $('#prodId').val();
-            $.ajax("http://localhost:2951/api/products/" + "deleteproduct",
+            $.ajax("api/products/" + "deleteproduct",
                 {
                     type: "delete",
                     contentType: "application/json",
