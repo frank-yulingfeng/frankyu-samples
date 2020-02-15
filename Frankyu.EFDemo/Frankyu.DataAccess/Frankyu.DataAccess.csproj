@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC069432-C465-4EF1-ADAB-B097434B3763}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{256CF080-2DB3-4C1A-BD03-A2F7632E5E34}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Frankyu.EFDemo</RootNamespace>
-    <AssemblyName>Frankyu.EFDemo</AssemblyName>
+    <RootNamespace>Frankyu.DataAccess</RootNamespace>
+    <AssemblyName>Frankyu.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -50,36 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\IUnitOfWork.cs" />
-    <Compile Include="Core\Model\UserInfo.cs" />
-    <Compile Include="Core\Repositories\IAdminRepository.cs" />
-    <Compile Include="Core\Repositories\IUserInfoRepository.cs" />
-    <Compile Include="Core\Repositories\IUserRepository.cs" />
-    <Compile Include="DataAccess\DemoDbContext.cs" />
-    <Compile Include="Core\Repositories\IRepository.cs" />
-    <Compile Include="Core\Model\Admin.cs" />
-    <Compile Include="Core\Model\BaseModel.cs" />
-    <Compile Include="Core\Model\User.cs" />
-    <Compile Include="DataAccess\Initializer\CreateDbIfNotExists.cs" />
-    <Compile Include="DataAccess\Initializer\DropCreateDbAlways.cs" />
-    <Compile Include="DataAccess\Initializer\DropCreateDbIfModelChanges.cs" />
-    <Compile Include="DataAccess\Repositories\AdminRepository.cs" />
-    <Compile Include="DataAccess\Repositories\Repository.cs" />
-    <Compile Include="DataAccess\Repositories\UserInfoRepository.cs" />
-    <Compile Include="DataAccess\Repositories\UserRepository.cs" />
-    <Compile Include="DataAccess\UnitOfWork.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="SchoolContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoolDBInitializer.cs" />
+    <Compile Include="StudentConfigurations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Frankyu.DataAccess\Frankyu.DataAccess.csproj">
-      <Project>{256cf080-2db3-4c1a-bd03-a2f7632e5e34}</Project>
-      <Name>Frankyu.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Frankyu.Model\Frankyu.Model.csproj">
       <Project>{f102d4b0-9e92-47e1-b1a9-bac49b61b787}</Project>
       <Name>Frankyu.Model</Name>

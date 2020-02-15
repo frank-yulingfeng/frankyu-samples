@@ -1,0 +1,14 @@
+﻿<Window x:Class="Frankyu.WpfSamples.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1"
+        Height="300"
+        Width="300">
+    <Grid>
+        <StackPanel x:Name="stackPanel" >
+            <Button x:Name="button1" Content="Send Command" Margin="5"></Button>            
+            <TextBox x:Name="txtBox1" Margin="5,0" Height="100"></TextBox>
+        </StackPanel>
+        
+    </Grid>
+</Window>

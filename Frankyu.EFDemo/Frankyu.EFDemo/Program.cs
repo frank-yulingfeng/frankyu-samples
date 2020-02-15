@@ -7,6 +7,8 @@ using Frankyu.EFDemo.DataAccess;
 using Frankyu.EFDemo.Core.Model;
 using System.Data.Entity;
 using Frankyu.EFDemo.DataAccess.Initializer;
+using Frankyu.DataAccess;
+using Frankyu.Model;
 
 namespace Frankyu.EFDemo
 {
@@ -14,19 +16,26 @@ namespace Frankyu.EFDemo
     {
         static void Main(string[] args)
         {
-            DemoDbContext context = new DemoDbContext();
+            //DemoDbContext context = new DemoDbContext();
+            //using (UnitOfWork unitOfWork = new UnitOfWork(context))
+            //{
+            //    var admins = unitOfWork.Admins.GetAll();
+            //    foreach (var admin in admins)
+            //    {
+            //        Console.WriteLine(admin.AdminName + ":" + admin.Password);
+            //    }
+            //}
+            //Console.WriteLine("Completed");
 
-            using (UnitOfWork unitOfWork = new UnitOfWork(context))
+            using (var ctx = new SchoolContext())
             {
-                var admins = unitOfWork.Admins.GetAll();
+                var student = new Student() { StudentName = "Bill" };
 
-                foreach (var admin in admins)
-                {
-                    Console.WriteLine(admin.AdminName + ":" + admin.Password);
-                }
+                ctx.Students.Add(student);
+                ctx.SaveChanges();
             }
+            Console.WriteLine("Demo completed.");
 
-            Console.WriteLine("Completed");
             Console.Read();
         }
     }

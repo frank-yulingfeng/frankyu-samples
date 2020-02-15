@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frankyu.EFDemo", "Frankyu.EFDemo\Frankyu.EFDemo.csproj", "{BC069432-C465-4EF1-ADAB-B097434B3763}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frankyu.Model", "Frankyu.Model\Frankyu.Model.csproj", "{F102D4B0-9E92-47E1-B1A9-BAC49B61B787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frankyu.DataAccess", "Frankyu.DataAccess\Frankyu.DataAccess.csproj", "{256CF080-2DB3-4C1A-BD03-A2F7632E5E34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BC069432-C465-4EF1-ADAB-B097434B3763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC069432-C465-4EF1-ADAB-B097434B3763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC069432-C465-4EF1-ADAB-B097434B3763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F102D4B0-9E92-47E1-B1A9-BAC49B61B787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F102D4B0-9E92-47E1-B1A9-BAC49B61B787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F102D4B0-9E92-47E1-B1A9-BAC49B61B787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F102D4B0-9E92-47E1-B1A9-BAC49B61B787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256CF080-2DB3-4C1A-BD03-A2F7632E5E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256CF080-2DB3-4C1A-BD03-A2F7632E5E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256CF080-2DB3-4C1A-BD03-A2F7632E5E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256CF080-2DB3-4C1A-BD03-A2F7632E5E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
